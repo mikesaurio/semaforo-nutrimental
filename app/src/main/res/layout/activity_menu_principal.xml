@@ -1,0 +1,262 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="nutricion.mx.com.applicationnutricion.activities.MenuPrincipalActivity">
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/selecciona_producto_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:text="@string/que_tanto_sabes_de_lo_que_comes"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:animateLayoutChanges="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:weightSum="2"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:id="@+id/bebida_img"
+                        android:src="@drawable/bebida_gris"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="@string/bebida"
+                        android:id="@+id/bebida_txt"
+                        android:layout_below="@id/bebida_img"
+                        android:layout_marginTop="10sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10sp"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:id="@+id/alimento_img"
+                        android:src="@drawable/alimento_gris"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="@string/alimento"
+                        android:id="@+id/alimento_txt"
+                        android:layout_below="@id/alimento_img"
+                        android:layout_marginTop="10sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nombre_producto_txt"
+                    android:text="@string/nombre_producto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/edit_nombre_producto"
+                    android:ems="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal">
+
+                <TableRow
+                    android:id="@+id/row1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/tamanio_porcion_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="@string/tamanio_porcion_" />
+
+                    <EditText
+                        android:id="@+id/edit_tamanio_porcion"
+                        android:layout_width="100sp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:ems="10"
+                        android:inputType="phone"
+                        android:hint="200" />
+
+                    <Spinner
+                        android:id="@+id/tamanioPorcionSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/azucares_txt"
+                        android:gravity="right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/azucares_" />
+
+                    <EditText
+                        android:id="@+id/entradaAzucares"
+                        android:layout_width="100sp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:ems="10"
+                        android:inputType="phone"
+                        android:hint="21" />
+
+                    <Spinner
+                        android:id="@+id/azucaresSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/grasa_txt"
+                        android:gravity="right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/grasa_" />
+
+                    <EditText
+                        android:id="@+id/entradaGrasa"
+                        android:layout_width="100sp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:ems="10"
+                        android:inputType="phone"
+                        android:hint="0" />
+
+                    <Spinner
+                        android:id="@+id/grasaSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">"
+
+                    <TextView
+                        android:id="@+id/sodio_txt"
+                        android:gravity="right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sodio_" />
+
+                    <EditText
+                        android:id="@+id/entradaSodio"
+                        android:layout_width="100sp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:ems="10"
+                        android:inputType="phone"
+                        android:hint="40" />
+
+                    <Spinner
+                        android:id="@+id/sodioSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2" />
+
+                </TableRow>
+
+            </TableLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10sp"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/limpiar"
+                    android:text="@string/limpiar"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/custom_button_gray" />
+
+                <Button
+                    android:id="@+id/continuar"
+                    android:text="@string/continuar"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:padding="2dp"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/custom_button" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+</RelativeLayout>
