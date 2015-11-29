@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import curisteando.com.barcodez.SimpleScannerFragmentActivity;
 import curisteando.com.semaforonutrimental.activities.MainActivity;
 import curisteando.com.semaforonutrimental.utilidades.Utils;
 
@@ -17,6 +18,7 @@ import curisteando.com.semaforonutrimental.utilidades.Utils;
  *     Clase encargada de mostrar el logo durante n tiempo.
  * </p>
  * @author Capitan Durango
+ * @author
  * @since 02/11/2014.
  */
 public class Splash extends ActionBarActivity {
@@ -29,7 +31,7 @@ public class Splash extends ActionBarActivity {
     /**
      * Tiempo predefinido para que dure la primer pantalla.
      */
-    private int TIMEOUT = 4000;
+    private int TIMEOUT = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +56,9 @@ public class Splash extends ActionBarActivity {
      */
     private void redireccionActivityPrincipal() {
         handler.removeCallbacksAndMessages(null);
-        Intent homepage = new Intent(getContext(), MainActivity.class);
+        Intent homepage = new Intent(getContext(), SimpleScannerFragmentActivity.class);
         startActivity(homepage);
+        this.finish();
     }
 
     private Context getContext() {
