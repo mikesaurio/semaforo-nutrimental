@@ -11,10 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import curisteando.com.semaforonutrimental.activities.CapturaDatosActivity;
+import curisteando.com.semaforonutrimental.beans.datos_bean;
 import curisteando.com.semaforonutrimental.utilidades.Constantes;
 import me.dm7.barcodescanner.zbar.BarcodeFormat;
 import me.dm7.barcodescanner.zbar.Result;
@@ -72,9 +78,8 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
 
     @Override
     public void handleResult(Result rawResult) {
-
-    //    Toast.makeText(getActivity(), "Contents = " + rawResult.getContents() +", Format = " + rawResult.getBarcodeFormat().getName(), Toast.LENGTH_LONG).show();
-      //Validamos que exista en el Json el Codigo de barras
+        //Validamos que exista en el Json el Codigo de barras
+        fill_beans();
 
         //hacemos el activity de muestra de resultados
         //En caso de que no exista se manda a llenar el siguiente valor
@@ -87,6 +92,65 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
     public void onPause() {
         super.onPause();
         mScannerView.stopCamera();
+    }
+
+    public void fill_beans(){
+        String[] josns = {"inputs/alimentos.json","inputs/liquidos.json"};
+        ArrayList<datos_bean> datosArray = new ArrayList<datos_bean>();
+        for (int j=0;j<josns.length;j++) {
+
+            String json = readJson(josns[j]);
+            try {
+                JSONArray jArray = new JSONArray(json);
+                for (int i = 0; i < jArray.length(); i++) {
+
+                    datos_bean datos = new datos_bean();
+                    JSONObject json_data = jArray.getJSONObject(i);
+                    datos.setId_producto(json_data.getString("No_Producto"));
+                    datos.setFecha(json_data.getString("Fecha"));
+                    datos.setCodigo(json_data.getString("Codigo"));
+                    datos.setCategoria(json_data.getString("Categoría"));
+                    datos.setProducto(json_data.getString("Producto"));
+                    datos.setMarca(json_data.getString("Marca"));
+                    datos.setEmpresa(json_data.getString("Empresa"));
+                    datos.setNeto(json_data.getString("Cont_neto"));
+                    datos.setPorcion(json_data.getString("Porcion"));
+                    datos.setAzucar(json_data.getString("Cont_azúcar"));
+                    datos.setGrasas(json_data.getString("Cont_GS"));
+                    datos.setSodio(json_data.getString("Cont_sodio"));
+                    datos.setAzucar100(json_data.getString("Cont_azúcar_100g"));
+                    datos.setGrasas100(json_data.getString("Cont_GS_100g"));
+                    datos.setSodio100(json_data.getString("Cont_sodio_100g"));
+                    datos.setGrado_azucar(json_data.getString("Resultado Azúcar"));
+                    datos.setGrasas(json_data.getString("Resultado Grasa Saturada"));
+                    datos.setGrado_sodio(json_data.getString("Resultado Sodio"));
+                    datos.setMensaje(json_data.getString("Mensaje"));
+                    datos.setAlternativa(json_data.getString("Alternativa"));
+                    datosArray.add(datos);
+                }
+                Toast.makeText(getActivity().getBaseContext(), datosArray.size() + "", Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
+
+    public String readJson(String stringJson){
+            String json = "";
+            try {
+                InputStream is = getActivity().getAssets().open(stringJson);
+                int size = is.available();
+                byte[] buffer = new byte[size];
+                is.read(buffer);
+                is.close();
+                json = new String(buffer, "UTF-8");
+            } catch (IOException ex) {
+                return "";
+            }
+            return json;
     }
 
 }
