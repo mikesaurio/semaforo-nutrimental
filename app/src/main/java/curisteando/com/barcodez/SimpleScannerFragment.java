@@ -72,7 +72,12 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
 
     @Override
     public void handleResult(Result rawResult) {
-        Toast.makeText(getActivity(), "Contents = " + rawResult.getContents() +", Format = " + rawResult.getBarcodeFormat().getName(), Toast.LENGTH_LONG).show();
+
+    //    Toast.makeText(getActivity(), "Contents = " + rawResult.getContents() +", Format = " + rawResult.getBarcodeFormat().getName(), Toast.LENGTH_LONG).show();
+      //Validamos que exista en el Json el Codigo de barras
+
+        //hacemos el activity de muestra de resultados
+        //En caso de que no exista se manda a llenar el siguiente valor
         Intent intent = new Intent(getActivity(), CapturaDatosActivity.class);
         intent.putExtra(Constantes.CONST_CODIGO_BARRAS, rawResult.getContents());
         startActivity(intent);
