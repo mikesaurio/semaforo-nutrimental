@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
@@ -69,54 +71,67 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         textGrasa.setText(intent.getStringExtra(Constantes.PARAM_GRASA_RESULT));*/
         //tipoAlimento = intent.getIntExtra(Constantes.PARAM_TIPO_ALIMENTO);
 
+        Intent i = getIntent();
+        Bundle extras = i.getExtras();
 
-        Intent intent = getIntent();
-        TipoResultado resultadoAzucarCalc, resultadoGrasaCalc, resultadoSodioCalc;
-        resultadoAzucarCalc = (TipoResultado) intent.getSerializableExtra(Constantes.PARAM_AZUCAR_RESULT);
-        resultadoGrasaCalc = (TipoResultado) intent.getSerializableExtra(Constantes.PARAM_GRASA_RESULT);
-        resultadoSodioCalc = (TipoResultado) intent.getSerializableExtra(Constantes.PARAM_SODIO_RESULT);
+        Log.e("***************",extras.getString(Constantes.PARAM_AZUCAR_RESULT)+"");
+        Log.e("***************",extras.getString(Constantes.PARAM_GRASA_RESULT)+"");
+        Log.e("***************",extras.getString(Constantes.PARAM_SODIO_RESULT)+"");
+       // Intent intent = getIntent();
+       // TipoResultado resultadoAzucarCalc, resultadoGrasaCalc, resultadoSodioCalc;
+        //resultadoAzucarCalc = (TipoResultado) intent.getSerializableExtra(Constantes.PARAM_AZUCAR_RESULT);
+        //resultadoGrasaCalc = (TipoResultado) intent.getSerializableExtra(Constantes.PARAM_GRASA_RESULT);
+        //resultadoSodioCalc = (TipoResultado) intent.getSerializableExtra(Constantes.PARAM_SODIO_RESULT);
 
         resultadoAzucar = (IconRoundCornerProgressBar) findViewById(R.id.progress_azucar);
         resultadoGrasa = (IconRoundCornerProgressBar) findViewById(R.id.progress_grasa);
         resultadoSodio = (IconRoundCornerProgressBar) findViewById(R.id.progress_sodio);
 
-        resultadoAzucar.setProgressColor(Color.parseColor(findColor(resultadoAzucarCalc)));
-        resultadoGrasa.setProgressColor(Color.parseColor(findColor(resultadoGrasaCalc)));
-        resultadoSodio.setProgressColor(Color.parseColor(findColor(resultadoSodioCalc)));
+        resultadoAzucar.setProgressColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_AZUCAR_RESULT)+"")));
+        resultadoGrasa.setProgressColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_GRASA_RESULT)+"")));
+        resultadoSodio.setProgressColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_SODIO_RESULT) + "")));
 
-        resultadoAzucar.setProgress(findProgress(resultadoAzucarCalc));
-        resultadoGrasa.setProgress(findProgress(resultadoGrasaCalc));
-        resultadoSodio.setProgress(findProgress(resultadoSodioCalc));
+        resultadoAzucar.setProgress(findProgress(extras.getString(Constantes.PARAM_AZUCAR_RESULT) + ""));
+        resultadoGrasa.setProgress(findProgress(extras.getString(Constantes.PARAM_GRASA_RESULT)+""));
+        resultadoSodio.setProgress(findProgress(extras.getString(Constantes.PARAM_SODIO_RESULT) + ""));
 
-        resultadoAzucar.setHeaderColor(Color.parseColor(findColor(resultadoAzucarCalc)));
-        resultadoGrasa.setHeaderColor(Color.parseColor(findColor(resultadoGrasaCalc)));
-        resultadoSodio.setHeaderColor(Color.parseColor(findColor(resultadoSodioCalc)));
+        resultadoAzucar.setHeaderColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_AZUCAR_RESULT) + "")));
+        resultadoGrasa.setHeaderColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_GRASA_RESULT)+"")));
+        resultadoSodio.setHeaderColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_SODIO_RESULT) + "")));
 
-        resultadoAzucar.setIconImageResource(findIndicador(resultadoAzucarCalc));
+       /* resultadoAzucar.setIconImageResource(findIndicador(resultadoAzucarCalc));
         resultadoGrasa.setIconImageResource(findIndicador(resultadoGrasaCalc));
-        resultadoSodio.setIconImageResource(findIndicador(resultadoSodioCalc));
+        resultadoSodio.setIconImageResource(findIndicador(resultadoSodioCalc));*/
 
         resultadoAzucar.setMax(100);
         resultadoGrasa.setMax(100);
         resultadoSodio.setMax(100);
     }
 
-    private String findColor(TipoResultado resultado){
-        switch (resultado){
-            case ALTO:{return "#CF2027"; }
-            case MEDIO:{return "#F6CE0C"; }
-            case BAJO:{return "#56BA48"; }
+    private String findColor(String resultado){
+        if (resultado.equals("Alto")){
+            return "#CF2027";
+        }else if(resultado.equals("Medio")){
+            return "#F6CE0C";
+        }else if(resultado.equals("Bajo")){
+            return "#56BA48";
+        }else{
+            return "#56BA48";
         }
-        return null;
     }
 
-    private float findProgress(TipoResultado resultado){
-        switch (resultado){
-            case ALTO:{return 100; }
-            case MEDIO:{return 50; }
-            case BAJO:{return 25; }
+    private float findProgress(String resultado){
+        if (resultado.equals("Alto")){
+            return 100;
+        }else if(resultado.equals("Medio")){
+            return 50;
+        }else if(resultado.equals("Bajo")){
+            return 25;
+        }else{
+            return 0;
         }
-        return 0;
+
+
     }
 
     private int findIndicador(TipoResultado resultado){
