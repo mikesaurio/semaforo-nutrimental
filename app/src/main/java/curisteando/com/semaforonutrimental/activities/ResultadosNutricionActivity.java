@@ -99,9 +99,9 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         resultadoGrasa.setHeaderColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_GRASA_RESULT)+"")));
         resultadoSodio.setHeaderColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_SODIO_RESULT) + "")));
 
-       /* resultadoAzucar.setIconImageResource(findIndicador(resultadoAzucarCalc));
-        resultadoGrasa.setIconImageResource(findIndicador(resultadoGrasaCalc));
-        resultadoSodio.setIconImageResource(findIndicador(resultadoSodioCalc));*/
+        resultadoAzucar.setIconImageResource(findIndicador(extras.getString(Constantes.PARAM_AZUCAR_RESULT) + ""));
+        resultadoGrasa.setIconImageResource(findIndicador(extras.getString(Constantes.PARAM_GRASA_RESULT)+""));
+        resultadoSodio.setIconImageResource(findIndicador(extras.getString(Constantes.PARAM_SODIO_RESULT) + ""));
 
         resultadoAzucar.setMax(100);
         resultadoGrasa.setMax(100);
@@ -134,13 +134,16 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
     }
 
-    private int findIndicador(TipoResultado resultado){
-        switch (resultado){
-            case ALTO:{return R.drawable.circulo_alto; }
-            case MEDIO:{return R.drawable.circulo_medio; }
-            case BAJO:{return R.drawable.circulo_bajo; }
+    private int findIndicador(String resultado){
+        if (resultado.equals("Alto")){
+            return R.drawable.circulo_alto;
+        }else if(resultado.equals("Medio")){
+            return R.drawable.circulo_medio;
+        }else if(resultado.equals("Bajo")){
+            return R.drawable.circulo_bajo;
+        }else{
+            return R.drawable.circulo_bajo;
         }
-        return R.drawable.logo_semaforo;
     }
 
     @Override

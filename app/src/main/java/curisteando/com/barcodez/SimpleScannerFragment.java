@@ -99,9 +99,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
         fill_beans();
         boolean encontrado = false;
         int id = -1;
-        Log.e("***********************",datosArray.size()+"");
         for (int i =0 ; i<datosArray.size();i++){
-            Log.e("***********************","buscando en " +i);
            if( datosArray.get(i).getCodigo().equals(codigo+"")){
                encontrado = true;
                id = i;
@@ -158,7 +156,6 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
                 Log.e("FALLA AL CARGAR", "FALLA");
             }
         }
-        Log.e("***********************","Termne");
     }
 
 
