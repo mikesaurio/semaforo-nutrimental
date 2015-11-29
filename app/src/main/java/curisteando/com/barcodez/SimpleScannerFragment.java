@@ -35,6 +35,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
 
     private boolean mFlash;
     private boolean mAutoFocus;
+    private ArrayList<datos_bean> datosArray;
 
     SurfaceView mSurfaceView;
 
@@ -44,6 +45,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mScannerView = new ZBarScannerView(getActivity());
         mSurfaceView = new SurfaceView(getActivity());
+        datosArray = new ArrayList<datos_bean>();
 
         if(savedInstanceState != null) {
             mFlash = savedInstanceState.getBoolean(FLASH_STATE, false);
@@ -54,6 +56,8 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
             mAutoFocus = true;
             //mSelectedIndices = null;
         }
+
+        fill_beans();
         mScannerView.setResultHandler(this);
         mScannerView.setFlash(mFlash);
         mScannerView.setAutoFocus(mAutoFocus);
@@ -79,13 +83,14 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
     @Override
     public void handleResult(Result rawResult) {
         //Validamos que exista en el Json el Codigo de barras
-        fill_beans();
+
+        buscar_valores(rawResult.getContents());
 
         //hacemos el activity de muestra de resultados
         //En caso de que no exista se manda a llenar el siguiente valor
-        Intent intent = new Intent(getActivity(), CapturaDatosActivity.class);
-        intent.putExtra(Constantes.CONST_CODIGO_BARRAS, rawResult.getContents());
-        startActivity(intent);
+       // Intent intent = new Intent(getActivity(), CapturaDatosActivity.class);
+       // intent.putExtra(Constantes.CONST_CODIGO_BARRAS, rawResult.getContents());
+        //startActivity(intent);
     }
 
     @Override
@@ -94,16 +99,27 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
         mScannerView.stopCamera();
     }
 
+    public void buscar_valores(String codigo){
+        for (int i =0 ; i<datosArray.size();i++){
+           if( datosArray.get(i).getCodigo().equals(codigo)){
+
+           }else{
+               Intent intent = new Intent(getActivity(), CapturaDatosActivity.class);
+                intent.putExtra(Constantes.CONST_CODIGO_BARRAS, codigo);
+               startActivity(intent);
+           }
+
+        }
+    }
+
     public void fill_beans(){
         String[] josns = {"inputs/alimentos.json","inputs/liquidos.json"};
-        ArrayList<datos_bean> datosArray = new ArrayList<datos_bean>();
-        for (int j=0;j<josns.length;j++) {
 
+        for (int j=0 ;j<josns.length; j++) {
             String json = readJson(josns[j]);
             try {
                 JSONArray jArray = new JSONArray(json);
                 for (int i = 0; i < jArray.length(); i++) {
-
                     datos_bean datos = new datos_bean();
                     JSONObject json_data = jArray.getJSONObject(i);
                     datos.setId_producto(json_data.getString("No_Producto"));
@@ -114,21 +130,21 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
                     datos.setMarca(json_data.getString("Marca"));
                     datos.setEmpresa(json_data.getString("Empresa"));
                     datos.setNeto(json_data.getString("Cont_neto"));
-                    datos.setPorcion(json_data.getString("Porcion"));
+                    datos.setPorcion(json_data.getString("Porción"));
                     datos.setAzucar(json_data.getString("Cont_azúcar"));
                     datos.setGrasas(json_data.getString("Cont_GS"));
                     datos.setSodio(json_data.getString("Cont_sodio"));
-                    datos.setAzucar100(json_data.getString("Cont_azúcar_100g"));
-                    datos.setGrasas100(json_data.getString("Cont_GS_100g"));
-                    datos.setSodio100(json_data.getString("Cont_sodio_100g"));
+                    datos.setAzucar100(json_data.getString("Cont_azúcar_100"));
+                    datos.setGrasas100(json_data.getString("Cont_GS_100"));
+                    datos.setSodio100(json_data.getString("Cont_sodio_100"));
                     datos.setGrado_azucar(json_data.getString("Resultado Azúcar"));
                     datos.setGrasas(json_data.getString("Resultado Grasa Saturada"));
                     datos.setGrado_sodio(json_data.getString("Resultado Sodio"));
-                    datos.setMensaje(json_data.getString("Mensaje"));
+                    datos.setMensaje(json_data.getString("Mensaje de advertencia"));
                     datos.setAlternativa(json_data.getString("Alternativa"));
                     datosArray.add(datos);
                 }
-                Toast.makeText(getActivity().getBaseContext(), datosArray.size() + "", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getActivity().getBaseContext(), datosArray.size() + " en "+j, Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 e.printStackTrace();
             }
