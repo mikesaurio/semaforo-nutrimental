@@ -224,18 +224,11 @@
                     android:src="@mipmap/ic_social_twitter" />
 
                 <ImageView
+                    android:id="@+id/btn_share"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:src="@mipmap/ic_social_facebook" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@mipmap/ic_social_linkedin" />
-
-
+                    android:src="@mipmap/ic_launcher_share" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

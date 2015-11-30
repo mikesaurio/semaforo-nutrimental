@@ -87,6 +87,15 @@ public class Utils {
         }
         return true;
     }
+
+    public Intent share_all(Context ctx, String shareText){
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBody = shareText;
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, ctx.getString(R.string.app_name));
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        return Intent.createChooser(sharingIntent, "Share via");
+    }
 }
 
 enum FontLoader {

@@ -35,7 +35,7 @@ import curisteando.com.semaforonutrimental.utilidades.Utils;
 public class ResultadosNutricionActivity extends ActionBarActivity implements View.OnClickListener {
 
     TextView textAzucar, textSodio, textGrasa;
-    ImageView btn_twitter;
+    ImageView btn_twitter,btn_shared;
     Button saberMas, otro, compartir;
     int tipoAlimento;
 
@@ -61,8 +61,8 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         Utils.formatoTextView(this, findViewById(R.id.saber_mas_btn),R.color.text_white, 18);
         Utils.formatoTextView(this, findViewById(R.id.compartir_txt), R.color.text_dark_gray, 18);
 
-        ((TextView) findViewById(R.id.azucares_txt)).append(" "+extras.getString(Constantes.PARAM_AZUCAR_INT)+"");
-        ((TextView) findViewById(R.id.grasa_txt)).append(" "+extras.getString(Constantes.PARAM_GRASA_INT)+"");
+        ((TextView) findViewById(R.id.azucares_txt)).append(" " + extras.getString(Constantes.PARAM_AZUCAR_INT) + "");
+        ((TextView) findViewById(R.id.grasa_txt)).append(" " + extras.getString(Constantes.PARAM_GRASA_INT) + "");
         ((TextView) findViewById(R.id.sodio_txt)).append(" "+extras.getString(Constantes.PARAM_SODIO_INT)+"");
 
         /*saberMas = (Button) findViewById(R.id.saberMas);
@@ -74,6 +74,9 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
         btn_twitter = (ImageView) findViewById(R.id.btn_twitter);
         btn_twitter.setOnClickListener(this);
+        btn_shared = (ImageView) findViewById(R.id.btn_share);
+        btn_shared.setOnClickListener(this);
+
         //tipoAlimento = intent.getIntExtra(Constantes.PARAM_TIPO_ALIMENTO);
 
 
@@ -185,6 +188,8 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
         }else if(v==btn_twitter){
             startActivity(new Utils().sendTwitter(getBaseContext(), "Text that will be tweeted"));
+        }else if(v==btn_shared){
+            startActivity(new Utils().share_all(getBaseContext(), "Text that will be tweeted"));
         }
     }
 
