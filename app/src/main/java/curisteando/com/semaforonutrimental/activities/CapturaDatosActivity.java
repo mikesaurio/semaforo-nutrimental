@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -242,7 +243,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         if( v == continuar ){
             if(entradaAzucares.getText().toString().equals("")||entradaGrasa.getText().toString().equals("")||
                     entradaSodio.getText().toString().equals("")||entradaTamanioPorcion.getText().toString().equals("")){
-
+                Toast.makeText(getBaseContext(), "Debes llenar todos los campos",Toast.LENGTH_LONG).show();
             }else {
 
                 ParametrosCalculo params = new ParametrosCalculo();

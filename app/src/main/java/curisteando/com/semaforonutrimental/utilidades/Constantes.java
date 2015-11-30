@@ -31,6 +31,15 @@ public class Constantes {
     public static final String PARAM_GRASA_RESULT = "paramGrasaResult";
     public static final String PARAM_SODIO_RESULT = "paramSodioResult";
 
+
+    public static final String PARAM_AZUCAR_INT = "paramAzucarInt";
+    public static final String PARAM_GRASA_INT = "paramGrasaInt";
+    public static final String PARAM_SODIO_INT = "paramSodioInt";
+
+    public static final String PARAM_ALTO = "Alto";
+    public static final String PARAM_MEDIO = "Medio";
+    public static final String PARAM_BAJO = "Bajo";
+
     public static final String PARAM_AZUCAR_RESULT_IMG = "paramAzucarResultImg";
     public static final String PARAM_GRASA_RESULT_IMG = "paramGrasaResultImg";
     public static final String PARAM_SODIO_RESULT_IMG = "paramSodioResultImg";

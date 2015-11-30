@@ -4,7 +4,10 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -16,6 +19,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +35,7 @@ import curisteando.com.semaforonutrimental.utilidades.Utils;
 public class ResultadosNutricionActivity extends ActionBarActivity implements View.OnClickListener {
 
     TextView textAzucar, textSodio, textGrasa;
+    ImageView btn_twitter;
     Button saberMas, otro, compartir;
     int tipoAlimento;
 
@@ -46,37 +51,33 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
     }
 
     private void cargaControles(){
+        Intent i = getIntent();
+        Bundle extras = i.getExtras();
 
         Utils.formatoTextView(this, findViewById(R.id.azucares_txt),R.color.text_black, 24);
         Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black, 24);
         Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black, 24);
 
         Utils.formatoTextView(this, findViewById(R.id.saber_mas_btn),R.color.text_white, 18);
-        Utils.formatoTextView(this, findViewById(R.id.compartir_txt),R.color.text_dark_gray, 18);
+        Utils.formatoTextView(this, findViewById(R.id.compartir_txt), R.color.text_dark_gray, 18);
 
-        /*textAzucar = (TextView) findViewById(R.id.textAzucar);
-        textSodio = (TextView) findViewById(R.id.textSodio);
-        textGrasa = (TextView) findViewById(R.id.textGrasa);
+        ((TextView) findViewById(R.id.azucares_txt)).append(" "+extras.getString(Constantes.PARAM_AZUCAR_INT)+"");
+        ((TextView) findViewById(R.id.grasa_txt)).append(" "+extras.getString(Constantes.PARAM_GRASA_INT)+"");
+        ((TextView) findViewById(R.id.sodio_txt)).append(" "+extras.getString(Constantes.PARAM_SODIO_INT)+"");
 
-        saberMas = (Button) findViewById(R.id.saberMas);
+        /*saberMas = (Button) findViewById(R.id.saberMas);
         otro = (Button) findViewById(R.id.otro);
         compartir = (Button) findViewById(R.id.compartir);
         saberMas.setOnClickListener(this);
         otro.setOnClickListener(this);
-        compartir.setOnClickListener(this);
+        compartir.setOnClickListener(this);*/
 
-        Intent intent = getIntent();
-        textAzucar.setText(intent.getStringExtra(Constantes.PARAM_AZUCAR_RESULT));
-        textSodio.setText(intent.getStringExtra(Constantes.PARAM_SODIO_RESULT));
-        textGrasa.setText(intent.getStringExtra(Constantes.PARAM_GRASA_RESULT));*/
+        btn_twitter = (ImageView) findViewById(R.id.btn_twitter);
+        btn_twitter.setOnClickListener(this);
         //tipoAlimento = intent.getIntExtra(Constantes.PARAM_TIPO_ALIMENTO);
 
-        Intent i = getIntent();
-        Bundle extras = i.getExtras();
 
-        Log.e("***************",extras.getString(Constantes.PARAM_AZUCAR_RESULT)+"");
-        Log.e("***************",extras.getString(Constantes.PARAM_GRASA_RESULT)+"");
-        Log.e("***************",extras.getString(Constantes.PARAM_SODIO_RESULT)+"");
+
        // Intent intent = getIntent();
        // TipoResultado resultadoAzucarCalc, resultadoGrasaCalc, resultadoSodioCalc;
         //resultadoAzucarCalc = (TipoResultado) intent.getSerializableExtra(Constantes.PARAM_AZUCAR_RESULT);
@@ -179,13 +180,11 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
             Intent intent = new Intent(getContext(), MainActivity.class);
             startActivity(intent);
         } else if(v==compartir){
-
             muestraDialogoCompartir();
-
-
-
         } else if(v==saberMas){
 
+        }else if(v==btn_twitter){
+            startActivity(new Utils().sendTwitter(getBaseContext(), "Text that will be tweeted"));
         }
     }
 
@@ -232,4 +231,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         actionBar.setDisplayHomeAsUpEnabled(true);
 
     }
+
+
+
 }

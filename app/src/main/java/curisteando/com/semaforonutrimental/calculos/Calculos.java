@@ -30,7 +30,7 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
     private ProgressDialog progress;
     private Context context;
     private final int basePorcion = 100;
-    private TipoResultado resultadoAzucar = null, resultadoGrasa = null, resultadoSodio = null;
+    private String resultadoAzucar = "", resultadoGrasa = "", resultadoSodio = "";
 
     public Calculos(Context context) {
         this.context = context;
@@ -116,26 +116,26 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
                 && sodioMedida == TipoMedidas.MILIGRAMOS) {
             //Bebida liquidos 1
             if (grasasPorcentaje <= 0.75) {
-                resultadoGrasa = TipoResultado.BAJO;
+                resultadoGrasa = Constantes.PARAM_BAJO;
             } else if (grasasPorcentaje > 0.75 && grasasPorcentaje <= 2.5) {
-                resultadoGrasa = TipoResultado.MEDIO;
+                resultadoGrasa = Constantes.PARAM_MEDIO;
             } else if (grasasPorcentaje > 2.5) {
-                resultadoGrasa = TipoResultado.ALTO;
+                resultadoGrasa = Constantes.PARAM_ALTO;
             }
             if (azucarPorcentaje <= 2.5) {
-                resultadoAzucar = TipoResultado.BAJO;
+                resultadoAzucar = Constantes.PARAM_BAJO;
             } else if (azucarPorcentaje > 2.5 && azucarPorcentaje <= 6.3) {
-                resultadoAzucar = TipoResultado.MEDIO;
+                resultadoAzucar = Constantes.PARAM_MEDIO;
             } else if (azucarPorcentaje > 6.3) {
-                resultadoAzucar = TipoResultado.ALTO;
+                resultadoAzucar = Constantes.PARAM_ALTO;
             }
 
             if (sodioPorcentaje <= 120) {
-                resultadoSodio = TipoResultado.BAJO;
+                resultadoSodio = Constantes.PARAM_BAJO;
             } else if (sodioPorcentaje > 120 && sodioPorcentaje <= 600) {
-                resultadoSodio = TipoResultado.MEDIO;
+                resultadoSodio = Constantes.PARAM_MEDIO;
             } else if (sodioPorcentaje > 600) {
-                resultadoSodio = TipoResultado.ALTO;
+                resultadoSodio = Constantes.PARAM_ALTO;
             }
         } else if (tipoAlimento == TipoAlimento.BEBIDA && azucarMedida == TipoMedidas.KILOCALORIAS
                 && grasasMedida == TipoMedidas.KILOCALORIAS
@@ -143,9 +143,9 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
 //Bebida liquidos 2
 
         }
-        System.out.println("resultadoAzucar " + resultadoAzucar);
-        System.out.println("resultadoGrasa " + resultadoGrasa);
-        System.out.println("resultadoSodio " + resultadoSodio);
+        Log.e("resultadoAzucar " , resultadoAzucar);
+        Log.e("resultadoGrasa ", resultadoGrasa);
+        Log.e("resultadoSodio ", resultadoSodio);
 
     return null;
 }
@@ -158,6 +158,10 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
         intent.putExtra(Constantes.PARAM_AZUCAR_RESULT, resultadoAzucar);
         intent.putExtra(Constantes.PARAM_GRASA_RESULT, resultadoGrasa);
         intent.putExtra(Constantes.PARAM_SODIO_RESULT, resultadoSodio);
+        intent.putExtra(Constantes.PARAM_AZUCAR_INT, "0");
+        intent.putExtra(Constantes.PARAM_GRASA_INT, "0");
+        intent.putExtra(Constantes.PARAM_SODIO_INT, "0");
+
         getContext().startActivity(intent);
     }
 
