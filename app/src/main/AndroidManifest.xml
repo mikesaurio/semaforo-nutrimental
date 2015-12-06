@@ -22,9 +22,6 @@
         <activity android:name="curisteando.com.barcodez.SimpleScannerFragmentActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"></activity>
-        <activity android:name="curisteando.com.semaforonutrimental.activities.MainActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
         <activity android:name="curisteando.com.semaforonutrimental.activities.CapturaDatosActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"></activity>

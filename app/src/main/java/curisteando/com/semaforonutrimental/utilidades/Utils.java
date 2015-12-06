@@ -99,7 +99,7 @@ public class Utils {
 }
 
 enum FontLoader {
-    DEFAULT ("zurichltcnbtlight");
+    DEFAULT ("Thonburi");
 
     private String name;
     private Typeface typeFace;

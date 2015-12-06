@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Window;
 import android.view.WindowManager;
 
 import curisteando.com.barcodez.SimpleScannerFragmentActivity;
-import curisteando.com.semaforonutrimental.activities.MainActivity;
 import curisteando.com.semaforonutrimental.utilidades.Utils;
 
 /**

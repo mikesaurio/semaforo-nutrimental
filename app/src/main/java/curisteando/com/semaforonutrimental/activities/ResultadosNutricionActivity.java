@@ -180,8 +180,8 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
     @Override
     public void onClick(View v) {
         if(v==otro){
-            Intent intent = new Intent(getContext(), MainActivity.class);
-            startActivity(intent);
+           // Intent intent = new Intent(getContext(), MainActivity.class);
+            //startActivity(intent);
         } else if(v==compartir){
             muestraDialogoCompartir();
         } else if(v==saberMas){
