@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:overScrollMode="never"
         android:fillViewport="false">
 
         <LinearLayout
@@ -100,6 +101,7 @@
                 <EditText
                     android:id="@+id/edit_nombre_producto"
                     android:ems="10"
+                    android:singleLine="true"
                     android:hint="Nombre ejemplo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
