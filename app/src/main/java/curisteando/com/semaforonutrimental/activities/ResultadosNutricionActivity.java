@@ -12,6 +12,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -39,8 +41,11 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
     TextView textAzucar, textSodio, textGrasa;
     ImageView btn_twitter,btn_shared;
-    Button saberMas, otro, compartir;
+    Button saberMas, otro, compartir,saber_mas_btn;
     int tipoAlimento;
+    private AlertDialog customDialog= null;	//Creamos el dialogo generico
+    String text_saber_mas ="";
+    String url = "http://elpoderdelconsumidor.org/";
 
 
 
@@ -63,6 +68,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black, 16);
         Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black, 16);
         Utils.formatoTextView(this, findViewById(R.id.explicacion_text),R.color.text_black, 16);
+        text_saber_mas =  extras.getString(Constantes.PARAM_SABER_MAS)+"";
 
         ((TextView) findViewById(R.id.explicacion_text)).setText(extras.getString(Constantes.PARAM_TEXT)+"");
 
@@ -81,6 +87,8 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         btn_twitter.setOnClickListener(this);
         btn_shared = (ImageView) findViewById(R.id.btn_share);
         btn_shared.setOnClickListener(this);
+        saber_mas_btn = (Button) findViewById(R.id.saber_mas_btn);
+        saber_mas_btn.setOnClickListener(this);
 
         resultadoAzucar = (IconRoundCornerProgressBar) findViewById(R.id.progress_azucar);
         resultadoGrasa = (IconRoundCornerProgressBar) findViewById(R.id.progress_grasa);
@@ -180,8 +188,14 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
             //startActivity(intent);
         } else if(v==compartir){
             muestraDialogoCompartir();
-        } else if(v==saberMas){
-
+        } else if(v==saber_mas_btn){
+            if (text_saber_mas != ""){
+                saberMas(text_saber_mas).show();
+            }else{
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
         }else if(v==btn_twitter){
             startActivity(new Utils().sendTwitter(getBaseContext(), "Text that will be tweeted"));
         }else if(v==btn_shared){
@@ -231,6 +245,38 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         //actionBar.setHomeAsUpIndicator(R.drawable.bbva_back_indicator);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+    }
+
+
+    /**
+     * Dialogo que muestra el acerca de
+     *
+     * @return Dialog (regresa el dialogo creado)
+     **/
+    public Dialog saberMas(String texto)
+    {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_mas, null);
+        builder.setView(view);
+        builder.setCancelable(true);
+
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_txt), R.color.text_white, 13);
+        ((TextView) view.findViewById(R.id.dialogo_mas_txt)).setText(texto);
+
+
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_url), R.color.text_white, 13);
+        ((TextView) view.findViewById(R.id.dialogo_mas_url)).setText(Html.fromHtml("<a href="+url+">más información</a>"));
+        ((TextView) view.findViewById(R.id.dialogo_mas_url)). setMovementMethod(LinkMovementMethod.getInstance());
+        //escucha del boton aceptar
+        ((ImageView) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                customDialog.dismiss();
+            }
+        });
+        return (customDialog=builder.create());// return customDialog;//regresamos el di�logo
     }
 
 

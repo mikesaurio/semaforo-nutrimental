@@ -37,6 +37,7 @@ public class Constantes {
     public static final String PARAM_SODIO_INT = "paramSodioInt";
 
     public static final String PARAM_TEXT = "paramText";
+    public static final String PARAM_SABER_MAS="pzramMas";
 
     public static final String PARAM_ALTO = "Alto";
     public static final String PARAM_MEDIO = "Medio";
