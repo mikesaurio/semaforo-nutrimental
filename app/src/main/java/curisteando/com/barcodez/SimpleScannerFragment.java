@@ -1,14 +1,23 @@
 package curisteando.com.barcodez;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -19,6 +28,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import curisteando.com.semaforonutrimental.R;
 import curisteando.com.semaforonutrimental.activities.CapturaDatosActivity;
 import curisteando.com.semaforonutrimental.activities.ResultadosNutricionActivity;
 import curisteando.com.semaforonutrimental.beans.datos_bean;
@@ -26,6 +36,7 @@ import curisteando.com.semaforonutrimental.utilidades.Constantes;
 import me.dm7.barcodescanner.zbar.BarcodeFormat;
 import me.dm7.barcodescanner.zbar.Result;
 import me.dm7.barcodescanner.zbar.ZBarScannerView;
+import curisteando.com.semaforonutrimental.utilidades.Utils;
 
 public class SimpleScannerFragment extends Fragment implements ZBarScannerView.ResultHandler {
     private ZBarScannerView mScannerView;
@@ -39,6 +50,8 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
     private ArrayList<datos_bean> datosArray;
 
     SurfaceView mSurfaceView;
+
+
 
     private List<BarcodeFormat> formats = new ArrayList<BarcodeFormat>(){{add(BarcodeFormat.EAN8);add(BarcodeFormat.EAN13);add(BarcodeFormat.UPCE);}};
 
@@ -84,9 +97,8 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
 
     @Override
     public void handleResult(Result rawResult) {
+
         buscar_valores(rawResult.getContents());
-
-
     }
 
     @Override
@@ -116,6 +128,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
             intent.putExtra(Constantes.PARAM_SODIO_INT, datosArray.get(id).getSodio100());
             startActivity(intent);
         }else{
+
             Intent intent = new Intent(getActivity(), CapturaDatosActivity.class);
             intent.putExtra(Constantes.CONST_CODIGO_BARRAS, codigo);
             startActivity(intent);

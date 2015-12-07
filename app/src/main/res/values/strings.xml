@@ -30,9 +30,9 @@
     <string name="azucares">Azucares</string>
     <string name="grasa">Grasa</string>
     <string name="sodio">Sodio</string>
-    <string name="azucares_">Azúcares:</string>
-    <string name="grasa_">Grasa:</string>
-    <string name="sodio_">Sodio:</string>
+    <string name="azucares_">Azúcares</string>
+    <string name="grasa_">Grasa</string>
+    <string name="sodio_">Sodio</string>
     <string name="alimento">Alimento</string>
     <string name="bebida">Bebida</string>
     <string name="gramos">g</string>
@@ -54,4 +54,9 @@
     <string name="ejemplo_producto_bebida">Mi bebida favorita 600ml</string>
     <string name="ejemplo_producto_alimento">Mi cereal favorito 1Kg</string>
 
+    <string name="text_explica">Para conocer el semáforo de este producto, busca el tamaño de la porción en la información nutrimental al reverso del producto, en una tabla o en un listado.</string>
+    <string name="text_explica_nota">OJO: Recuerda que el tamaño de la porción y el contenido neto pueden ser diferentes.</string>
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="lista">Lista</string>
+    <string name="nutrimental">Información nutrimental</string>
 </resources>

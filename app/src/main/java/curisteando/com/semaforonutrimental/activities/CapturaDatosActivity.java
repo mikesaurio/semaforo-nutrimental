@@ -1,9 +1,12 @@
 package curisteando.com.semaforonutrimental.activities;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -84,6 +88,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
     private ImageView alimentoImg;
 
     private TipoAlimento alimento = TipoAlimento.NINGUNO;
+    private AlertDialog customDialog= null;	//Creamos el dialogo generico
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +97,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         restoreActionBar();
         inicializaVariables();
         inicializaControles();
+        mostrarExplica().show();
     }
 
     /**
@@ -281,4 +287,46 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         actionBar.setDisplayHomeAsUpEnabled(true);
 
     }
+
+
+
+    /**
+     * Dialogo que muestra el acerca de
+     *
+     * @return Dialog (regresa el dialogo creado)
+     **/
+    public Dialog mostrarExplica()
+    {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialogo_explica, null);
+        builder.setView(view);
+        builder.setCancelable(true);
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        //metrics.widthPixels
+
+        ((LinearLayout) view.findViewById(R.id.img_help_1)).setLayoutParams(new LinearLayout.LayoutParams(metrics.widthPixels / 3, metrics.heightPixels / 2, 0.4f));
+        ((LinearLayout) view.findViewById(R.id.img_help_2)).setLayoutParams(new LinearLayout.LayoutParams(metrics.widthPixels / 3, metrics.heightPixels / 2, 0.4f));
+
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialog_lista), R.color.text_white, 10);
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialog_nutrimental), R.color.text_white, 10);
+
+
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_tv_correo), R.color.text_white, 13);
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_nota), R.color.text_white, 13);
+
+        //escucha del boton aceptar
+        ((ImageView) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                customDialog.dismiss();
+            }
+        });
+        return (customDialog=builder.create());// return customDialog;//regresamos el di�logo
+    }
+
+
 }

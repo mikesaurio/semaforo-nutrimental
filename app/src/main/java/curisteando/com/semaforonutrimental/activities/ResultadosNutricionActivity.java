@@ -1,6 +1,7 @@
 package curisteando.com.semaforonutrimental.activities;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -20,6 +22,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +43,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
     int tipoAlimento;
 
 
+
     private IconRoundCornerProgressBar resultadoAzucar, resultadoGrasa, resultadoSodio;
 
     @Override
@@ -48,44 +52,28 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         setContentView(R.layout.activity_resultados_nutricion);
         restoreActionBar();
         cargaControles();
+
     }
 
     private void cargaControles(){
         Intent i = getIntent();
         Bundle extras = i.getExtras();
 
-        Utils.formatoTextView(this, findViewById(R.id.azucares_txt),R.color.text_black, 24);
-        Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black, 24);
-        Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black, 24);
+        Utils.formatoTextView(this, findViewById(R.id.azucares_txt),R.color.text_black, 18);
+        Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black, 18);
+        Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black, 18);
 
-        Utils.formatoTextView(this, findViewById(R.id.saber_mas_btn),R.color.text_white, 18);
-        Utils.formatoTextView(this, findViewById(R.id.compartir_txt), R.color.text_dark_gray, 18);
+        Utils.formatoTextView(this, findViewById(R.id.saber_mas_btn),R.color.text_white, 16);
+        Utils.formatoTextView(this, findViewById(R.id.compartir_txt), R.color.text_dark_gray, 16);
 
-        ((TextView) findViewById(R.id.azucares_txt)).append(" " + extras.getString(Constantes.PARAM_AZUCAR_INT) + "");
-        ((TextView) findViewById(R.id.grasa_txt)).append(" " + extras.getString(Constantes.PARAM_GRASA_INT) + "");
-        ((TextView) findViewById(R.id.sodio_txt)).append(" "+extras.getString(Constantes.PARAM_SODIO_INT)+"");
-
-        /*saberMas = (Button) findViewById(R.id.saberMas);
-        otro = (Button) findViewById(R.id.otro);
-        compartir = (Button) findViewById(R.id.compartir);
-        saberMas.setOnClickListener(this);
-        otro.setOnClickListener(this);
-        compartir.setOnClickListener(this);*/
+        //((TextView) findViewById(R.id.azucares_txt)).append(" " + extras.getString(Constantes.PARAM_AZUCAR_INT) + "");
+        //((TextView) findViewById(R.id.grasa_txt)).append(" " + extras.getString(Constantes.PARAM_GRASA_INT) + "");
+        //((TextView) findViewById(R.id.sodio_txt)).append(" "+extras.getString(Constantes.PARAM_SODIO_INT)+"");
 
         btn_twitter = (ImageView) findViewById(R.id.btn_twitter);
         btn_twitter.setOnClickListener(this);
         btn_shared = (ImageView) findViewById(R.id.btn_share);
         btn_shared.setOnClickListener(this);
-
-        //tipoAlimento = intent.getIntExtra(Constantes.PARAM_TIPO_ALIMENTO);
-
-
-
-       // Intent intent = getIntent();
-       // TipoResultado resultadoAzucarCalc, resultadoGrasaCalc, resultadoSodioCalc;
-        //resultadoAzucarCalc = (TipoResultado) intent.getSerializableExtra(Constantes.PARAM_AZUCAR_RESULT);
-        //resultadoGrasaCalc = (TipoResultado) intent.getSerializableExtra(Constantes.PARAM_GRASA_RESULT);
-        //resultadoSodioCalc = (TipoResultado) intent.getSerializableExtra(Constantes.PARAM_SODIO_RESULT);
 
         resultadoAzucar = (IconRoundCornerProgressBar) findViewById(R.id.progress_azucar);
         resultadoGrasa = (IconRoundCornerProgressBar) findViewById(R.id.progress_grasa);
@@ -110,6 +98,9 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         resultadoAzucar.setMax(100);
         resultadoGrasa.setMax(100);
         resultadoSodio.setMax(100);
+
+
+
     }
 
     private String findColor(String resultado){
@@ -152,8 +143,6 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.menu_resultados_nutricion, menu);
         return true;
     }
 
