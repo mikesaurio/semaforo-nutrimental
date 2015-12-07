@@ -59,16 +59,23 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         Intent i = getIntent();
         Bundle extras = i.getExtras();
 
-        Utils.formatoTextView(this, findViewById(R.id.azucares_txt),R.color.text_black, 18);
-        Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black, 18);
-        Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black, 18);
+        Utils.formatoTextView(this, findViewById(R.id.azucares_txt),R.color.text_black, 16);
+        Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black, 16);
+        Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black, 16);
+        Utils.formatoTextView(this, findViewById(R.id.explicacion_text),R.color.text_black, 16);
 
-        Utils.formatoTextView(this, findViewById(R.id.saber_mas_btn),R.color.text_white, 16);
+        ((TextView) findViewById(R.id.explicacion_text)).setText(extras.getString(Constantes.PARAM_TEXT)+"");
+
+
+
+        Utils.formatoTextView(this, findViewById(R.id.saber_mas_btn), R.color.text_white, 16);
         Utils.formatoTextView(this, findViewById(R.id.compartir_txt), R.color.text_dark_gray, 16);
 
         //((TextView) findViewById(R.id.azucares_txt)).append(" " + extras.getString(Constantes.PARAM_AZUCAR_INT) + "");
         //((TextView) findViewById(R.id.grasa_txt)).append(" " + extras.getString(Constantes.PARAM_GRASA_INT) + "");
-        //((TextView) findViewById(R.id.sodio_txt)).append(" "+extras.getString(Constantes.PARAM_SODIO_INT)+"");
+        //((TextView) findViewById(R.id.sodio_txt)).append(" " + extras.getString(Constantes.PARAM_SODIO_INT) + "");
+
+
 
         btn_twitter = (ImageView) findViewById(R.id.btn_twitter);
         btn_twitter.setOnClickListener(this);

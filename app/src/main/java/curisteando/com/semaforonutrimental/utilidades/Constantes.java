@@ -36,6 +36,8 @@ public class Constantes {
     public static final String PARAM_GRASA_INT = "paramGrasaInt";
     public static final String PARAM_SODIO_INT = "paramSodioInt";
 
+    public static final String PARAM_TEXT = "paramText";
+
     public static final String PARAM_ALTO = "Alto";
     public static final String PARAM_MEDIO = "Medio";
     public static final String PARAM_BAJO = "Bajo";

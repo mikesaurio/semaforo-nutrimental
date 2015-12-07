@@ -59,4 +59,5 @@
     <string name="btn_aceptar">Aceptar</string>
     <string name="lista">Lista</string>
     <string name="nutrimental">Información nutrimental</string>
+    <string name="defaul_mensaje">Mensaje: </string>
 </resources>
