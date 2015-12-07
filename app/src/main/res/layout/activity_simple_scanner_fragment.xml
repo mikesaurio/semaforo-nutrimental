@@ -60,6 +60,7 @@
                 <ImageView
                     android:src="@drawable/camara_gris"
                     android:layout_weight=".5"
+                    android:layout_marginLeft="5sp"
                     android:layout_gravity="center"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
