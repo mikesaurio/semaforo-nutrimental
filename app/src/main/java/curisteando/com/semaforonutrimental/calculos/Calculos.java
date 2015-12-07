@@ -161,6 +161,8 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
         intent.putExtra(Constantes.PARAM_AZUCAR_INT, "0");
         intent.putExtra(Constantes.PARAM_GRASA_INT, "0");
         intent.putExtra(Constantes.PARAM_SODIO_INT, "0");
+        intent.putExtra(Constantes.PARAM_TEXT, "");
+        intent.putExtra(Constantes.PARAM_SABER_MAS,"");
 
         getContext().startActivity(intent);
     }

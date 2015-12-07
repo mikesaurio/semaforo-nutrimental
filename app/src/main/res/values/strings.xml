@@ -60,4 +60,5 @@
     <string name="lista">Lista</string>
     <string name="nutrimental">Información nutrimental</string>
     <string name="defaul_mensaje">Mensaje: </string>
+    <string name="defaul_mensaje_text">Alimentate sanamente </string>
 </resources>
