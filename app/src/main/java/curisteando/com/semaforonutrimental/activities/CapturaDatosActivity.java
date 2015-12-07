@@ -73,7 +73,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
     /**
      * Control UI para calcular el semaforo.
      */
-    private Button continuar;
+    private Button continuar,limpiar;
 
 
 
@@ -157,6 +157,9 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
 
         continuar = (Button) findViewById(R.id.continuar);
         continuar.setOnClickListener(this);
+        limpiar = (Button) findViewById(R.id.limpiar);
+        limpiar.setOnClickListener(this);
+
 
         Utils.formatoTextView(this, findViewById(R.id.selecciona_producto_txt),R.color.text_black, 16);
         Utils.formatoTextView(this, findViewById(R.id.bebida_txt),R.color.text_black, 16);
@@ -275,6 +278,12 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
             bebidaImg.setImageResource(R.drawable.bebida_azul);
             alimentoImg.setImageResource(R.drawable.alimento_gris);
             asignaDefaults(TipoAlimento.BEBIDA);
+        }else if(v == limpiar){
+            entradaTamanioPorcion.setText("");
+            entradaAzucares.setText("");
+            entradaGrasa.setText("");
+            entradaSodio.setText("");
+            nombreProducto.setText("");
         }
     }
 
