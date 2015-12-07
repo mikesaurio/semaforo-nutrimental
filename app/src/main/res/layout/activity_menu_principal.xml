@@ -100,6 +100,7 @@
                 <EditText
                     android:id="@+id/edit_nombre_producto"
                     android:ems="10"
+                    android:hint="Nombre ejemplo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -131,7 +132,7 @@
                         android:layout_column="1"
                         android:ems="10"
                         android:inputType="phone"
-                        android:hint="200" />
+                        android:hint="0.0" />
 
                     <Spinner
                         android:id="@+id/tamanioPorcionSpinner"
@@ -158,7 +159,7 @@
                         android:layout_column="1"
                         android:ems="10"
                         android:inputType="phone"
-                        android:hint="21" />
+                        android:hint="0.0" />
 
                     <Spinner
                         android:id="@+id/azucaresSpinner"
@@ -186,7 +187,7 @@
                         android:layout_column="1"
                         android:ems="10"
                         android:inputType="phone"
-                        android:hint="0" />
+                        android:hint="0.0" />
 
                     <Spinner
                         android:id="@+id/grasaSpinner"
@@ -214,7 +215,7 @@
                         android:layout_column="1"
                         android:ems="10"
                         android:inputType="phone"
-                        android:hint="40" />
+                        android:hint="0.0" />
 
                     <Spinner
                         android:id="@+id/sodioSpinner"

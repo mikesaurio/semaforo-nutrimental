@@ -158,17 +158,17 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         continuar = (Button) findViewById(R.id.continuar);
         continuar.setOnClickListener(this);
 
-        Utils.formatoTextView(this, findViewById(R.id.selecciona_producto_txt),R.color.text_black, 18);
-        Utils.formatoTextView(this, findViewById(R.id.bebida_txt),R.color.text_black, 18);
-        Utils.formatoTextView(this, findViewById(R.id.alimento_txt),R.color.text_black, 18);
-        Utils.formatoTextView(this, findViewById(R.id.nombre_producto_txt),R.color.text_black, 18);
-        Utils.formatoTextView(this, findViewById(R.id.tamanio_porcion_txt),R.color.text_black, 18);
-        Utils.formatoTextView(this, findViewById(R.id.azucares_txt),R.color.text_black, 18);
-        Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black, 18);
-        Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black, 18);
+        Utils.formatoTextView(this, findViewById(R.id.selecciona_producto_txt),R.color.text_black, 16);
+        Utils.formatoTextView(this, findViewById(R.id.bebida_txt),R.color.text_black, 16);
+        Utils.formatoTextView(this, findViewById(R.id.alimento_txt),R.color.text_black, 16);
+        Utils.formatoTextView(this, findViewById(R.id.nombre_producto_txt),R.color.text_black, 16);
+        Utils.formatoTextView(this, findViewById(R.id.tamanio_porcion_txt),R.color.text_black, 16);
+        Utils.formatoTextView(this, findViewById(R.id.azucares_txt),R.color.text_black, 16);
+        Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black, 16);
+        Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black, 16);
 
-        Utils.formatoTextView(this, findViewById(R.id.limpiar),R.color.text_dark_gray, 18);
-        Utils.formatoTextView(this, findViewById(R.id.continuar),R.color.text_white, 18);
+        Utils.formatoTextView(this, findViewById(R.id.limpiar),R.color.text_dark_gray, 16);
+        Utils.formatoTextView(this, findViewById(R.id.continuar),R.color.text_white, 16);
 
         bebidaImg.performClick();
     }
