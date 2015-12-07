@@ -27,9 +27,10 @@
     <string name="tipo_alimento">Tipo Alimento</string>
     <string name="tamanio_porcion">Tamaño porción</string>
     <string name="tamanio_porcion_">Tamaño porción:</string>
-    <string name="azucares">Azucares</string>
-    <string name="grasa">Grasa</string>
-    <string name="sodio">Sodio</string>
+    <string name="contenido_neto">Contenido neto:</string>
+    <string name="azucares">Azucares:</string>
+    <string name="grasa">Grasas saturadas:</string>
+    <string name="sodio">Sodio:</string>
     <string name="azucares_">Azúcares</string>
     <string name="grasa_">Grasa</string>
     <string name="sodio_">Sodio</string>
