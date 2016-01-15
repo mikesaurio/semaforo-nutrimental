@@ -64,10 +64,10 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         Intent i = getIntent();
         Bundle extras = i.getExtras();
 
-        Utils.formatoTextView(this, findViewById(R.id.azucares_txt),R.color.text_black, 16);
-        Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black, 16);
-        Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black, 16);
-        Utils.formatoTextView(this, findViewById(R.id.explicacion_text),R.color.text_black, 16);
+        Utils.formatoTextView(this, findViewById(R.id.azucares_txt),R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.explicacion_text),R.color.text_white);
 
         text_saber_mas =  extras.getString(Constantes.PARAM_SABER_MAS)+"";
 
@@ -79,8 +79,8 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         }
 
 
-        Utils.formatoTextView(this, findViewById(R.id.saber_mas_btn), R.color.text_white, 16);
-        Utils.formatoTextView(this, findViewById(R.id.compartir_txt), R.color.text_dark_gray, 16);
+        Utils.formatoTextView(this, findViewById(R.id.saber_mas_btn), R.color.text_white);
+        Utils.formatoTextView(this, findViewById(R.id.compartir_txt), R.color.text_dark_gray);
 
         //((TextView) findViewById(R.id.azucares_txt)).append(" " + extras.getString(Constantes.PARAM_AZUCAR_INT) + "");
         //((TextView) findViewById(R.id.grasa_txt)).append(" " + extras.getString(Constantes.PARAM_GRASA_INT) + "");
@@ -266,11 +266,11 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         builder.setView(view);
         builder.setCancelable(true);
 
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_txt), R.color.text_white, 13);
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_txt), R.color.text_white);
         ((TextView) view.findViewById(R.id.dialogo_mas_txt)).setText(texto);
 
 
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_url), R.color.text_white, 13);
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_url), R.color.text_white);
         ((TextView) view.findViewById(R.id.dialogo_mas_url)).setText(Html.fromHtml("<a href="+url+">más información</a>"));
         ((TextView) view.findViewById(R.id.dialogo_mas_url)). setMovementMethod(LinkMovementMethod.getInstance());
         //escucha del boton aceptar

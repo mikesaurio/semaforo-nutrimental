@@ -30,6 +30,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="10sp"
             android:layout_marginBottom="10sp"
+            android:textSize="@dimen/abc_text_size_small_material"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

@@ -42,15 +42,14 @@ public class Utils {
      * Da el formato por default para los textviews.
      * @param context
      * @param textView
-     * @param size
      */
-    public static void formatoTextView(Context context, View textView, int color, int size){
+    public static void formatoTextView(Context context, View textView, int color){
         Typeface typeFace=FontLoader.getTypeFace(context, FontLoader.DEFAULT);
         if(typeFace!=null)
             ((TextView)textView).setTypeface(typeFace);
 
         ((TextView)textView).setTextColor(context.getResources().getColor(color));
-        ((TextView)textView).setTextSize(size);
+        //((TextView)textView).setTextSize(size);
     }
 
     public Intent sendTwitter(Context ctx, String shareText)

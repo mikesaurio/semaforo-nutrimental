@@ -13,7 +13,7 @@ public class SimpleScannerFragmentActivity extends ActionBarActivity {
         super.onCreate(state);
         try {
             setContentView(R.layout.activity_simple_scanner_fragment);
-            Utils.formatoTextView(this, findViewById(R.id.instrucciones), R.color.text_black, 16);
+            Utils.formatoTextView(this, findViewById(R.id.instrucciones), R.color.text_black);
         }catch(Exception e){
             e.printStackTrace();
         }

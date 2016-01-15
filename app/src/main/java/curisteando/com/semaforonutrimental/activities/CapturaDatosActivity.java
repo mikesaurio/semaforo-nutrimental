@@ -161,17 +161,17 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         limpiar.setOnClickListener(this);
 
 
-        Utils.formatoTextView(this, findViewById(R.id.selecciona_producto_txt),R.color.text_black, 16);
-        Utils.formatoTextView(this, findViewById(R.id.bebida_txt),R.color.text_black, 16);
-        Utils.formatoTextView(this, findViewById(R.id.alimento_txt),R.color.text_black, 16);
-        Utils.formatoTextView(this, findViewById(R.id.nombre_producto_txt),R.color.text_black, 16);
-        Utils.formatoTextView(this, findViewById(R.id.tamanio_porcion_txt),R.color.text_black, 16);
-        Utils.formatoTextView(this, findViewById(R.id.azucares_txt),R.color.text_black, 16);
-        Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black, 16);
-        Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black, 16);
+        Utils.formatoTextView(this, findViewById(R.id.selecciona_producto_txt),R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.bebida_txt),R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.alimento_txt),R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.nombre_producto_txt),R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.tamanio_porcion_txt),R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.azucares_txt),R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black);
 
-        Utils.formatoTextView(this, findViewById(R.id.limpiar),R.color.text_dark_gray, 16);
-        Utils.formatoTextView(this, findViewById(R.id.continuar),R.color.text_white, 16);
+        Utils.formatoTextView(this, findViewById(R.id.limpiar),R.color.text_dark_gray);
+        Utils.formatoTextView(this, findViewById(R.id.continuar),R.color.text_white);
 
         bebidaImg.performClick();
     }
@@ -319,12 +319,12 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         ((LinearLayout) view.findViewById(R.id.img_help_1)).setLayoutParams(new LinearLayout.LayoutParams(metrics.widthPixels / 3, metrics.heightPixels / 2, 0.4f));
         ((LinearLayout) view.findViewById(R.id.img_help_2)).setLayoutParams(new LinearLayout.LayoutParams(metrics.widthPixels / 3, metrics.heightPixels / 2, 0.4f));
 
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialog_lista), R.color.text_white, 10);
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialog_nutrimental), R.color.text_white, 10);
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialog_lista), R.color.text_white);
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialog_nutrimental), R.color.text_white);
 
 
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_tv_correo), R.color.text_white, 13);
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_nota), R.color.text_white, 13);
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_tv_correo), R.color.text_white);
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_nota), R.color.text_white);
 
         //escucha del boton aceptar
         ((ImageView) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {
