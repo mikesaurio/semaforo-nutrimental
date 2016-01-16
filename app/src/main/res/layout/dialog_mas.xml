@@ -56,6 +56,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/text_white"
                         android:paddingBottom="8sp"
+                        android:textSize="@dimen/abc_text_size_small_material"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/text_explica" />
                     <TextView

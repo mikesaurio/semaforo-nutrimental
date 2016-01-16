@@ -50,6 +50,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/text_white"
                         android:paddingBottom="8sp"
+                        android:textSize="@dimen/abc_text_size_small_material"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/text_explica" />
 
@@ -57,6 +58,7 @@
                         android:id="@+id/dialogo_acercade_nota"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="@dimen/abc_text_size_small_material"
                         android:textColor="@color/text_white"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/text_explica_nota" />
@@ -98,6 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/nutrimental"
+                    android:textSize="@dimen/abc_text_size_caption_material"
                     android:textColor="@color/text_white"
                     android:id="@+id/dialog_nutrimental" />
 
@@ -127,6 +130,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/lista"
+                    android:textSize="@dimen/abc_text_size_caption_material"
                     android:textColor="@color/text_white"
                     android:id="@+id/dialog_lista" />
 
