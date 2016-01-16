@@ -221,6 +221,7 @@
                 android:background="@drawable/round_corners_orange"
                 android:paddingTop="20sp"
                 android:paddingBottom="20sp"
+                android:layout_marginBottom="15sp"
                 android:paddingLeft="10sp"
                 android:paddingRight="10sp"
                 android:orientation="horizontal">
@@ -230,12 +231,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
+
                     android:gravity="center"
                     android:textSize="@dimen/abc_text_size_small_material"
                     android:textColor="@color/text_white"
                     android:text="@string/defaul_mensaje" />
 
             </LinearLayout>
+
+            <include  layout="@layout/recomendaciones" android:id="@+id/recomendaciones" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -255,6 +259,7 @@
                     android:text="@string/compartir_" />
 
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -299,6 +304,7 @@
                     android:background="@drawable/custom_button_purple"
                     android:src="@mipmap/ic_launcher_share" />
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
