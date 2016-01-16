@@ -31,9 +31,9 @@
     <string name="azucares">Azucares:</string>
     <string name="grasa">Grasas saturadas:</string>
     <string name="sodio">Sodio:</string>
-    <string name="azucares_">Azúcares</string>
-    <string name="grasa_">Grasa</string>
-    <string name="sodio_">Sodio</string>
+    <string name="azucares_">En azúcar saturada</string>
+    <string name="grasa_">En grasa saturada</string>
+    <string name="sodio_">En sal</string>
     <string name="alimento">Alimento</string>
     <string name="bebida">Bebida</string>
     <string name="gramos">g</string>
@@ -62,4 +62,5 @@
     <string name="nutrimental">Información nutrimental</string>
     <string name="defaul_mensaje">Mensaje: </string>
     <string name="defaul_mensaje_text">Alimentate sanamente </string>
+    <string name="no_contiene">No contiene</string>
 </resources>

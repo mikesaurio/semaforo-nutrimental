@@ -55,7 +55,8 @@
                         app:rcIconSrc="@drawable/circulo_alto"
                         app:rcMax="100"
                         app:rcProgress="100"
-                        app:rcProgressColor="@color/red_result" />
+                        app:rcProgressColor="@color/red_result"
+                        android:visibility="gone"/>
                 </RelativeLayout>
 
                 <LinearLayout
@@ -66,7 +67,16 @@
                     android:layout_below="@id/container_azucar"
                     android:layout_marginTop="5sp"
                     android:orientation="vertical">
-
+                    <TextView
+                        android:id="@+id/no_azucares_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/abc_text_size_small_material"
+                        android:layout_below="@id/progress_azucar"
+                        android:layout_gravity="bottom"
+                        android:text="@string/no_contiene"
+                        android:visibility="gone"/>
                     <TextView
                         android:id="@+id/azucares_txt"
                         android:layout_width="match_parent"
@@ -106,6 +116,7 @@
                         app:rcIconSrc="@drawable/circulo_medio"
                         app:rcMax="100"
                         app:rcProgress="50"
+                        android:visibility="gone"
                         app:rcProgressColor="@color/yellow_result" />
                 </RelativeLayout>
 
@@ -117,6 +128,17 @@
                     android:layout_below="@id/container_grasa"
                     android:layout_marginTop="5sp"
                     android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/no_grasa_txt"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/progress_grasa"
+                        android:layout_gravity="bottom"
+                        android:textSize="@dimen/abc_text_size_small_material"
+                        android:text="@string/no_contiene"
+                        android:visibility="gone"/>
 
                     <TextView
                         android:id="@+id/grasa_txt"
@@ -157,6 +179,7 @@
                         app:rcIconSrc="@drawable/circulo_bajo"
                         app:rcMax="100"
                         app:rcProgress="25"
+                        android:visibility="gone"
                         app:rcProgressColor="@color/green_result" />
                 </RelativeLayout>
 
@@ -168,6 +191,16 @@
                     android:layout_below="@id/container_sodio"
                     android:layout_marginTop="5sp"
                     android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/no_sodio_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/progress_sodio"
+                        android:layout_gravity="bottom"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/abc_text_size_small_material"
+                        android:text="@string/no_contiene"
+                        android:visibility="gone"/>
 
                     <TextView
                         android:id="@+id/sodio_txt"

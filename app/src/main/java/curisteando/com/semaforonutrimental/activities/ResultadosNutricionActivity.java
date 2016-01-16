@@ -60,21 +60,21 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
     }
 
-    private void cargaControles(){
+    private void cargaControles() {
         Intent i = getIntent();
         Bundle extras = i.getExtras();
 
-        Utils.formatoTextView(this, findViewById(R.id.azucares_txt),R.color.text_black);
-        Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black);
-        Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black);
-        Utils.formatoTextView(this, findViewById(R.id.explicacion_text),R.color.text_white);
+        Utils.formatoTextView(this, findViewById(R.id.azucares_txt), R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.grasa_txt), R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.sodio_txt), R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.explicacion_text), R.color.text_white);
 
-        text_saber_mas =  extras.getString(Constantes.PARAM_SABER_MAS)+"";
+        text_saber_mas = extras.getString(Constantes.PARAM_SABER_MAS) + "";
 
-        if (text_saber_mas  == ""){
-            ((TextView) findViewById(R.id.explicacion_text)).setText(getString(R.string.defaul_mensaje_text)+"");
+        if (text_saber_mas == "") {
+            ((TextView) findViewById(R.id.explicacion_text)).setText(getString(R.string.defaul_mensaje_text) + "");
 
-        }else {
+        } else {
             ((TextView) findViewById(R.id.explicacion_text)).setText(extras.getString(Constantes.PARAM_TEXT) + "");
         }
 
@@ -87,7 +87,6 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         //((TextView) findViewById(R.id.sodio_txt)).append(" " + extras.getString(Constantes.PARAM_SODIO_INT) + "");
 
 
-
         btn_twitter = (ImageView) findViewById(R.id.btn_twitter);
         btn_twitter.setOnClickListener(this);
         btn_shared = (ImageView) findViewById(R.id.btn_share);
@@ -95,30 +94,44 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         saber_mas_btn = (Button) findViewById(R.id.saber_mas_btn);
         saber_mas_btn.setOnClickListener(this);
 
-        resultadoAzucar = (IconRoundCornerProgressBar) findViewById(R.id.progress_azucar);
-        resultadoGrasa = (IconRoundCornerProgressBar) findViewById(R.id.progress_grasa);
-        resultadoSodio = (IconRoundCornerProgressBar) findViewById(R.id.progress_sodio);
+        if (findProgress(extras.getString(Constantes.PARAM_AZUCAR_RESULT) + "")==0) {
+            ((TextView)findViewById(R.id.no_azucares_txt)).setVisibility(View.VISIBLE);
 
-        resultadoAzucar.setProgressColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_AZUCAR_RESULT)+"")));
-        resultadoGrasa.setProgressColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_GRASA_RESULT)+"")));
-        resultadoSodio.setProgressColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_SODIO_RESULT) + "")));
+        } else{
+            resultadoAzucar = (IconRoundCornerProgressBar) findViewById(R.id.progress_azucar);
+            resultadoAzucar.setVisibility(View.VISIBLE);
+            resultadoAzucar.setProgressColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_AZUCAR_RESULT) + "")));
+            resultadoAzucar.setProgress(findProgress(extras.getString(Constantes.PARAM_AZUCAR_RESULT) + ""));
+            resultadoAzucar.setHeaderColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_AZUCAR_RESULT) + "")));
+            resultadoAzucar.setIconImageResource(findIndicador(extras.getString(Constantes.PARAM_AZUCAR_RESULT) + ""));
+            resultadoAzucar.setMax(100);
+        }
 
-        resultadoAzucar.setProgress(findProgress(extras.getString(Constantes.PARAM_AZUCAR_RESULT) + ""));
-        resultadoGrasa.setProgress(findProgress(extras.getString(Constantes.PARAM_GRASA_RESULT)+""));
-        resultadoSodio.setProgress(findProgress(extras.getString(Constantes.PARAM_SODIO_RESULT) + ""));
+        if (findProgress(extras.getString(Constantes.PARAM_GRASA_RESULT) + "")==0) {
+            ((TextView)findViewById(R.id.no_grasa_txt)).setVisibility(View.VISIBLE);
 
-        resultadoAzucar.setHeaderColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_AZUCAR_RESULT) + "")));
-        resultadoGrasa.setHeaderColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_GRASA_RESULT)+"")));
-        resultadoSodio.setHeaderColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_SODIO_RESULT) + "")));
+        } else {
+            resultadoGrasa = (IconRoundCornerProgressBar) findViewById(R.id.progress_grasa);
+            resultadoGrasa.setVisibility(View.VISIBLE);
+            resultadoGrasa.setProgressColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_GRASA_RESULT) + "")));
+            resultadoGrasa.setProgress(findProgress(extras.getString(Constantes.PARAM_GRASA_RESULT) + ""));
+            resultadoGrasa.setHeaderColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_GRASA_RESULT) + "")));
+            resultadoGrasa.setIconImageResource(findIndicador(extras.getString(Constantes.PARAM_GRASA_RESULT) + ""));
+            resultadoGrasa.setMax(100);
+        }
 
-        resultadoAzucar.setIconImageResource(findIndicador(extras.getString(Constantes.PARAM_AZUCAR_RESULT) + ""));
-        resultadoGrasa.setIconImageResource(findIndicador(extras.getString(Constantes.PARAM_GRASA_RESULT)+""));
-        resultadoSodio.setIconImageResource(findIndicador(extras.getString(Constantes.PARAM_SODIO_RESULT) + ""));
+        if (findProgress(extras.getString(Constantes.PARAM_SODIO_RESULT) + "")==0) {
+            ((TextView)findViewById(R.id.no_sodio_txt)).setVisibility(View.VISIBLE);
 
-        resultadoAzucar.setMax(100);
-        resultadoGrasa.setMax(100);
-        resultadoSodio.setMax(100);
-
+        } else {
+            resultadoSodio = (IconRoundCornerProgressBar) findViewById(R.id.progress_sodio);
+            resultadoSodio.setVisibility(View.VISIBLE);
+            resultadoSodio.setProgressColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_SODIO_RESULT) + "")));
+            resultadoSodio.setProgress(findProgress(extras.getString(Constantes.PARAM_SODIO_RESULT) + ""));
+            resultadoSodio.setHeaderColor(Color.parseColor(findColor(extras.getString(Constantes.PARAM_SODIO_RESULT) + "")));
+            resultadoSodio.setIconImageResource(findIndicador(extras.getString(Constantes.PARAM_SODIO_RESULT) + ""));
+            resultadoSodio.setMax(100);
+        }
 
 
     }
