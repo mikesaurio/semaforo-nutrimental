@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,6 +64,13 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
     private void cargaControles() {
         Intent i = getIntent();
         Bundle extras = i.getExtras();
+
+        if(extras.getInt(Constantes.PARAM_COMIDA_BEBIDA) == Constantes.PARAM_COMIDA){
+            ((LinearLayout) findViewById(R.id.recomendaciones_comida)).setVisibility(View.VISIBLE);
+        }else{
+
+            ((LinearLayout) findViewById(R.id.recomendaciones_bebida)).setVisibility(View.VISIBLE);
+        }
 
         Utils.formatoTextView(this, findViewById(R.id.azucares_txt), R.color.text_black);
         Utils.formatoTextView(this, findViewById(R.id.grasa_txt), R.color.text_black);
@@ -215,9 +223,9 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
                 startActivity(i);
             }
         }else if(v==btn_twitter){
-            startActivity(new Utils().sendTwitter(getBaseContext(), "Text that will be tweeted"));
+            startActivity(new Utils().sendTwitter(getBaseContext(), "Para saber si lo que comes o bebes es alto en azúcar, grasas o sodio, descarga #semaforoNutrimental http://www.elpoderdelconsumidor.org"));
         }else if(v==btn_shared){
-            startActivity(new Utils().share_all(getBaseContext(), "Text that will be tweeted"));
+            startActivity(new Utils().share_all(getBaseContext(), "Para saber si lo que comes o bebes es alto en azúcar, grasas o sodio, descarga #semaforoNutrimental http://www.elpoderdelconsumidor.org"));
         }
     }
 

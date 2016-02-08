@@ -26,6 +26,11 @@ public class Constantes {
 
 
     public static final String PARAM_TIPO_ALIMENTO = "paramTipoAlimento";
+    public static final String PARAM_COMIDA_BEBIDA = "paramComidaBebida";
+
+    public static final int PARAM_COMIDA = 0;
+    public static final int PARAM_BEBIDA = 1;
+
 
     public static final String PARAM_AZUCAR_RESULT = "paramAzucarResult";
     public static final String PARAM_GRASA_RESULT = "paramGrasaResult";

@@ -160,7 +160,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/abc_text_size_small_material"
-                        android:text="@string/azucares_" />
+                        android:text="@string/azucares" />
 
                     <EditText
                         android:id="@+id/entradaAzucares"
@@ -189,7 +189,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/abc_text_size_small_material"
-                        android:text="@string/grasa_" />
+                        android:text="@string/grasa" />
 
                     <EditText
                         android:id="@+id/entradaGrasa"
@@ -218,7 +218,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/abc_text_size_small_material"
-                        android:text="@string/sodio_" />
+                        android:text="@string/sodio" />
 
                     <EditText
                         android:id="@+id/entradaSodio"

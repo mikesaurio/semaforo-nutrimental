@@ -26,9 +26,15 @@ public class ParametrosCalculo {
     private TipoMedidas grasasMedida;
     private double sodio;
     private TipoMedidas sodioMedida;
+    private int tipoProducto;
 
     public ParametrosCalculo() {
     }
+
+
+    public int getTipoProducto() { return tipoProducto; }
+
+    public void setTipoProducto(int tipoProducto) {this.tipoProducto = tipoProducto; }
 
     public TipoAlimento getTipoAlimento() {
         return tipoAlimento;

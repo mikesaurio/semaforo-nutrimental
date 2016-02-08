@@ -5,6 +5,7 @@ package curisteando.com.semaforonutrimental.beans;
  */
 public class datos_bean {
 
+    private int tipoProducto;
     private String id_producto;
     private String fecha;
     private String codigo;
@@ -25,6 +26,10 @@ public class datos_bean {
     private String grado_sodio;
     private String mensaje;
     private String alternativa;
+
+    public int getTipoProducto() { return tipoProducto; }
+
+    public void setTipoProducto(int tipoProducto) {this.tipoProducto = tipoProducto; }
 
     public String getId_producto() {
         return id_producto;

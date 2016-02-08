@@ -239,7 +239,25 @@
 
             </LinearLayout>
 
-            <include  layout="@layout/recomendaciones" android:id="@+id/recomendaciones" />
+            <LinearLayout
+                android:id="@+id/recomendaciones_comida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <include
+                    layout="@layout/recomendaciones_comida"/>
+            </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/recomendaciones_bebida"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <include layout="@layout/recomendaciones_bebida" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

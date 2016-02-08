@@ -82,6 +82,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
     private EditText entradaGrasa;
     private EditText entradaSodio;
     private EditText nombreProducto;
+    private  int tipoProducto;
 
 
     private ImageView bebidaImg;
@@ -113,6 +114,8 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         listaTiposAlimentos = new ArrayList<String>();
         listaTiposAlimentos.add(getString(R.string.alimento));
         listaTiposAlimentos.add(getString(R.string.bebida));
+
+        tipoProducto = Constantes.PARAM_BEBIDA;
     }
 
     /**
@@ -193,7 +196,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
                 break;
             }
             case BEBIDA:{
-                tamanioPorcionSpinner.setSelection(0);//Selecciona la posicion 0 de la lista.
+                tamanioPorcionSpinner.setSelection(3);//Selecciona la posicion 0 de la lista.
                 azucaresSpinner.setSelection(0);
                 grasaSpinner.setSelection(0);
                 sodioSpinner.setSelection(2);
@@ -205,10 +208,13 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
 
     private void ayudaAlimento(){
         nombreProducto.setHint(getString(R.string.ejemplo_producto_alimento));
+        tipoProducto = Constantes.PARAM_COMIDA;
+
     }
 
     private void ayudaBebida(){
         nombreProducto.setHint(getString(R.string.ejemplo_producto_bebida));
+        tipoProducto = Constantes.PARAM_BEBIDA;
     }
 
     @Override
@@ -267,6 +273,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
                 params.setAzucaresMedida(TipoMedidas.values()[azucaresSpinner.getSelectedItemPosition()]);
                 params.setGrasasMedida(TipoMedidas.values()[grasaSpinner.getSelectedItemPosition()]);
                 params.setSodioMedida(TipoMedidas.values()[sodioSpinner.getSelectedItemPosition()]);
+                params.setTipoProducto(tipoProducto);
 
                 new Calculos(getContext()).execute(params);
             }

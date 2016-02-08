@@ -31,6 +31,7 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
     private Context context;
     private final int basePorcion = 100;
     private String resultadoAzucar = "", resultadoGrasa = "", resultadoSodio = "";
+    private int tipoProducto;
 
     public Calculos(Context context) {
         this.context = context;
@@ -59,62 +60,23 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
         TipoMedidas grasasMedida = parametros.getGrasasMedida();
         double sodioVal = parametros.getSodio();
         TipoMedidas sodioMedida = parametros.getSodioMedida();
+        tipoProducto = parametros.getTipoProducto();
 
-        //prueba 1
-        /*double tamanioPorcionVal = 100;
-        double azucaresVal = 6.1;
-        TipoMedidas azucarMedida = TipoMedidas.GRAMOS;
-        double grasasVal = 22.1;
-        TipoMedidas grasasMedida = TipoMedidas.GRAMOS;
-        double sodioVal = 2;
-        TipoMedidas sodioMedida = TipoMedidas.MILIGRAMOS;*/
-
-//	//Coca light
-
-//	double tamanioPorcionVal = 600;
-
-//	double azucaresVal = 0;
-
-//	TipoMedidas azucarMedida = TipoMedidas.GRAMOS;
-
-//	double grasasVal = 0;
-
-//	TipoMedidas grasasMedida = TipoMedidas.GRAMOS;
-
-//	double sodioVal = 119;
-
-//	TipoMedidas sodioMedida = TipoMedidas.MILIGRAMOS;
-
-//Coca normal
-
-//	double tamanioPorcionVal = 200;
-
-//	double azucaresVal = 21;
-
-//	TipoMedidas azucarMedida = TipoMedidas.GRAMOS;
-
-//	double grasasVal = 84;
-
-//	TipoMedidas grasasMedida = TipoMedidas.GRAMOS;
-
-//	double sodioVal = 0;
-
-//	TipoMedidas sodioMedida = TipoMedidas.MILIGRAMOS;
 
         double porcionPorcentaje = ((basePorcion * 100) / tamanioPorcionVal);
         double azucarPorcentaje = ((porcionPorcentaje * azucaresVal) / 100);
         double grasasPorcentaje = ((porcionPorcentaje * grasasVal) / 100);
         double sodioPorcentaje = ((porcionPorcentaje * sodioVal) / 100);
 
-        System.out.println("porcionPorcentaje : " + porcionPorcentaje);
-        System.out.println("azucarPorcentaje : " + azucarPorcentaje);
-        System.out.println("grasasPorcentaje : " + grasasPorcentaje);
-        System.out.println("sodioPorcentaje : " + sodioPorcentaje);
+        Log.e("porcionPorcentaje : ", porcionPorcentaje+"");
+        Log.e("azucarPorcentaje : ", azucarPorcentaje+"");
+        Log.e("grasasPorcentaje : ", grasasPorcentaje+"");
+        Log.e("sodioPorcentaje : ", sodioPorcentaje+"");
 
         if (tipoAlimento == TipoAlimento.BEBIDA && azucarMedida == TipoMedidas.GRAMOS
                 && grasasMedida == TipoMedidas.GRAMOS
                 && sodioMedida == TipoMedidas.MILIGRAMOS) {
-            //Bebida liquidos 1
+            Log.e("******","en 1");
             if (grasasPorcentaje <= 0.75) {
                 resultadoGrasa = Constantes.PARAM_BAJO;
             } else if (grasasPorcentaje > 0.75 && grasasPorcentaje <= 2.5) {
@@ -140,7 +102,7 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
         } else if (tipoAlimento == TipoAlimento.BEBIDA && azucarMedida == TipoMedidas.KILOCALORIAS
                 && grasasMedida == TipoMedidas.KILOCALORIAS
                 && sodioMedida == TipoMedidas.MILIGRAMOS) {
-//Bebida liquidos 2
+            Log.e("******","en 2");
 
         }
         Log.e("resultadoAzucar " , resultadoAzucar);
@@ -155,6 +117,7 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
         progress.dismiss();
         super.onPostExecute(stringStringMap);
         Intent intent = new Intent(getContext(), ResultadosNutricionActivity.class);
+        intent.putExtra(Constantes.PARAM_COMIDA_BEBIDA, tipoProducto);
         intent.putExtra(Constantes.PARAM_AZUCAR_RESULT, resultadoAzucar);
         intent.putExtra(Constantes.PARAM_GRASA_RESULT, resultadoGrasa);
         intent.putExtra(Constantes.PARAM_SODIO_RESULT, resultadoSodio);

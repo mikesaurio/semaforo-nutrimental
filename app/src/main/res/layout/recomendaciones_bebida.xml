@@ -28,7 +28,7 @@
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
-            android:text="Pastelillo o pan dulce." />
+            android:text="Leche, semi o descremada natural" />
 
         <TextView
             android:layout_width="0dp"
@@ -38,7 +38,7 @@
             android:paddingLeft="5dp"
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_black"
-            android:text="Mejor come un plato de avena y/o amaranto con fruta." />
+            android:text="No tienes que evitarla solo modera su consumo." />
     </LinearLayout>
 
 
@@ -58,7 +58,7 @@
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
-            android:text="Galleta o barrita." />
+            android:text="Yogurt o leche saborizada" />
 
         <TextView
             android:layout_width="0dp"
@@ -68,7 +68,7 @@
             android:paddingLeft="5dp"
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_black"
-            android:text="Mejor come un plato de avena y/o amaranto con fruta y semillas." />
+            android:text="Mejor toma leche sola, con canela o vainilla sin azucar" />
     </LinearLayout>
 
 
@@ -88,7 +88,7 @@
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
-            android:text="Cereal azucarado." />
+            android:text="Refresco, jugo o bebida azucarada." />
 
         <TextView
             android:layout_width="0dp"
@@ -98,66 +98,6 @@
             android:paddingLeft="5dp"
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_black"
-            android:text="Mejor come un plato de avena y/o amaranto con fruta." />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_margin="5dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".4"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textSize="@dimen/abc_text_size_caption_material"
-            android:textColor="@color/text_white"
-            android:background="@drawable/round_corners_blue"
-            android:text="Chocolate" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".6"
-            android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textSize="@dimen/abc_text_size_caption_material"
-            android:textColor="@color/text_black"
-            android:text="Mejor come un plato de avena y/o amaranto con fruta y semillas." />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_margin="5dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".4"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textSize="@dimen/abc_text_size_caption_material"
-            android:textColor="@color/text_white"
-            android:background="@drawable/round_corners_blue"
-            android:text="Fritura o botana" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".6"
-            android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textSize="@dimen/abc_text_size_caption_material"
-            android:textColor="@color/text_black"
-            android:text="Mejor come un plato de avena y/o amaranto con fruta y semillas." />
+            android:text="Mejor toma agua simple, agua fresca con fruta y poca azucar, té o café sin azucar." />
     </LinearLayout>
 </LinearLayout>

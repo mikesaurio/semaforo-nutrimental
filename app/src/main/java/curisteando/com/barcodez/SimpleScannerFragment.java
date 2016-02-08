@@ -48,6 +48,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
     private boolean mFlash;
     private boolean mAutoFocus;
     private ArrayList<datos_bean> datosArray;
+    private String tipo_de_archivo = null;
 
     SurfaceView mSurfaceView;
 
@@ -119,6 +120,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
         }
         if (encontrado){
             Intent intent = new Intent(getActivity(), ResultadosNutricionActivity.class);
+            intent.putExtra(Constantes.PARAM_COMIDA_BEBIDA, datosArray.get(id).getTipoProducto());
             intent.putExtra(Constantes.CONST_CODIGO_BARRAS, codigo);
             intent.putExtra(Constantes.PARAM_AZUCAR_RESULT, datosArray.get(id).getGrado_azucar());
             intent.putExtra(Constantes.PARAM_GRASA_RESULT, datosArray.get(id).getGrado_grasa());
@@ -145,6 +147,12 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
                 for (int i = 0; i < jArray.length(); i++) {
                     datos_bean datos = new datos_bean();
                     JSONObject json_data = jArray.getJSONObject(i);
+
+                    if(j == 0){
+                        datos.setTipoProducto(Constantes.PARAM_COMIDA);
+                    }else{
+                        datos.setTipoProducto(Constantes.PARAM_BEBIDA);
+                    }
                     datos.setId_producto(json_data.getString("No_Producto"));
                     datos.setFecha(json_data.getString("Fecha"));
                     datos.setCodigo(json_data.getString("Codigo"));
