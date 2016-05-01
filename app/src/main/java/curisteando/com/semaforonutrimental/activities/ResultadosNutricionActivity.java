@@ -77,15 +77,9 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         Utils.formatoTextView(this, findViewById(R.id.sodio_txt), R.color.text_black);
         Utils.formatoTextView(this, findViewById(R.id.explicacion_text), R.color.text_white);
 
-        text_saber_mas = extras.getString(Constantes.PARAM_SABER_MAS) + "";
+        ((TextView) findViewById(R.id.explicacion_text)).setText(extras.getString(Constantes.PARAM_TEXT));
 
-        if (text_saber_mas == "") {
-            ((TextView) findViewById(R.id.explicacion_text)).setText(getString(R.string.defaul_mensaje_text) + "");
-
-        } else {
-            ((TextView) findViewById(R.id.explicacion_text)).setText(extras.getString(Constantes.PARAM_TEXT) + "");
-        }
-
+  
 
         Utils.formatoTextView(this, findViewById(R.id.saber_mas_btn), R.color.text_white);
         Utils.formatoTextView(this, findViewById(R.id.compartir_txt), R.color.text_dark_gray);

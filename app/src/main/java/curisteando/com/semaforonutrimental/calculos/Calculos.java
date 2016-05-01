@@ -32,6 +32,9 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
     private final int basePorcion = 100;
     private String resultadoAzucar = "", resultadoGrasa = "", resultadoSodio = "";
     private int tipoProducto;
+    private String salida_de_alimentos= "";
+    private int l_sodio, l_grasa, l_azucar;
+    private int a_sodio, a_grasa, a_azucar;
 
     public Calculos(Context context) {
         this.context = context;
@@ -78,25 +81,35 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
             Log.e("******","en 1");
             if (grasasPorcentaje <= 0.75) {
                 resultadoGrasa = Constantes.PARAM_BAJO;
+                a_grasa = 0;
             } else if (grasasPorcentaje > 0.75 && grasasPorcentaje <= 2.5) {
                 resultadoGrasa = Constantes.PARAM_MEDIO;
+                a_grasa = 1;
             } else if (grasasPorcentaje > 2.5) {
                 resultadoGrasa = Constantes.PARAM_ALTO;
+                a_grasa = 2;
+
             }
             if (azucarPorcentaje <= 2.5) {
                 resultadoAzucar = Constantes.PARAM_BAJO;
+                a_azucar = 0;
             } else if (azucarPorcentaje > 2.5 && azucarPorcentaje <= 6.3) {
                 resultadoAzucar = Constantes.PARAM_MEDIO;
+                a_azucar = 1;
             } else if (azucarPorcentaje > 6.3) {
                 resultadoAzucar = Constantes.PARAM_ALTO;
+                a_azucar = 2;
             }
 
             if (sodioPorcentaje <= 120) {
                 resultadoSodio = Constantes.PARAM_BAJO;
+                a_sodio = 0;
             } else if (sodioPorcentaje > 120 && sodioPorcentaje <= 600) {
                 resultadoSodio = Constantes.PARAM_MEDIO;
+                a_sodio = 1;
             } else if (sodioPorcentaje > 600) {
                 resultadoSodio = Constantes.PARAM_ALTO;
+                a_sodio = 2;
             }
         } else if (tipoAlimento == TipoAlimento.ALIMENTO && azucarMedida == TipoMedidas.GRAMOS
                 && grasasMedida == TipoMedidas.GRAMOS
@@ -104,31 +117,53 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
             Log.e("******","en 2");
             if (grasasPorcentaje <= 0.75) {
                 resultadoGrasa = Constantes.PARAM_BAJO;
+                a_grasa = 0;
             } else if (grasasPorcentaje > 0.75 && grasasPorcentaje <= 2.5) {
                 resultadoGrasa = Constantes.PARAM_MEDIO;
+                a_grasa = 1;
             } else if (grasasPorcentaje > 2.5) {
                 resultadoGrasa = Constantes.PARAM_ALTO;
+                a_grasa = 2;
             }
             if (azucarPorcentaje <= 2.5) {
                 resultadoAzucar = Constantes.PARAM_BAJO;
+                a_azucar = 0;
             } else if (azucarPorcentaje > 2.5 && azucarPorcentaje <= 6.3) {
                 resultadoAzucar = Constantes.PARAM_MEDIO;
+                a_azucar = 1;
             } else if (azucarPorcentaje > 6.3) {
                 resultadoAzucar = Constantes.PARAM_ALTO;
+                a_azucar = 2;
             }
 
             if (sodioPorcentaje <= 120) {
                 resultadoSodio = Constantes.PARAM_BAJO;
+                a_sodio = 0;
             } else if (sodioPorcentaje > 120 && sodioPorcentaje <= 600) {
                 resultadoSodio = Constantes.PARAM_MEDIO;
+                a_sodio = 1;
             } else if (sodioPorcentaje > 600) {
                 resultadoSodio = Constantes.PARAM_ALTO;
+                a_sodio = 2;
             }
 
         }
+
+        if (a_sodio ==2 || a_azucar == 2 || a_grasa == 2){
+            salida_de_alimentos= "¡¡Evita consumir este producto!!";
+        }else if((a_sodio == 1 && a_azucar == 1) || (a_sodio ==1 && a_grasa == 1) ||(a_grasa == 1 && a_azucar == 1)){
+            salida_de_alimentos= "Evita el consumo regular de este producto.";
+        }else if(a_sodio == 1 || a_azucar == 1 || a_grasa == 1){
+            salida_de_alimentos = "Modera el consumo de este producto. Combínalo con alimentos frescos.";
+        }else{
+            salida_de_alimentos = "Combina este producto con alimentos frescos.";
+        }
+
         Log.e("resultadoAzucar " , resultadoAzucar);
         Log.e("resultadoGrasa ", resultadoGrasa);
         Log.e("resultadoSodio ", resultadoSodio);
+
+
 
     return null;
 }
@@ -145,7 +180,7 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
         intent.putExtra(Constantes.PARAM_AZUCAR_INT, "0");
         intent.putExtra(Constantes.PARAM_GRASA_INT, "0");
         intent.putExtra(Constantes.PARAM_SODIO_INT, "0");
-        intent.putExtra(Constantes.PARAM_TEXT, "");
+        intent.putExtra(Constantes.PARAM_TEXT, salida_de_alimentos);
         intent.putExtra(Constantes.PARAM_SABER_MAS,"");
 
         getContext().startActivity(intent);
