@@ -132,24 +132,32 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, listaUnidades);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        tamanioPorcionSpinner.setEnabled(false);
+        tamanioPorcionSpinner.setClickable(false);
         tamanioPorcionSpinner.setAdapter(adapter);
 
         azucaresSpinner = (Spinner) findViewById(R.id.azucaresSpinner);
         ArrayAdapter<String> adapterAzucares = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, listaUnidades);
         adapterAzucares.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        azucaresSpinner.setEnabled(false);
+        azucaresSpinner.setClickable(false);
         azucaresSpinner.setAdapter(adapterAzucares);
 
         grasaSpinner = (Spinner) findViewById(R.id.grasaSpinner);
         ArrayAdapter<String> adapterGrasas = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, listaUnidades);
         adapterGrasas.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        grasaSpinner.setEnabled(false);
+        grasaSpinner.setClickable(false);
         grasaSpinner.setAdapter(adapterGrasas);
 
         sodioSpinner = (Spinner) findViewById(R.id.sodioSpinner);
         ArrayAdapter<String> adapterSodio = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, listaUnidades);
         adapterSodio.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sodioSpinner.setEnabled(false);
+        sodioSpinner.setClickable(false);
         sodioSpinner.setAdapter(adapterSodio);
 
         entradaTamanioPorcion = (EditText) findViewById(R.id.edit_tamanio_porcion);
@@ -173,10 +181,11 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black);
         Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black);
 
-        Utils.formatoTextView(this, findViewById(R.id.limpiar),R.color.text_dark_gray);
+        Utils.formatoTextView(this, findViewById(R.id.limpiar), R.color.text_dark_gray);
         Utils.formatoTextView(this, findViewById(R.id.continuar),R.color.text_white);
 
         bebidaImg.performClick();
+
     }
 
     /**

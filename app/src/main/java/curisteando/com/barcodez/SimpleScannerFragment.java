@@ -112,10 +112,11 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
         fill_beans();
         boolean encontrado = false;
         int id = -1;
-        for (int i =0 ; i<datosArray.size();i++){
+        for (int i = 0; i<datosArray.size(); i++){
            if( datosArray.get(i).getCodigo().equals(codigo+"")){
                encontrado = true;
                id = i;
+               break;
            }
         }
         if (encontrado){
@@ -169,7 +170,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
                     datos.setGrasas100(json_data.getString("Cont_GS_100"));
                     datos.setSodio100(json_data.getString("Cont_sodio_100"));
                     datos.setGrado_azucar(json_data.getString("Resultado Azúcar"));
-                    datos.setGrasas(json_data.getString("Resultado Grasa Saturada"));
+                    datos.setGrado_grasa(json_data.getString("Resultado Grasa Saturada"));
                     datos.setGrado_sodio(json_data.getString("Resultado Sodio"));
                     datos.setMensaje(json_data.getString("Mensaje de advertencia"));
                     datos.setAlternativa(json_data.getString("Alternativa"));
