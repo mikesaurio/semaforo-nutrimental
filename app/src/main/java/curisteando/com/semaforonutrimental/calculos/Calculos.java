@@ -73,9 +73,8 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
         Log.e("grasasPorcentaje : ", grasasPorcentaje+"");
         Log.e("sodioPorcentaje : ", sodioPorcentaje+"");
 
-        if (tipoAlimento == TipoAlimento.BEBIDA && azucarMedida == TipoMedidas.GRAMOS
-                && grasasMedida == TipoMedidas.GRAMOS
-                && sodioMedida == TipoMedidas.MILIGRAMOS) {
+        if (tipoAlimento == TipoAlimento.BEBIDA && azucarMedida == TipoMedidas.GRAMOS && grasasMedida
+                == TipoMedidas.GRAMOS && sodioMedida == TipoMedidas.MILIGRAMOS) {
             Log.e("******","en 1");
             if (grasasPorcentaje <= 0.75) {
                 resultadoGrasa = Constantes.PARAM_BAJO;
@@ -99,10 +98,32 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
             } else if (sodioPorcentaje > 600) {
                 resultadoSodio = Constantes.PARAM_ALTO;
             }
-        } else if (tipoAlimento == TipoAlimento.BEBIDA && azucarMedida == TipoMedidas.KILOCALORIAS
-                && grasasMedida == TipoMedidas.KILOCALORIAS
+        } else if (tipoAlimento == TipoAlimento.ALIMENTO && azucarMedida == TipoMedidas.GRAMOS
+                && grasasMedida == TipoMedidas.GRAMOS
                 && sodioMedida == TipoMedidas.MILIGRAMOS) {
             Log.e("******","en 2");
+            if (grasasPorcentaje <= 0.75) {
+                resultadoGrasa = Constantes.PARAM_BAJO;
+            } else if (grasasPorcentaje > 0.75 && grasasPorcentaje <= 2.5) {
+                resultadoGrasa = Constantes.PARAM_MEDIO;
+            } else if (grasasPorcentaje > 2.5) {
+                resultadoGrasa = Constantes.PARAM_ALTO;
+            }
+            if (azucarPorcentaje <= 2.5) {
+                resultadoAzucar = Constantes.PARAM_BAJO;
+            } else if (azucarPorcentaje > 2.5 && azucarPorcentaje <= 6.3) {
+                resultadoAzucar = Constantes.PARAM_MEDIO;
+            } else if (azucarPorcentaje > 6.3) {
+                resultadoAzucar = Constantes.PARAM_ALTO;
+            }
+
+            if (sodioPorcentaje <= 120) {
+                resultadoSodio = Constantes.PARAM_BAJO;
+            } else if (sodioPorcentaje > 120 && sodioPorcentaje <= 600) {
+                resultadoSodio = Constantes.PARAM_MEDIO;
+            } else if (sodioPorcentaje > 600) {
+                resultadoSodio = Constantes.PARAM_ALTO;
+            }
 
         }
         Log.e("resultadoAzucar " , resultadoAzucar);
