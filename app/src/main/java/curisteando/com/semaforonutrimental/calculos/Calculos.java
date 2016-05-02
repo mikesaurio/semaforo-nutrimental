@@ -79,7 +79,9 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
         if (tipoAlimento == TipoAlimento.BEBIDA && azucarMedida == TipoMedidas.GRAMOS && grasasMedida
                 == TipoMedidas.GRAMOS && sodioMedida == TipoMedidas.MILIGRAMOS) {
             Log.e("******","en 1");
-            if (grasasPorcentaje <= 0.75) {
+            if(grasasPorcentaje==0){
+                resultadoGrasa = "0";
+            }else if (grasasPorcentaje <= 0.75) {
                 resultadoGrasa = Constantes.PARAM_BAJO;
                 a_grasa = 0;
             } else if (grasasPorcentaje > 0.75 && grasasPorcentaje <= 2.5) {
@@ -88,9 +90,11 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
             } else if (grasasPorcentaje > 2.5) {
                 resultadoGrasa = Constantes.PARAM_ALTO;
                 a_grasa = 2;
-
             }
-            if (azucarPorcentaje <= 2.5) {
+
+            if(azucarPorcentaje==0){
+                resultadoAzucar = "0";
+            }else if (azucarPorcentaje <= 2.5) {
                 resultadoAzucar = Constantes.PARAM_BAJO;
                 a_azucar = 0;
             } else if (azucarPorcentaje > 2.5 && azucarPorcentaje <= 6.3) {
@@ -101,7 +105,9 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
                 a_azucar = 2;
             }
 
-            if (sodioPorcentaje <= 120) {
+            if(sodioPorcentaje==0){
+                resultadoSodio = "0";
+            }else if (sodioPorcentaje <= 120) {
                 resultadoSodio = Constantes.PARAM_BAJO;
                 a_sodio = 0;
             } else if (sodioPorcentaje > 120 && sodioPorcentaje <= 600) {
@@ -115,7 +121,10 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
                 && grasasMedida == TipoMedidas.GRAMOS
                 && sodioMedida == TipoMedidas.MILIGRAMOS) {
             Log.e("******","en 2");
-            if (grasasPorcentaje <= 0.75) {
+
+            if(grasasPorcentaje==0){
+                resultadoGrasa = "0";
+            }else if (grasasPorcentaje <= 0.75) {
                 resultadoGrasa = Constantes.PARAM_BAJO;
                 a_grasa = 0;
             } else if (grasasPorcentaje > 0.75 && grasasPorcentaje <= 2.5) {
@@ -125,7 +134,10 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
                 resultadoGrasa = Constantes.PARAM_ALTO;
                 a_grasa = 2;
             }
-            if (azucarPorcentaje <= 2.5) {
+
+            if(azucarPorcentaje==0){
+                resultadoAzucar = "0";
+            }else if (azucarPorcentaje <= 2.5) {
                 resultadoAzucar = Constantes.PARAM_BAJO;
                 a_azucar = 0;
             } else if (azucarPorcentaje > 2.5 && azucarPorcentaje <= 6.3) {
@@ -136,7 +148,9 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
                 a_azucar = 2;
             }
 
-            if (sodioPorcentaje <= 120) {
+            if(sodioPorcentaje == 0){
+                resultadoSodio = "0";
+            }else if (sodioPorcentaje <= 120) {
                 resultadoSodio = Constantes.PARAM_BAJO;
                 a_sodio = 0;
             } else if (sodioPorcentaje > 120 && sodioPorcentaje <= 600) {
@@ -149,7 +163,7 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
 
         }
 
-        if (a_sodio ==2 || a_azucar == 2 || a_grasa == 2){
+        if (a_sodio == 2 || a_azucar == 2 || a_grasa == 2){
             salida_de_alimentos= "¡¡Evita consumir este producto!!";
         }else if((a_sodio == 1 && a_azucar == 1) || (a_sodio ==1 && a_grasa == 1) ||(a_grasa == 1 && a_azucar == 1)){
             salida_de_alimentos= "Evita el consumo regular de este producto.";

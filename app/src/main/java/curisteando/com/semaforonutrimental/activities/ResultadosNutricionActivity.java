@@ -67,9 +67,16 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
         if(extras.getInt(Constantes.PARAM_COMIDA_BEBIDA) == Constantes.PARAM_COMIDA){
             ((LinearLayout) findViewById(R.id.recomendaciones_comida)).setVisibility(View.VISIBLE);
+            Log.e("COMIDA", "*****");
         }else{
-
+            Log.e("BEBIDA", "*****");
+            Log.e("********* " , extras.getString(Constantes.PARAM_AZUCAR_RESULT)+"");
+            Log.e("********* " , extras.getString(Constantes.PARAM_AZUCAR_RESULT).equals("0")+"");
             ((LinearLayout) findViewById(R.id.recomendaciones_bebida)).setVisibility(View.VISIBLE);
+            if(extras.getString(Constantes.PARAM_AZUCAR_RESULT).equals("0")){
+                NotZugarDialog().show();
+            }
+
         }
 
         Utils.formatoTextView(this, findViewById(R.id.azucares_txt), R.color.text_black);
@@ -79,7 +86,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
         ((TextView) findViewById(R.id.explicacion_text)).setText(extras.getString(Constantes.PARAM_TEXT));
 
-  
+
 
         Utils.formatoTextView(this, findViewById(R.id.saber_mas_btn), R.color.text_white);
         Utils.formatoTextView(this, findViewById(R.id.compartir_txt), R.color.text_dark_gray);
@@ -96,7 +103,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         saber_mas_btn = (Button) findViewById(R.id.saber_mas_btn);
         saber_mas_btn.setOnClickListener(this);
 
-        if (findProgress(extras.getString(Constantes.PARAM_AZUCAR_RESULT) + "")==0) {
+        if (extras.getString(Constantes.PARAM_AZUCAR_RESULT).equals("0")) {
             ((TextView)findViewById(R.id.no_azucares_txt)).setVisibility(View.VISIBLE);
 
         } else{
@@ -109,7 +116,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
             resultadoAzucar.setMax(100);
         }
 
-        if (findProgress(extras.getString(Constantes.PARAM_GRASA_RESULT) + "")==0) {
+        if (extras.getString(Constantes.PARAM_GRASA_RESULT).equals("0")) {
             ((TextView)findViewById(R.id.no_grasa_txt)).setVisibility(View.VISIBLE);
 
         } else {
@@ -122,7 +129,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
             resultadoGrasa.setMax(100);
         }
 
-        if (findProgress(extras.getString(Constantes.PARAM_SODIO_RESULT) + "")==0) {
+        if (extras.getString(Constantes.PARAM_SODIO_RESULT).equals("0")) {
             ((TextView)findViewById(R.id.no_sodio_txt)).setVisibility(View.VISIBLE);
 
         } else {
@@ -286,8 +293,40 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
 
         Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_url), R.color.text_white);
-        ((TextView) view.findViewById(R.id.dialogo_mas_url)).setText(Html.fromHtml("<a href="+url+">más información</a>"));
+        ((TextView) view.findViewById(R.id.dialogo_mas_url)).setText(Html.fromHtml("<a href=" + url + ">más información</a>"));
         ((TextView) view.findViewById(R.id.dialogo_mas_url)). setMovementMethod(LinkMovementMethod.getInstance());
+        //escucha del boton aceptar
+        ((ImageView) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                customDialog.dismiss();
+            }
+        });
+        return (customDialog=builder.create());// return customDialog;//regresamos el di�logo
+    }
+
+
+    /**
+     * Dialogo que muestra el acerca de
+     *
+     * @return Dialog (regresa el dialogo creado)
+     **/
+    public Dialog NotZugarDialog()
+    {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_mas, null);
+        builder.setView(view);
+        builder.setCancelable(true);
+
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_txt), R.color.text_white);
+        ((TextView) view.findViewById(R.id.dialogo_mas_txt)).setText(getString(R.string.not_zugar));
+
+
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_url), R.color.text_white);
+        ((TextView) view.findViewById(R.id.dialogo_mas_url)).setVisibility(TextView.GONE);
+
         //escucha del boton aceptar
         ((ImageView) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {
             @Override

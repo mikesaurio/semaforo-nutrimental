@@ -66,4 +66,6 @@
     <string name="defaul_mensaje">Mensaje: </string>
     <string name="defaul_mensaje_text">Alimentate sanamente </string>
     <string name="no_contiene">No contiene</string>
+
+    <string name="not_zugar">Si esta bebida es diferente al agua natural, entonces contiene sustitutos de azucar como aspartame, acesulfame-k, sucralosa, neotame o stevia. ¡Esto no lo hace más saludable!. No se recomienda para niños. </string>
 </resources>
