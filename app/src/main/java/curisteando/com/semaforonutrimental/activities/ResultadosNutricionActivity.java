@@ -70,8 +70,6 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
             Log.e("COMIDA", "*****");
         }else{
             Log.e("BEBIDA", "*****");
-            Log.e("********* " , extras.getString(Constantes.PARAM_AZUCAR_RESULT)+"");
-            Log.e("********* " , extras.getString(Constantes.PARAM_AZUCAR_RESULT).equals("0")+"");
             ((LinearLayout) findViewById(R.id.recomendaciones_bebida)).setVisibility(View.VISIBLE);
             if(extras.getString(Constantes.PARAM_AZUCAR_RESULT).equals("0")){
                 NotZugarDialog().show();
@@ -105,6 +103,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
         if (extras.getString(Constantes.PARAM_AZUCAR_RESULT).equals("0")) {
             ((TextView)findViewById(R.id.no_azucares_txt)).setVisibility(View.VISIBLE);
+            ((TextView)findViewById(R.id.azucares_txt)).setText("Azúcares");
 
         } else{
             resultadoAzucar = (IconRoundCornerProgressBar) findViewById(R.id.progress_azucar);
@@ -118,6 +117,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
         if (extras.getString(Constantes.PARAM_GRASA_RESULT).equals("0")) {
             ((TextView)findViewById(R.id.no_grasa_txt)).setVisibility(View.VISIBLE);
+            ((TextView)findViewById(R.id.grasa_txt)).setText("Grasa saturada");
 
         } else {
             resultadoGrasa = (IconRoundCornerProgressBar) findViewById(R.id.progress_grasa);
@@ -131,6 +131,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
         if (extras.getString(Constantes.PARAM_SODIO_RESULT).equals("0")) {
             ((TextView)findViewById(R.id.no_sodio_txt)).setVisibility(View.VISIBLE);
+            ((TextView)findViewById(R.id.sodio_txt)).setText("Sodio");
 
         } else {
             resultadoSodio = (IconRoundCornerProgressBar) findViewById(R.id.progress_sodio);
