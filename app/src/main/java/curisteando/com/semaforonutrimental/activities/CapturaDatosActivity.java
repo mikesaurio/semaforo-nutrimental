@@ -6,7 +6,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -332,15 +335,18 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         //metrics.widthPixels
 
-        ((LinearLayout) view.findViewById(R.id.img_help_1)).setLayoutParams(new LinearLayout.LayoutParams(metrics.widthPixels / 3, metrics.heightPixels / 2, 0.4f));
-        ((LinearLayout) view.findViewById(R.id.img_help_2)).setLayoutParams(new LinearLayout.LayoutParams(metrics.widthPixels / 3, metrics.heightPixels / 2, 0.4f));
+        ((ImageView) view.findViewById(R.id.img_help_1)).setLayoutParams(new LinearLayout.LayoutParams(metrics.heightPixels / 3, LinearLayout.LayoutParams.WRAP_CONTENT));
+        //((LinearLayout) view.findViewById(R.id.img_help_2)).setLayoutParams(new LinearLayout.LayoutParams(metrics.widthPixels / 3, metrics.heightPixels / 2, 0.4f));
 
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialog_lista), R.color.text_white);
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialog_nutrimental), R.color.text_white);
+        ((TextView) view.findViewById(R.id.dialogo_acercade_nota1)).setText(Html.fromHtml("Por el momento este producto no se encuentra en nuestra base de datos."));
+        ((TextView) view.findViewById(R.id.dialogo_acercade_nota2)).setText(Html.fromHtml("Para llenar los datos en la pantalla siguiente:"));
+        ((TextView) view.findViewById(R.id.dialogo_acercade_nota3)).setText(Html.fromHtml("1° Ubica la <b>Información nutrimental</b> que se encuentra <b>AL REVERSO</b> del producto, en una tabla o listado."));
+        ((TextView) view.findViewById(R.id.dialogo_acercade_nota4)).setText(Html.fromHtml("2° Identifica el tamaño de la <b>PORCIÓN</b> como en el ejemplo."));
 
-
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_tv_correo), R.color.text_white);
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_nota), R.color.text_white);
+        //Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_nota1), R.color.text_white);
+        //Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_nota2), R.color.text_white);
+        //Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_nota3), R.color.text_white);
+        //Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_nota4), R.color.text_white);
 
         //escucha del boton aceptar
         ((ImageView) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {

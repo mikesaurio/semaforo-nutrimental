@@ -17,9 +17,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:layout_weight=".8"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -43,106 +42,61 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:gravity="center">
                     <TextView
-                        android:id="@+id/dialogo_acercade_tv_correo"
+                        android:id="@+id/dialogo_acercade_nota1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/text_white"
-                        android:paddingBottom="8sp"
                         android:textSize="@dimen/abc_text_size_small_material"
                         android:layout_gravity="center_horizontal"
-                        android:text="@string/text_explica" />
+                        android:gravity="center"
+                        android:layout_marginBottom="15sp"
+                        android:text="@string/text_explica1" />
 
                     <TextView
-                        android:id="@+id/dialogo_acercade_nota"
+                        android:id="@+id/dialogo_acercade_nota2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/abc_text_size_small_material"
                         android:textColor="@color/text_white"
+                        android:gravity="center"
+                        android:layout_marginBottom="15sp"
                         android:layout_gravity="center_horizontal"
-                        android:text="@string/text_explica_nota" />
+                        android:text="@string/text_explica2" />
+
+                    <TextView
+                        android:id="@+id/dialogo_acercade_nota3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/abc_text_size_small_material"
+                        android:textColor="@color/text_white"
+                        android:gravity="center"
+                        android:layout_marginBottom="15sp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/text_explica3" />
+
+                    <TextView
+                        android:id="@+id/dialogo_acercade_nota4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/abc_text_size_small_material"
+                        android:textColor="@color/text_white"
+                        android:gravity="center"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/text_explica4" />
+
+                    <ImageView
+                        android:id="@+id/img_help_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/lista_uno"
+                        android:layout_gravity="center_horizontal" />
+
                 </LinearLayout>
 
-
             </ScrollView>
-
-            <View
-                android:layout_width="30dp"
-                android:layout_height="2dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="2dp" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/text_white" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"
-            android:orientation="horizontal" >
-
-            <LinearLayout
-                android:id="@+id/img_help_1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".4"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nutrimental"
-                    android:textSize="@dimen/abc_text_size_caption_material"
-                    android:textColor="@color/text_white"
-                    android:id="@+id/dialog_nutrimental" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/lista_uno"
-                    android:layout_gravity="center_horizontal" />
-            </LinearLayout>
-
-
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@color/text_white" />
-
-            <LinearLayout
-                android:id="@+id/img_help_2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight=".4"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/lista"
-                    android:textSize="@dimen/abc_text_size_caption_material"
-                    android:textColor="@color/text_white"
-                    android:id="@+id/dialog_lista" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/lista_dos"
-                    android:layout_gravity="center_horizontal" />
-            </LinearLayout>
-
-
-
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>
