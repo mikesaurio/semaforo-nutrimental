@@ -124,26 +124,26 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
 
             if(grasasPorcentaje==0){
                 resultadoGrasa = "0";
-            }else if (grasasPorcentaje <= 0.75) {
+            }else if (grasasPorcentaje <= 1.5) {
                 resultadoGrasa = Constantes.PARAM_BAJO;
                 a_grasa = 0;
-            } else if (grasasPorcentaje > 0.75 && grasasPorcentaje <= 2.5) {
+            } else if (grasasPorcentaje > 1.5 && grasasPorcentaje <= 5) {
                 resultadoGrasa = Constantes.PARAM_MEDIO;
                 a_grasa = 1;
-            } else if (grasasPorcentaje > 2.5) {
+            } else if (grasasPorcentaje > 5) {
                 resultadoGrasa = Constantes.PARAM_ALTO;
                 a_grasa = 2;
             }
 
             if(azucarPorcentaje==0){
                 resultadoAzucar = "0";
-            }else if (azucarPorcentaje <= 2.5) {
+            }else if (azucarPorcentaje <= 5) {
                 resultadoAzucar = Constantes.PARAM_BAJO;
                 a_azucar = 0;
-            } else if (azucarPorcentaje > 2.5 && azucarPorcentaje <= 6.3) {
+            } else if (azucarPorcentaje > 5 && azucarPorcentaje <= 12.5) {
                 resultadoAzucar = Constantes.PARAM_MEDIO;
                 a_azucar = 1;
-            } else if (azucarPorcentaje > 6.3) {
+            } else if (azucarPorcentaje > 12.5) {
                 resultadoAzucar = Constantes.PARAM_ALTO;
                 a_azucar = 2;
             }
