@@ -6,7 +6,6 @@
     android:layout_gravity="center"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    android:padding="5dp"
     android:background="@color/text_black" >
 
     <LinearLayout
@@ -17,8 +16,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight=".8"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -29,15 +29,23 @@
 
                 <ImageView
                     android:id="@+id/dialogo_acercade_btnAceptar"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/ic_launcher_close"
                     android:scaleType="centerCrop"/>
             </LinearLayout>
 
-            <ScrollView
+            <ImageView
                 android:layout_width="wrap_content"
+                android:layout_height="50sp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo_semaforo"
+                android:scaleType="centerCrop"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="10dp"
                 android:overScrollMode="never" >
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -45,58 +53,37 @@
                     android:orientation="vertical"
                     android:gravity="center">
                     <TextView
-                        android:id="@+id/dialogo_acercade_nota1"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/text_azucar_dialog_1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/text_white"
-                        android:textSize="@dimen/abc_text_size_small_material"
-                        android:layout_gravity="center_horizontal"
+                        android:paddingBottom="8sp"
                         android:gravity="center"
-                        android:layout_marginBottom="15sp"
-                        android:text="@string/text_explica1" />
-
+                        android:textSize="@dimen/abc_text_size_small_material"
+                        android:text="@string/not_zugar1" />
                     <TextView
-                        android:id="@+id/dialogo_acercade_nota2"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/text_azucar_dialog_2"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/abc_text_size_small_material"
                         android:textColor="@color/text_white"
+                        android:paddingBottom="8sp"
                         android:gravity="center"
-                        android:layout_marginBottom="15sp"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/text_explica2" />
-
+                        android:text="@string/not_zugar2" />
                     <TextView
-                        android:id="@+id/dialogo_acercade_nota3"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/text_azucar_dialog_3"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/abc_text_size_small_material"
                         android:textColor="@color/text_white"
+                        android:paddingBottom="8sp"
                         android:gravity="center"
-                        android:layout_marginBottom="15sp"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/text_explica3" />
-
-                    <TextView
-                        android:id="@+id/dialogo_acercade_nota4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/abc_text_size_small_material"
-                        android:textColor="@color/text_white"
-                        android:gravity="center"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/text_explica4" />
-
-                    <ImageView
-                        android:id="@+id/img_help_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/lista_uno"
-                        android:layout_gravity="center_horizontal" />
-
+                        android:text="@string/not_zugar3" />
                 </LinearLayout>
 
+
             </ScrollView>
+
         </LinearLayout>
+
+
     </LinearLayout>
 </FrameLayout>

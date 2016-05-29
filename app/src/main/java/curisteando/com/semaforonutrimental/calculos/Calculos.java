@@ -1,5 +1,6 @@
 package curisteando.com.semaforonutrimental.calculos;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +30,7 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
 
     private ProgressDialog progress;
     private Context context;
+    Activity act;
     private final int basePorcion = 100;
     private String resultadoAzucar = "", resultadoGrasa = "", resultadoSodio = "";
     private int tipoProducto;
@@ -36,8 +38,9 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
     private int l_sodio = -1, l_grasa = -1, l_azucar = -1;
     private int a_sodio = -1, a_grasa = -1, a_azucar = -1;
 
-    public Calculos(Context context) {
+    public Calculos(Context context, Activity act) {
         this.context = context;
+        this.act = act;
     }
 
     @Override
@@ -209,6 +212,7 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
         intent.putExtra(Constantes.PARAM_SABER_MAS,"");
 
         getContext().startActivity(intent);
+        act.finish();
     }
 
     private Context getContext() {

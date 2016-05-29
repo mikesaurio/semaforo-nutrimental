@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 
+import curisteando.com.barcodez.SimpleScannerFragmentActivity;
 import curisteando.com.semaforonutrimental.R;
 import curisteando.com.semaforonutrimental.utilidades.Constantes;
 import curisteando.com.semaforonutrimental.utilidades.TipoResultado;
@@ -88,6 +89,15 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
         Utils.formatoTextView(this, findViewById(R.id.saber_mas_btn), R.color.text_white);
         Utils.formatoTextView(this, findViewById(R.id.compartir_txt), R.color.text_dark_gray);
+
+
+        LinearLayout ll_buton__back_scanner=(LinearLayout)findViewById(R.id.ll_buton__back_scanner);
+        ll_buton__back_scanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ResultadosNutricionActivity.this.finish();
+            }
+        });
 
         //((TextView) findViewById(R.id.azucares_txt)).append(" " + extras.getString(Constantes.PARAM_AZUCAR_INT) + "");
         //((TextView) findViewById(R.id.grasa_txt)).append(" " + extras.getString(Constantes.PARAM_GRASA_INT) + "");
@@ -317,16 +327,20 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
     {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = getLayoutInflater().inflate(R.layout.dialog_mas, null);
+        View view = getLayoutInflater().inflate(R.layout.dialog_sin_azucar, null);
         builder.setView(view);
         builder.setCancelable(true);
 
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_txt), R.color.text_white);
-        ((TextView) view.findViewById(R.id.dialogo_mas_txt)).setText(getString(R.string.not_zugar));
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.text_azucar_dialog_1), R.color.text_white);
+        ((TextView) view.findViewById(R.id.text_azucar_dialog_1)).setText(getString(R.string.not_zugar1));
+
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.text_azucar_dialog_2), R.color.text_white);
+        ((TextView) view.findViewById(R.id.text_azucar_dialog_2)).setText(getString(R.string.not_zugar2));
+
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.text_azucar_dialog_3), R.color.text_white);
+        ((TextView) view.findViewById(R.id.text_azucar_dialog_3)).setText(getString(R.string.not_zugar3));
 
 
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_url), R.color.text_white);
-        ((TextView) view.findViewById(R.id.dialogo_mas_url)).setVisibility(TextView.GONE);
 
         //escucha del boton aceptar
         ((ImageView) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {

@@ -23,7 +23,7 @@
     <string name="action_settings">Settings</string>
     <string name="apunta_codigo_barras">Apunta al código de barras:</string>
 
-    <string name="que_tanto_sabes_de_lo_que_comes">Selecciona tipo de producto:</string>
+    <string name="que_tanto_sabes_de_lo_que_comes">Selecciona tipo de producto</string>
     <string name="tipo_alimento">Tipo Alimento</string>
     <string name="tamanio_porcion">Tamaño porción</string>
     <string name="tamanio_porcion_">Tamaño porción:</string>
@@ -66,6 +66,12 @@
     <string name="defaul_mensaje">Mensaje: </string>
     <string name="defaul_mensaje_text">Alimentate sanamente </string>
     <string name="no_contiene">No contiene</string>
-
+    <string name="text_explica1"><p><small>Por el momento este producto no se encuentra en nuestra base de datos.</small></p></string>
+    <string name="text_explica2"><p><small>Para llenar los datos en la pantalla siguiente:</small></p></string>
+    <string name="text_explica3"><p><small>1° Ubica la </small><big>Información nutrimental</big> <small>que se encuentra </small><big>AL REVERSO</big> <small>del producto, en una tabla o listado.</small></p></string>
+    <string name="text_explica4"><p><small>2° Identifica el tamaño de la </small><big>PORCIÓN</big> <small>como en el ejemplo.</small></p></string>
     <string name="not_zugar">Si esta bebida es diferente al agua natural, entonces contiene sustitutos de azucar como aspartame, acesulfame-k, sucralosa, neotame o stevia. ¡Esto no lo hace más saludable!. No se recomienda para niños. </string>
+    <string name="not_zugar1">Si esta bebida es diferente al agua natural, Entonces contiene sustitutos de azúcar como Aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
+    <string name="not_zugar2">¡Esto no lo hace más saludable!</string>
+    <string name="not_zugar3">No se recomienda para niños.</string>
 </resources>
