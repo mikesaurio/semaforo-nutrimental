@@ -271,7 +271,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
             if(entradaAzucares.getText().toString().equals("")||entradaGrasa.getText().toString().equals("")||
                     entradaSodio.getText().toString().equals("")||entradaTamanioPorcion.getText().toString().equals("")){
                 Toast.makeText(getBaseContext(), "Debes llenar todos los campos",Toast.LENGTH_LONG).show();
-            }else {
+            }else{
 
                 ParametrosCalculo params = new ParametrosCalculo();
                 params.setTipoAlimento(alimento);
@@ -287,7 +287,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
                 params.setSodioMedida(TipoMedidas.values()[sodioSpinner.getSelectedItemPosition()]);
                 params.setTipoProducto(tipoProducto);
 
-                new Calculos(getContext()).execute(params);
+                new Calculos(getContext(),CapturaDatosActivity.this).execute(params);
             }
         }else if(v == alimentoImg){
             alimentoImg.setImageResource(R.drawable.alimento_azul);
