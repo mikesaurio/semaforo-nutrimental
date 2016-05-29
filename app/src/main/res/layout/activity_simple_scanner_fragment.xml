@@ -52,6 +52,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/ll_buton_scanner"
             android:padding="30sp"
             android:weightSum="2"
             android:background="@drawable/round_corners"

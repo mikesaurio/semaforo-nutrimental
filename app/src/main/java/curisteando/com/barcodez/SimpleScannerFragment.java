@@ -59,6 +59,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+
         mScannerView = new ZBarScannerView(getActivity());
         mSurfaceView = new SurfaceView(getActivity());
         datosArray = new ArrayList<datos_bean>();
