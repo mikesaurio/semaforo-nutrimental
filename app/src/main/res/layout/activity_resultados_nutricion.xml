@@ -323,6 +323,30 @@
                     android:src="@mipmap/ic_launcher_share" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/ll_buton__back_scanner"
+                android:padding="20sp"
+                android:layout_marginTop="15sp"
+                android:layout_marginBottom="5sp"
+                android:background="@drawable/round_corners"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/button_text"
+                    android:text="Regresar al escáner"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/abc_text_size_small_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
         </LinearLayout>
     </ScrollView>
 
