@@ -28,7 +28,7 @@
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
-            android:text="Pastelillo o pan dulce." />
+            android:text="Pastelillos o pan dulce" />
 
         <TextView
             android:layout_width="0dp"
@@ -38,7 +38,7 @@
             android:paddingLeft="5dp"
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_black"
-            android:text="Mejor come un plato de avena y/o amaranto con fruta." />
+            android:text="Mejor come un plato de avena y/o amaranto con fruta" />
     </LinearLayout>
 
 
@@ -58,7 +58,7 @@
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
-            android:text="Galleta o barrita." />
+            android:text="Galletas y barritas" />
 
         <TextView
             android:layout_width="0dp"
@@ -68,7 +68,7 @@
             android:paddingLeft="5dp"
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_black"
-            android:text="Mejor come un plato de avena y/o amaranto con fruta y semillas." />
+            android:text="Mejor come un plato de avena y/o amaranto con fruta y semillas" />
     </LinearLayout>
 
 
@@ -88,7 +88,7 @@
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
-            android:text="Cereal azucarado." />
+            android:text="Cereales azucarados" />
 
         <TextView
             android:layout_width="0dp"
@@ -98,7 +98,7 @@
             android:paddingLeft="5dp"
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_black"
-            android:text="Mejor come un plato de avena y/o amaranto con fruta." />
+            android:text="Mejor come un plato de avena y/o amaranto con fruta y semillas" />
     </LinearLayout>
 
 
@@ -118,7 +118,7 @@
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
-            android:text="Chocolate" />
+            android:text="Chocolates" />
 
         <TextView
             android:layout_width="0dp"
@@ -128,7 +128,7 @@
             android:paddingLeft="5dp"
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_black"
-            android:text="Mejor come un buen chocolate, entre más amargo, más cocoa y menos azúcar tiene.." />
+            android:text="Mejor come un buen chocolate, entre más amargo, más cocoa y menos azúcar tiene" />
     </LinearLayout>
 
 
@@ -148,7 +148,7 @@
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
-            android:text="Fritura o botana" />
+            android:text="Frituras o botanas" />
 
         <TextView
             android:layout_width="0dp"
@@ -159,5 +159,62 @@
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_black"
             android:text="Mejor come semillas naturales como pepitas de calabaza o de girazol, cacahuates naturales, almendras, nueces, ajonjoí, etc." />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".4"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textColor="@color/text_white"
+            android:background="@drawable/round_corners_blue"
+            android:text="Alimento enlatado o listo para preparar" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".6"
+            android:gravity="left|center"
+            android:paddingLeft="5dp"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textColor="@color/text_black"
+            android:text="Mejor haz menús semanales, ve al mercado y prepara ricos platillos con alimentos frescos" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".4"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textColor="@color/text_white"
+            android:background="@drawable/round_corners_blue"
+            android:text="Pan de caja, tortillas de harina, galletas saladas
+" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".6"
+            android:gravity="left|center"
+            android:paddingLeft="5dp"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textColor="@color/text_black"
+            android:text="Mejor prefiere el pan integral artesanal, las tortillas de maíz y las tostadas horneadas" />
     </LinearLayout>
 </LinearLayout>

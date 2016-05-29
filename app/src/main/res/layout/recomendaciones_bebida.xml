@@ -38,9 +38,8 @@
             android:paddingLeft="5dp"
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_black"
-            android:text="No tienes que evitarla solo modera su consumo." />
+            android:text="No tienes que evitarla solo modera su consumo" />
     </LinearLayout>
-
 
     <LinearLayout
         android:orientation="horizontal"
@@ -58,7 +57,36 @@
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
-            android:text="Yogurt o leche saborizada" />
+            android:text="Leches vegetales" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".6"
+            android:gravity="left|center"
+            android:paddingLeft="5dp"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textColor="@color/text_black"
+            android:text="Mejor prepara leche vegetal casera y complementa con fuentes de calcio" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".4"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textColor="@color/text_white"
+            android:background="@drawable/round_corners_blue"
+            android:text="Yogurt y bebidas lácteas saborizadas" />
 
         <TextView
             android:layout_width="0dp"
@@ -88,7 +116,7 @@
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
-            android:text="Refresco, jugo o bebida azucarada." />
+            android:text="Refrescos, jugos y bebidas" />
 
         <TextView
             android:layout_width="0dp"
@@ -98,6 +126,6 @@
             android:paddingLeft="5dp"
             android:textSize="@dimen/abc_text_size_caption_material"
             android:textColor="@color/text_black"
-            android:text="Mejor toma agua simple, agua fresca con fruta y poca azucar, té o café sin azucar." />
+            android:text="Mejor toma agua simple, agua fresca con fruta y poca azúcar, o té o café sin azúcar" />
     </LinearLayout>
 </LinearLayout>
