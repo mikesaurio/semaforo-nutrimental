@@ -23,7 +23,7 @@
     <string name="action_settings">Settings</string>
     <string name="apunta_codigo_barras">Apunta al código de barras:</string>
 
-    <string name="que_tanto_sabes_de_lo_que_comes">Selecciona tipo de producto:</string>
+    <string name="que_tanto_sabes_de_lo_que_comes">Selecciona tipo de producto</string>
     <string name="tipo_alimento">Tipo Alimento</string>
     <string name="tamanio_porcion">Tamaño porción</string>
     <string name="tamanio_porcion_">Tamaño porción:</string>
