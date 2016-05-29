@@ -71,4 +71,7 @@
     <string name="text_explica3"><p><small>1° Ubica la </small><big>Información nutrimental</big> <small>que se encuentra </small><big>AL REVERSO</big> <small>del producto, en una tabla o listado.</small></p></string>
     <string name="text_explica4"><p><small>2° Identifica el tamaño de la </small><big>PORCIÓN</big> <small>como en el ejemplo.</small></p></string>
     <string name="not_zugar">Si esta bebida es diferente al agua natural, entonces contiene sustitutos de azucar como aspartame, acesulfame-k, sucralosa, neotame o stevia. ¡Esto no lo hace más saludable!. No se recomienda para niños. </string>
+    <string name="not_zugar1">Si esta bebida es diferente al agua natural, Entonces contiene sustitutos de azúcar como Aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
+    <string name="not_zugar2">¡Esto no lo hace más saludable!</string>
+    <string name="not_zugar3">No se recomienda para niños.</string>
 </resources>

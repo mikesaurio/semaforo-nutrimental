@@ -317,16 +317,20 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
     {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = getLayoutInflater().inflate(R.layout.dialog_mas, null);
+        View view = getLayoutInflater().inflate(R.layout.dialog_sin_azucar, null);
         builder.setView(view);
         builder.setCancelable(true);
 
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_txt), R.color.text_white);
-        ((TextView) view.findViewById(R.id.dialogo_mas_txt)).setText(getString(R.string.not_zugar));
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.text_azucar_dialog_1), R.color.text_white);
+        ((TextView) view.findViewById(R.id.text_azucar_dialog_1)).setText(getString(R.string.not_zugar1));
+
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.text_azucar_dialog_2), R.color.text_white);
+        ((TextView) view.findViewById(R.id.text_azucar_dialog_2)).setText(getString(R.string.not_zugar2));
+
+        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.text_azucar_dialog_3), R.color.text_white);
+        ((TextView) view.findViewById(R.id.text_azucar_dialog_3)).setText(getString(R.string.not_zugar3));
 
 
-        Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_url), R.color.text_white);
-        ((TextView) view.findViewById(R.id.dialogo_mas_url)).setVisibility(TextView.GONE);
 
         //escucha del boton aceptar
         ((ImageView) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {
