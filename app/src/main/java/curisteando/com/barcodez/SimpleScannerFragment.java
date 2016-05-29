@@ -163,16 +163,16 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
                     datos.setEmpresa(json_data.getString("Empresa"));
                     datos.setNeto(json_data.getString("Cont_neto"));
                     datos.setPorcion(json_data.getString("Porción"));
-                    datos.setAzucar(json_data.getString("Cont_azúcar"));
-                    datos.setGrasas(json_data.getString("Cont_GS"));
-                    datos.setSodio(json_data.getString("Cont_sodio"));
+                    datos.setAzucar(json_data.getString("Cont_azúcar por porción"));
+                    datos.setGrasas(json_data.getString("Cont_GS por porción"));
+                    datos.setSodio(json_data.getString("Cont_sodio por porción"));
                     datos.setAzucar100(json_data.getString("Cont_azúcar_100"));
                     datos.setGrasas100(json_data.getString("Cont_GS_100"));
                     datos.setSodio100(json_data.getString("Cont_sodio_100"));
                     datos.setGrado_azucar(json_data.getString("Resultado Azúcar"));
                     datos.setGrado_grasa(json_data.getString("Resultado Grasa Saturada"));
                     datos.setGrado_sodio(json_data.getString("Resultado Sodio"));
-                    datos.setMensaje(json_data.getString("Mensaje de advertencia"));
+                    datos.setMensaje(json_data.getString("Mensaje"));
                     datos.setAlternativa(json_data.getString("Alternativa"));
                     datosArray.add(datos);
                 }
