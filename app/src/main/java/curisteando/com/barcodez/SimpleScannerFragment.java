@@ -169,7 +169,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
                     datos.setAzucar100(json_data.getString("Cont_azúcar_100"));
                     datos.setGrasas100(json_data.getString("Cont_GS_100"));
                     datos.setSodio100(json_data.getString("Cont_sodio_100"));
-                    datos.setGrado_azucar(json_data.getString("Resultado Azúcar"));
+                    datos.setGrado_azucar(json_data.getString("Resultado Azucar"));
                     datos.setGrado_grasa(json_data.getString("Resultado Grasa Saturada"));
                     datos.setGrado_sodio(json_data.getString("Resultado Sodio"));
                     datos.setMensaje(json_data.getString("Mensaje"));
@@ -179,7 +179,8 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
                // Toast.makeText(getActivity().getBaseContext(), datosArray.size() + " en "+j, Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 e.printStackTrace();
-                Log.e("FALLA AL CARGAR", "FALLA");
+                Log.e("FALLA AL CARGAR", e.getMessage());
+
             }
         }
     }
