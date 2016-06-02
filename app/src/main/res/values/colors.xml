@@ -5,6 +5,7 @@
     <color name="blue_button">#3DC1F1</color>
     <color name="gray_button">#D1D2D4</color>
     <color name="purple_button">#BD7EB7</color>
+    <color name="ColorPrimaryDark">#D1D2D4</color>
 
     <color name="red_result">#CF2027</color>
     <color name="yellow_result">#F6CE0C</color>

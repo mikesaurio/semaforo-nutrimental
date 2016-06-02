@@ -25,7 +25,7 @@
             android:layout_weight=".4"
             android:textStyle="bold"
             android:gravity="center"
-            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
             android:text="Leche, semi o descremada natural" />
@@ -36,7 +36,7 @@
             android:layout_weight=".6"
             android:gravity="left|center"
             android:paddingLeft="5dp"
-            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black"
             android:text="No tienes que evitarla solo modera su consumo" />
     </LinearLayout>
@@ -54,7 +54,7 @@
             android:layout_weight=".4"
             android:textStyle="bold"
             android:gravity="center"
-            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
             android:text="Leches vegetales" />
@@ -65,7 +65,7 @@
             android:layout_weight=".6"
             android:gravity="left|center"
             android:paddingLeft="5dp"
-            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black"
             android:text="Mejor prepara leche vegetal casera y complementa con fuentes de calcio" />
     </LinearLayout>
@@ -83,7 +83,7 @@
             android:layout_weight=".4"
             android:textStyle="bold"
             android:gravity="center"
-            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
             android:text="Yogurt y bebidas lácteas saborizadas" />
@@ -94,7 +94,7 @@
             android:layout_weight=".6"
             android:gravity="left|center"
             android:paddingLeft="5dp"
-            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black"
             android:text="Mejor toma leche sola, con canela o vainilla sin azucar" />
     </LinearLayout>
@@ -113,10 +113,10 @@
             android:layout_weight=".4"
             android:textStyle="bold"
             android:gravity="center"
-            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_white"
             android:background="@drawable/round_corners_blue"
-            android:text="Refrescos, jugos y bebidas" />
+            android:text="Refresco, jugo o bebida azucarada" />
 
         <TextView
             android:layout_width="0dp"
@@ -124,7 +124,7 @@
             android:layout_weight=".6"
             android:gravity="left|center"
             android:paddingLeft="5dp"
-            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black"
             android:text="Mejor toma agua simple, agua fresca con fruta y poca azúcar, o té o café sin azúcar" />
     </LinearLayout>
