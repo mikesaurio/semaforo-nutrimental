@@ -121,6 +121,9 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
            }
         }
         if (encontrado){
+            Log.e("resultadoAzucar " , datosArray.get(id).getGrado_azucar());
+            Log.e("resultadoGrasa ", datosArray.get(id).getGrado_grasa());
+            Log.e("resultadoSodio ", datosArray.get(id).getGrado_sodio());
             Intent intent = new Intent(getActivity(), ResultadosNutricionActivity.class);
             intent.putExtra(Constantes.PARAM_COMIDA_BEBIDA, datosArray.get(id).getTipoProducto());
             intent.putExtra(Constantes.CONST_CODIGO_BARRAS, codigo);

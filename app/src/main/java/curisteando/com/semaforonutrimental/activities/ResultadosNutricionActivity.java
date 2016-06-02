@@ -111,7 +111,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         saber_mas_btn = (Button) findViewById(R.id.saber_mas_btn);
         saber_mas_btn.setOnClickListener(this);
 
-        if (extras.getString(Constantes.PARAM_AZUCAR_RESULT).equals("0")) {
+        if (extras.getString(Constantes.PARAM_AZUCAR_RESULT).equals("0") || extras.getString(Constantes.PARAM_AZUCAR_RESULT).equals("No contiene")) {
             ((TextView)findViewById(R.id.no_azucares_txt)).setVisibility(View.VISIBLE);
             ((TextView)findViewById(R.id.azucares_txt)).setText("Azúcares");
 
@@ -125,7 +125,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
             resultadoAzucar.setMax(100);
         }
 
-        if (extras.getString(Constantes.PARAM_GRASA_RESULT).equals("0")) {
+        if (extras.getString(Constantes.PARAM_GRASA_RESULT).equals("0")|| extras.getString(Constantes.PARAM_GRASA_RESULT).equals("No contiene")) {
             ((TextView)findViewById(R.id.no_grasa_txt)).setVisibility(View.VISIBLE);
             ((TextView)findViewById(R.id.grasa_txt)).setText("Grasa saturada");
 
@@ -139,7 +139,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
             resultadoGrasa.setMax(100);
         }
 
-        if (extras.getString(Constantes.PARAM_SODIO_RESULT).equals("0")) {
+        if (extras.getString(Constantes.PARAM_SODIO_RESULT).equals("0") || extras.getString(Constantes.PARAM_SODIO_RESULT).equals("No contiene")) {
             ((TextView)findViewById(R.id.no_sodio_txt)).setVisibility(View.VISIBLE);
             ((TextView)findViewById(R.id.sodio_txt)).setText("Sodio");
 
