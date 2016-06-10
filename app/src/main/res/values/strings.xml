@@ -79,4 +79,13 @@
     <string name="not_zugar1">Si esta bebida es diferente al agua natural, Entonces contiene sustitutos de azúcar como Aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
     <string name="not_zugar2">¡Esto no lo hace más saludable!</string>
     <string name="not_zugar3">No se recomienda para niños.</string>
+
+    <string name="text_consejo_alimento_rojo">¡¡Evita consumir este producto!!</string>
+    <string name="text_consejo_alimento_amarillo_uno">Evita el consumo regular de este producto.</string>
+    <string name="text_consejo_alimento_amarillo_dos">Modera el consumo de este producto. Combínalo con alimentos frescos.</string>
+    <string name="text_consejo_alimento_verde">Combina este producto con alimentos frescos.</string>
+
+    <string name="text_consejo_bebida_rojo">¡¡Evita consumir este producto!!</string>
+    <string name="text_consejo_bebida_amarillo">Modera el consumo de este producto. Combínalo con alimentos frescos.</string>
+    <string name="text_consejo_bebida_verde">Combina este producto con alimentos frescos.</string>
 </resources>
