@@ -74,10 +74,6 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
         double grasasPorcentaje = ((porcionPorcentaje * grasasVal) / 100);
         double sodioPorcentaje = ((porcionPorcentaje * sodioVal) / 100);
 
-        Log.e("porcionPorcentaje : ", porcionPorcentaje+"");
-        Log.e("azucarPorcentaje : ", azucarPorcentaje+"");
-        Log.e("grasasPorcentaje : ", grasasPorcentaje+"");
-        Log.e("sodioPorcentaje : ", sodioPorcentaje+"");
 
         if (tipoAlimento == TipoAlimento.BEBIDA && azucarMedida == TipoMedidas.GRAMOS && grasasMedida
                 == TipoMedidas.GRAMOS && sodioMedida == TipoMedidas.MILIGRAMOS) {
@@ -168,29 +164,23 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
 
         if(a_sodio != -1){
             if (a_sodio == 2 || a_azucar == 2 || a_grasa == 2){
-                salida_de_alimentos= "¡¡Evita consumir este producto!!";
+                salida_de_alimentos = getContext().getString(R.string.text_consejo_alimento_rojo);
             }else if((a_sodio == 1 && a_azucar == 1) || (a_sodio ==1 && a_grasa == 1) ||(a_grasa == 1 && a_azucar == 1)){
-                salida_de_alimentos= "Evita el consumo regular de este producto.";
+                salida_de_alimentos=getContext().getString(R.string.text_consejo_alimento_amarillo_uno);
             }else if(a_sodio == 1 || a_azucar == 1 || a_grasa == 1){
-                salida_de_alimentos = "Modera el consumo de este producto. Combínalo con alimentos frescos.";
+                salida_de_alimentos = getContext().getString(R.string.text_consejo_alimento_amarillo_dos);
             }else{
-                salida_de_alimentos = "Combina este producto con alimentos frescos.";
+                salida_de_alimentos = getContext().getString(R.string.text_consejo_alimento_verde);
             }
         }else if(l_sodio != -1){
             if (l_sodio == 2 || l_azucar == 2 || l_grasa == 2 || l_sodio == 1 || l_azucar == 1 || l_grasa == 1){
-                salida_de_alimentos= "¡¡Evita consumir este producto!!";
+                salida_de_alimentos = getContext().getString(R.string.text_consejo_bebida_rojo);
             }else{
-                salida_de_alimentos = "Modera el consumo de este producto. Combínalo con alimentos frescos.";
+                salida_de_alimentos = getContext().getString(R.string.text_consejo_bebida_amarillo);
             }
         }else{
-            salida_de_alimentos = "Combina este producto con alimentos frescos.";
+            salida_de_alimentos = getContext().getString(R.string.text_consejo_bebida_verde);
         }
-
-
-        Log.e("resultadoAzucar " , resultadoAzucar);
-        Log.e("resultadoGrasa ", resultadoGrasa);
-        Log.e("resultadoSodio ", resultadoSodio);
-
 
 
     return null;

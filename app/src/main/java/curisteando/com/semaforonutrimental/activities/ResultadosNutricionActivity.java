@@ -47,9 +47,6 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
     int tipoAlimento;
     private AlertDialog customDialog= null;	//Creamos el dialogo generico
     String text_saber_mas ="";
-    String url = "http://elpoderdelconsumidor.org/etiquetado-app/";
-
-
 
     private IconRoundCornerProgressBar resultadoAzucar, resultadoGrasa, resultadoSodio;
 
@@ -68,9 +65,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
         if(extras.getInt(Constantes.PARAM_COMIDA_BEBIDA) == Constantes.PARAM_COMIDA){
             ((LinearLayout) findViewById(R.id.recomendaciones_comida)).setVisibility(View.VISIBLE);
-            Log.e("COMIDA", "*****");
         }else{
-            Log.e("BEBIDA", "*****");
             ((LinearLayout) findViewById(R.id.recomendaciones_bebida)).setVisibility(View.VISIBLE);
             if(extras.getString(Constantes.PARAM_AZUCAR_RESULT).equals("0")){
                 NotZugarDialog().show();
@@ -98,10 +93,6 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
                 ResultadosNutricionActivity.this.finish();
             }
         });
-
-        //((TextView) findViewById(R.id.azucares_txt)).append(" " + extras.getString(Constantes.PARAM_AZUCAR_INT) + "");
-        //((TextView) findViewById(R.id.grasa_txt)).append(" " + extras.getString(Constantes.PARAM_GRASA_INT) + "");
-        //((TextView) findViewById(R.id.sodio_txt)).append(" " + extras.getString(Constantes.PARAM_SODIO_INT) + "");
 
 
         btn_twitter = (ImageView) findViewById(R.id.btn_twitter);
@@ -231,7 +222,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
                 saberMas(text_saber_mas).show();
             }else{
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
+                i.setData(Uri.parse(getString(R.string.url_web)));
                 startActivity(i);
             }
         }else if(v==btn_twitter){
@@ -304,7 +295,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
 
 
         Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_mas_url), R.color.text_white);
-        ((TextView) view.findViewById(R.id.dialogo_mas_url)).setText(Html.fromHtml("<a href=" + url + ">más información</a>"));
+        ((TextView) view.findViewById(R.id.dialogo_mas_url)).setText(Html.fromHtml("<a href=" + getString(R.string.url_web) + ">"+getString(R.string.more_information)+"</a>"));
         ((TextView) view.findViewById(R.id.dialogo_mas_url)). setMovementMethod(LinkMovementMethod.getInstance());
         //escucha del boton aceptar
         ((ImageView) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {

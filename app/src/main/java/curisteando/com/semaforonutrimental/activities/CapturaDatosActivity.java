@@ -270,7 +270,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         if( v == continuar ){
             if(entradaAzucares.getText().toString().equals("")||entradaGrasa.getText().toString().equals("")||
                     entradaSodio.getText().toString().equals("")||entradaTamanioPorcion.getText().toString().equals("")){
-                Toast.makeText(getBaseContext(), "Debes llenar todos los campos",Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), getString(R.string.toast_validation),Toast.LENGTH_LONG).show();
             }else{
 
                 ParametrosCalculo params = new ParametrosCalculo();
@@ -311,9 +311,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         actionBar = Utils.getFormatActionBar(this, actionBar);
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-        //actionBar.setHomeAsUpIndicator(R.drawable.bbva_back_indicator);
         actionBar.setDisplayHomeAsUpEnabled(true);
-
     }
 
 
@@ -333,10 +331,8 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
 
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        //metrics.widthPixels
 
         ((ImageView) view.findViewById(R.id.img_help_1)).setLayoutParams(new LinearLayout.LayoutParams(metrics.heightPixels / 3, LinearLayout.LayoutParams.WRAP_CONTENT));
-        //((LinearLayout) view.findViewById(R.id.img_help_2)).setLayoutParams(new LinearLayout.LayoutParams(metrics.widthPixels / 3, metrics.heightPixels / 2, 0.4f));
 
         ((TextView) view.findViewById(R.id.dialogo_acercade_title)).setText(Html.fromHtml(getString(R.string.text_explica_title)));
         ((TextView) view.findViewById(R.id.dialogo_acercade_nota1)).setText(Html.fromHtml(getString(R.string.text_explica1)));
@@ -344,19 +340,6 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         ((TextView) view.findViewById(R.id.dialogo_acercade_nota3)).setText(Html.fromHtml(getString(R.string.text_explica3)));
         ((TextView) view.findViewById(R.id.dialogo_acercade_nota4)).setText(Html.fromHtml(getString(R.string.text_explica4)));
 
-        //Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_nota1), R.color.text_white);
-        //Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_nota2), R.color.text_white);
-        //Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_nota3), R.color.text_white);
-        //Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_nota4), R.color.text_white);
-
-        //escucha del boton aceptar
-        /*((ImageView) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                customDialog.dismiss();
-            }
-        });*/
         return (customDialog=builder.create());// return customDialog;//regresamos el di�logo
     }
 
