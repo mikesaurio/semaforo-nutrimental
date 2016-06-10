@@ -55,8 +55,8 @@
     <string name="compartir_">Compartir:</string>
 
 
-    <string name="ejemplo_producto_bebida">Introduce el nombre de la bebida</string>
-    <string name="ejemplo_producto_alimento">Introduce el nombre del alimento</string>
+    <string name="ejemplo_producto_bebida">Nombre de la bebida</string>
+    <string name="ejemplo_producto_alimento">Nombre del alimento</string>
 
     <string name="text_explica">Para conocer el semáforo de este producto, busca el tamaño de la porción en la información nutrimental al reverso del producto, en una tabla o en un listado.</string>
     <string name="text_explica_nota">OJO: Recuerda que el tamaño de la porción y el contenido neto pueden ser diferentes.</string>
