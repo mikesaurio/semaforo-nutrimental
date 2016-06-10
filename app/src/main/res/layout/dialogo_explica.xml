@@ -44,6 +44,19 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/dialogo_acercade_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_white"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/abc_text_size_medium_material"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:layout_marginBottom="15sp"
+                        android:text="@string/text_explica_title" />
+
                     <TextView
                         android:id="@+id/dialogo_acercade_nota1"
                         android:layout_width="wrap_content"
