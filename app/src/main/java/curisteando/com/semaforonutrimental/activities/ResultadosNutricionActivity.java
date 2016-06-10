@@ -47,7 +47,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
     int tipoAlimento;
     private AlertDialog customDialog= null;	//Creamos el dialogo generico
     String text_saber_mas ="";
-    String url = "http://elpoderdelconsumidor.org/";
+    String url = "http://elpoderdelconsumidor.org/etiquetado-app/";
 
 
 

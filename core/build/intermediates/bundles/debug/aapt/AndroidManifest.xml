@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.dm7.barcodescanner.core"
-    android:versionCode="165"
-    android:versionName="1.6.5" >
+    android:versionCode="166"
+    android:versionName="1.6.6" >
 
     <uses-sdk
-        android:minSdkVersion="9"
-        android:targetSdkVersion="21" />
+        android:minSdkVersion="16"
+        android:targetSdkVersion="23" />
 
     <application />
 
