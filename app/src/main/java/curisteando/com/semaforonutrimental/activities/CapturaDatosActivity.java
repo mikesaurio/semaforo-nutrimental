@@ -350,13 +350,13 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         //Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.dialogo_acercade_nota4), R.color.text_white);
 
         //escucha del boton aceptar
-        ((ImageView) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {
+        /*((ImageView) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 customDialog.dismiss();
             }
-        });
+        });*/
         return (customDialog=builder.create());// return customDialog;//regresamos el di�logo
     }
 
