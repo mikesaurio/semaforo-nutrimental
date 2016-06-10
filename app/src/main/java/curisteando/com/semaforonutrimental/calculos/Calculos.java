@@ -73,7 +73,7 @@ public class Calculos extends AsyncTask<ParametrosCalculo, Void, Map<String, Str
         double azucarPorcentaje = ((porcionPorcentaje * azucaresVal) / 100);
         double grasasPorcentaje = ((porcionPorcentaje * grasasVal) / 100);
         double sodioPorcentaje = ((porcionPorcentaje * sodioVal) / 100);
-        
+
 
         if (tipoAlimento == TipoAlimento.BEBIDA && azucarMedida == TipoMedidas.GRAMOS && grasasMedida
                 == TipoMedidas.GRAMOS && sodioMedida == TipoMedidas.MILIGRAMOS) {
