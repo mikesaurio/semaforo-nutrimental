@@ -158,9 +158,9 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
                     }else{
                         datos.setTipoProducto(Constantes.PARAM_BEBIDA);
                     }
-                    datos.setId_producto(json_data.getString("No_Producto"));
+                    //datos.setId_producto(json_data.getString("No_Producto"));
                     datos.setFecha(json_data.getString("Fecha"));
-                    datos.setCodigo(json_data.getString("Codigo"));
+                    datos.setCodigo(json_data.getString("Código"));
                     datos.setCategoria(json_data.getString("Categoría"));
                     datos.setProducto(json_data.getString("Producto"));
                     datos.setMarca(json_data.getString("Marca"));
@@ -173,7 +173,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
                     datos.setAzucar100(json_data.getString("Cont_azúcar_100"));
                     datos.setGrasas100(json_data.getString("Cont_GS_100"));
                     datos.setSodio100(json_data.getString("Cont_sodio_100"));
-                    datos.setGrado_azucar(json_data.getString("Resultado Azucar"));
+                    datos.setGrado_azucar(json_data.getString("Resultado Azúcar"));
                     datos.setGrado_grasa(json_data.getString("Resultado Grasa Saturada"));
                     datos.setGrado_sodio(json_data.getString("Resultado Sodio"));
                     datos.setMensaje(json_data.getString("Mensaje"));
