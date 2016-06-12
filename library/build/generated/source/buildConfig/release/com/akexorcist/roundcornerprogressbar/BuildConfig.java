@@ -8,6 +8,6 @@ public final class BuildConfig {
   public static final String APPLICATION_ID = "com.akexorcist.roundcornerprogressbar";
   public static final String BUILD_TYPE = "release";
   public static final String FLAVOR = "";
-  public static final int VERSION_CODE = 166;
-  public static final String VERSION_NAME = "1.6.6";
+  public static final int VERSION_CODE = 167;
+  public static final String VERSION_NAME = "1.6.7";
 }
