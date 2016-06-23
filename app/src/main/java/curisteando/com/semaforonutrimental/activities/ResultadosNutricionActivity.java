@@ -68,7 +68,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         }else{
             ((LinearLayout) findViewById(R.id.recomendaciones_bebida)).setVisibility(View.VISIBLE);
             if(extras.getString(Constantes.PARAM_AZUCAR_RESULT).equals("0")){
-                NotZugarDialog().show();
+                (customDialog = NotZugarDialog()).show();
             }
 
         }
@@ -219,7 +219,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
             muestraDialogoCompartir();
         } else if(v==saber_mas_btn){
             if (text_saber_mas != ""){
-                saberMas(text_saber_mas).show();
+                (customDialog = saberMas(text_saber_mas)).show();
             }else{
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(getString(R.string.url_web)));
@@ -282,7 +282,7 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
      *
      * @return Dialog (regresa el dialogo creado)
      **/
-    public Dialog saberMas(String texto)
+    public AlertDialog saberMas(String texto)
     {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -305,7 +305,10 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
                 customDialog.dismiss();
             }
         });
-        return (customDialog=builder.create());// return customDialog;//regresamos el di�logo
+        AlertDialog dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+        return dialog;// return customDialog;//regresamos el di�logo
     }
 
 
@@ -314,13 +317,13 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
      *
      * @return Dialog (regresa el dialogo creado)
      **/
-    public Dialog NotZugarDialog()
+    public AlertDialog NotZugarDialog()
     {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.dialog_sin_azucar, null);
         builder.setView(view);
-        builder.setCancelable(true);
+        //builder.setCancelable(true);
 
         Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.text_azucar_dialog_1), R.color.text_white);
         ((TextView) view.findViewById(R.id.text_azucar_dialog_1)).setText(getString(R.string.not_zugar1));
@@ -331,19 +334,18 @@ public class ResultadosNutricionActivity extends ActionBarActivity implements Vi
         Utils.formatoTextView(getBaseContext(), view.findViewById(R.id.text_azucar_dialog_3), R.color.text_white);
         ((TextView) view.findViewById(R.id.text_azucar_dialog_3)).setText(getString(R.string.not_zugar3));
 
-
-
         //escucha del boton aceptar
-        ((ImageView) view.findViewById(R.id.dialogo_acercade_btnAceptar)).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.dialogo_acercade_btnAceptar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 customDialog.dismiss();
             }
         });
-        return (customDialog=builder.create());// return customDialog;//regresamos el di�logo
+
+
+        AlertDialog dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+        return dialog;// return customDialog;//regresamos el di�logo
     }
-
-
-
 }

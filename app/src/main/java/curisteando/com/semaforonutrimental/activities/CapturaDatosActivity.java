@@ -101,7 +101,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         restoreActionBar();
         inicializaVariables();
         inicializaControles();
-        mostrarExplica().show();
+        (customDialog = mostrarExplica()).show();
     }
 
     /**
@@ -321,7 +321,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
      *
      * @return Dialog (regresa el dialogo creado)
      **/
-    public Dialog mostrarExplica()
+    public AlertDialog mostrarExplica()
     {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -340,7 +340,10 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         ((TextView) view.findViewById(R.id.dialogo_acercade_nota3)).setText(Html.fromHtml(getString(R.string.text_explica3)));
         ((TextView) view.findViewById(R.id.dialogo_acercade_nota4)).setText(Html.fromHtml(getString(R.string.text_explica4)));
 
-        return (customDialog=builder.create());// return customDialog;//regresamos el di�logo
+        AlertDialog dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+        return dialog;// return customDialog;//regresamos el di�logo
     }
 
 
