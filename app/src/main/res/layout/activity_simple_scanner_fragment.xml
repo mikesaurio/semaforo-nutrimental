@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:weightSum="3"
-    android:padding="5sp"
-    android:background="@color/text_white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/text_white"
+    android:orientation="vertical"
+    android:padding="5sp"
+    android:weightSum="3">
+
     <TextView
         android:id="@+id/instrucciones"
-        android:text="@string/apunta_codigo_barras"
-        android:layout_alignParentTop="true"
-        android:background="@color/text_white"
-        android:textColor="@color/text_black"
-        android:gravity="center"
-        android:layout_marginBottom="5sp"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="5sp"
+        android:background="@color/text_white"
+        android:gravity="center"
+        android:text="@string/apunta_codigo_barras"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/text_black" />
+
     <LinearLayout
-        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:background="@color/gray_button"
         android:padding="10sp">
 
         <fragment
             android:id="@+id/scanner_fragment"
-            android:layout_gravity="center"
-            android:layout_weight="1"
+            android:name="curisteando.com.barcodez.SimpleScannerFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/round_corners"
-            android:name="curisteando.com.barcodez.SimpleScannerFragment" />
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/round_corners" />
     </LinearLayout>
 
 
-    <android.support.v7.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:layout_weight="1"
-        card_view:cardElevation="0dp"
         android:animateLayoutChanges="true"
         android:background="@color/text_white"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        card_view:cardElevation="0dp">
 
         <LinearLayout
             android:id="@+id/ll_buton_scanner"
-            android:padding="30sp"
-            android:weightSum="2"
-            android:background="@drawable/round_corners"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/round_corners"
+            android:gravity="center"
             android:orientation="vertical"
-            android:gravity="center">
+            android:padding="30sp"
+            android:weightSum="2">
 
             <TextView
                 android:id="@+id/button_text"
-                android:text="Si no tiene código,\n toca aquí "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:gravity="center"
-                android:textColor="@color/text_black"
+                android:text="Si no tiene código,\n toca aquí "
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:textColor="@color/text_black" />
 
         </LinearLayout>
 

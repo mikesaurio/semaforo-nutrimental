@@ -78,15 +78,12 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
      */
     private Button continuar,limpiar;
 
-
-
     private EditText entradaTamanioPorcion;
     private EditText entradaAzucares;
     private EditText entradaGrasa;
     private EditText entradaSodio;
     private EditText nombreProducto;
     private  int tipoProducto;
-
 
     private ImageView bebidaImg;
     private ImageView alimentoImg;

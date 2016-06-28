@@ -2,24 +2,30 @@ package curisteando.com.semaforonutrimental;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import curisteando.com.barcodez.SimpleScannerFragmentActivity;
+import curisteando.com.semaforonutrimental.fragments.CameraPermissionHelper;
 import curisteando.com.semaforonutrimental.utilidades.Utils;
 
 /**
  * <p>
- *     Clase encargada de mostrar el logo durante n tiempo.
+ * Clase encargada de mostrar el logo durante n tiempo.
  * </p>
+ *
  * @author Capitan Durango
  * @author
  * @since 02/11/2014.
  */
-public class Splash extends ActionBarActivity {
+public class Splash extends AppCompatActivity implements
+        CameraPermissionHelper.CameraPermissionCallback {
 
     /**
      * Handler encargado de manejar el tiempo que dura la primer pantalla.
@@ -37,7 +43,12 @@ public class Splash extends ActionBarActivity {
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
-        handler.postDelayed(runnable, TIMEOUT);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            CameraPermissionHelper.attach(getSupportFragmentManager());
+        } else {
+            handler.postDelayed(runnable, TIMEOUT);
+        }
         restoreActionBar();
     }
 
@@ -66,5 +77,15 @@ public class Splash extends ActionBarActivity {
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
         actionBar = Utils.getFormatActionBar(this, actionBar);
+    }
+
+    @Override
+    public void onCameraPermissionResult(boolean successful) {
+        if (successful) {
+            handler.postDelayed(runnable, TIMEOUT);
+        } else {
+            Toast.makeText(getApplicationContext(), getString(R.string.message_camera_permission), Toast.LENGTH_LONG).show();
+            finish();
+        }
     }
 }
