@@ -53,18 +53,19 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
     SurfaceView mSurfaceView;
 
 
-
-    private List<BarcodeFormat> formats = new ArrayList<BarcodeFormat>(){{add(BarcodeFormat.EAN8);add(BarcodeFormat.EAN13);add(BarcodeFormat.UPCE);}};
+    private List<BarcodeFormat> formats = new ArrayList<BarcodeFormat>() {{
+        add(BarcodeFormat.EAN8);
+        add(BarcodeFormat.EAN13);
+        add(BarcodeFormat.UPCE);
+    }};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
         mScannerView = new ZBarScannerView(getActivity());
         mSurfaceView = new SurfaceView(getActivity());
         datosArray = new ArrayList<datos_bean>();
 
-        if(savedInstanceState != null) {
+        if (savedInstanceState != null) {
             mFlash = savedInstanceState.getBoolean(FLASH_STATE, false);
             mAutoFocus = savedInstanceState.getBoolean(AUTO_FOCUS_STATE, true);
             //mSelectedIndices = savedInstanceState.getIntegerArrayList(SELECTED_FORMATS);
@@ -109,19 +110,19 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
         mScannerView.stopCamera();
     }
 
-    public void buscar_valores(String codigo){
+    public void buscar_valores(String codigo) {
         fill_beans();
         boolean encontrado = false;
         int id = -1;
-        for (int i = 0; i<datosArray.size(); i++){
-           if( datosArray.get(i).getCodigo().equals(codigo+"")){
-               encontrado = true;
-               id = i;
-               break;
-           }
+        for (int i = 0; i < datosArray.size(); i++) {
+            if (datosArray.get(i).getCodigo().equals(codigo + "")) {
+                encontrado = true;
+                id = i;
+                break;
+            }
         }
-        if (encontrado){
-            Log.e("resultadoAzucar " , datosArray.get(id).getGrado_azucar());
+        if (encontrado) {
+            Log.e("resultadoAzucar ", datosArray.get(id).getGrado_azucar());
             Log.e("resultadoGrasa ", datosArray.get(id).getGrado_grasa());
             Log.e("resultadoSodio ", datosArray.get(id).getGrado_sodio());
             Intent intent = new Intent(getActivity(), ResultadosNutricionActivity.class);
@@ -136,16 +137,16 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
             intent.putExtra(Constantes.PARAM_TEXT, datosArray.get(id).getMensaje());
             intent.putExtra(Constantes.PARAM_SABER_MAS, datosArray.get(id).getAlternativa());
             startActivity(intent);
-        }else{
+        } else {
             Intent intent = new Intent(getActivity(), CapturaDatosActivity.class);
             intent.putExtra(Constantes.CONST_CODIGO_BARRAS, codigo);
             startActivity(intent);
         }
     }
 
-    public void fill_beans(){
-        String[] josns = {"inputs/alimentos.json","inputs/liquidos.json"};
-        for (int j=0 ;j<josns.length; j++) {
+    public void fill_beans() {
+        String[] josns = {"inputs/alimentos.json", "inputs/liquidos.json"};
+        for (int j = 0; j < josns.length; j++) {
             String json = readJson(josns[j]);
             try {
                 JSONArray jArray = new JSONArray(json);
@@ -153,9 +154,9 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
                     datos_bean datos = new datos_bean();
                     JSONObject json_data = jArray.getJSONObject(i);
 
-                    if(j == 0){
+                    if (j == 0) {
                         datos.setTipoProducto(Constantes.PARAM_COMIDA);
-                    }else{
+                    } else {
                         datos.setTipoProducto(Constantes.PARAM_BEBIDA);
                     }
                     //datos.setId_producto(json_data.getString("No_Producto"));
@@ -180,7 +181,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
                     datos.setAlternativa(json_data.getString("Alternativa"));
                     datosArray.add(datos);
                 }
-               // Toast.makeText(getActivity().getBaseContext(), datosArray.size() + " en "+j, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getActivity().getBaseContext(), datosArray.size() + " en "+j, Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 e.printStackTrace();
                 Log.e("FALLA AL CARGAR", e.getMessage());
@@ -190,21 +191,19 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
     }
 
 
-
-
-    public String readJson(String stringJson){
-            String json = "";
-            try {
-                InputStream is = getActivity().getAssets().open(stringJson);
-                int size = is.available();
-                byte[] buffer = new byte[size];
-                is.read(buffer);
-                is.close();
-                json = new String(buffer, "UTF-8");
-            } catch (IOException ex) {
-                return "";
-            }
-            return json;
+    public String readJson(String stringJson) {
+        String json = "";
+        try {
+            InputStream is = getActivity().getAssets().open(stringJson);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            return "";
+        }
+        return json;
     }
 
 }
