@@ -35,13 +35,12 @@ public class Splash extends AppCompatActivity implements
     /**
      * Tiempo predefinido para que dure la primer pantalla.
      */
-    private int TIMEOUT = 2000;
+    private int TIMEOUT = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_splash);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -49,7 +48,6 @@ public class Splash extends AppCompatActivity implements
         } else {
             handler.postDelayed(runnable, TIMEOUT);
         }
-        restoreActionBar();
     }
 
     private Runnable runnable = new Runnable() {
@@ -72,11 +70,6 @@ public class Splash extends AppCompatActivity implements
 
     private Context getContext() {
         return Splash.this;
-    }
-
-    public void restoreActionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        actionBar = Utils.getFormatActionBar(this, actionBar);
     }
 
     @Override

@@ -14,6 +14,7 @@ android {
             res.srcDirs = ['src/main/res']
         }
     }
+    buildToolsVersion '25.0.0'
 }
 
 apply from: '../maven_push.gradle'

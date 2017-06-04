@@ -7,7 +7,10 @@ import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import curisteando.com.semaforonutrimental.R;
@@ -25,16 +28,17 @@ public class Utils {
      * @return
      */
     public static ActionBar getFormatActionBar(Context context, ActionBar actionBar) {
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 
-        actionBar.setDisplayShowCustomEnabled(true);
-        //actionBar.setDisplayShowHomeEnabled(true);
-        //actionBar.setHomeButtonEnabled(true);
-        //actionBar.setHomeAsUpIndicator(R.drawable.bbva_back_indicator);
-        //actionBar.setDisplayHomeAsUpEnabled(true);
 
         actionBar.setCustomView(R.layout.layout_bar);
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+
+        Toolbar toolbar=(Toolbar)actionBar.getCustomView().getParent();
+        toolbar.setContentInsetsAbsolute(0, 0);
+        toolbar.getContentInsetEnd();
+        toolbar.setPadding(0, 0, 0, 0);
+
+
         return actionBar;
     }
 

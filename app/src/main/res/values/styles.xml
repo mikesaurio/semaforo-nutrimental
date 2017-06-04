@@ -7,4 +7,9 @@
         <item name="colorPrimaryDark">#231F20</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
 </resources>

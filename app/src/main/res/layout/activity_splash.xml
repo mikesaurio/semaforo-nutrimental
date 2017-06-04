@@ -2,12 +2,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/text_black"
     tools:context=".Splash">
-
-    <ImageView
-        android:src="@drawable/nutrimental_intro"
-        android:scaleType="centerCrop"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:orientation="vertical">
+        <ImageView
+            android:src="@drawable/ic_launcher"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".7"/>
+        <ImageView
+            android:src="@drawable/ic_launch_logo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".3" />
+    </LinearLayout>
+
+
 
 </RelativeLayout>
