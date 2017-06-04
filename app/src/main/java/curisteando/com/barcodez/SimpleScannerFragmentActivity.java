@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -28,6 +29,13 @@ public class SimpleScannerFragmentActivity extends AppCompatActivity {
                     Intent intent = new Intent(SimpleScannerFragmentActivity.this, CapturaDatosActivity.class);
                     intent.putExtra(Constantes.CONST_CODIGO_BARRAS, 0);
                     startActivity(intent);
+                }
+            });
+            ImageView iv_scaner_help=(ImageView)findViewById(R.id.iv_scaner_help);
+            iv_scaner_help.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
                 }
             });
 

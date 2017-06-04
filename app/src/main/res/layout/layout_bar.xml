@@ -27,6 +27,7 @@
             android:id="@+id/actionbarTitle"
             android:src="@drawable/ic_launcher_title"
             android:scaleType="fitXY"
+            android:adjustViewBounds="true"
             android:layout_width="0dp"
             android:layout_weight=".25"
             android:layout_height="match_parent" />
