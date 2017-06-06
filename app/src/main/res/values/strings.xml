@@ -73,10 +73,10 @@
     <string name="defaul_mensaje_text">Alimentate sanamente </string>
     <string name="no_contiene">No contiene</string>
     <string name="text_explica_title">¡IMPORTANTE!</string>
-    <string name="text_explica1"><p><small>Este producto aún no está en la base de datos.</small></p></string>
-    <string name="text_explica2"><p><small>Busca la </small><b>Información nutrimental:</b></p></string>
-    <string name="text_explica3"><p><small>1) </small><b>Está AL REVERSO</b><small> del envase.</small></p></string>
-    <string name="text_explica4"><p><small>2) Identifica el tamaño de la </small><b>PORCIÓN.</b></p></string>
+    <string name="text_explica1">Coloca elcódigo de barras frente a la cámara y toca el botón para escanear el producto</string>
+    <string name="text_explica2">¡Es muy facil!</string>
+    <string name="text_explica3">De no estar el producto en la base de datos, llena el breve formulario</string>
+    <string name="text_explica4">¡Y conoce si tu producto es saludable!</string>
     <string name="not_zugar">Si esta bebida es diferente al agua natural, entonces contiene sustitutos de azucar como aspartame, acesulfame-k, sucralosa, neotame o stevia. ¡Esto no lo hace más saludable!. No se recomienda para niños. </string>
     <string name="not_zugar1">Si esta bebida es diferente al agua natural, Entonces contiene sustitutos de azúcar como Aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
     <string name="not_zugar2">¡Esto no lo hace más saludable!</string>
