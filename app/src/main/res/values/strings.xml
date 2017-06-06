@@ -77,6 +77,10 @@
     <string name="text_explica2">¡Es muy facil!</string>
     <string name="text_explica3">De no estar el producto en la base de datos, llena el breve formulario</string>
     <string name="text_explica4">¡Y conoce si tu producto es saludable!</string>
+    <string name="text_not_found1">Este producto aún no está en la base de datos.</string>
+    <string name="text_not_found2">Busca la <b>Información nutrimental:</b></string>
+    <string name="text_not_found3">1) Está <b>AL REVERSO</b> del envase.</string>
+    <string name="text_not_found4">2) Identifica el tamaño de la  <bold>PORCIÓN.</bold></string>
     <string name="not_zugar">Si esta bebida es diferente al agua natural, entonces contiene sustitutos de azucar como aspartame, acesulfame-k, sucralosa, neotame o stevia. ¡Esto no lo hace más saludable!. No se recomienda para niños. </string>
     <string name="not_zugar1">Si esta bebida es diferente al agua natural, Entonces contiene sustitutos de azúcar como Aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
     <string name="not_zugar2">¡Esto no lo hace más saludable!</string>

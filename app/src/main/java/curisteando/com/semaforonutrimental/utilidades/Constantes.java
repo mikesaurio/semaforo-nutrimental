@@ -57,5 +57,7 @@ public class Constantes {
      * Constante de codigo de barras.
      */
     public static final String CONST_CODIGO_BARRAS = "constCodigoBarras";
+    public static final String CONST_IS_FOUND = "constCodigoEncontrado";
+
 
 }

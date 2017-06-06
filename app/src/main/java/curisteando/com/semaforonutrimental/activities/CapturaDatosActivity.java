@@ -3,10 +3,12 @@ package curisteando.com.semaforonutrimental.activities;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
+import android.text.Spanned;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.Menu;
@@ -98,7 +100,12 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         restoreActionBar();
         inicializaVariables();
         inicializaControles();
-        (customDialog = mostrarExplica()).show();
+
+        Intent i = getIntent();
+        Bundle extras = i.getExtras();
+        if(extras.getBoolean(Constantes.CONST_IS_FOUND)) {
+            (customDialog = mostrarExplica()).show();
+        }
     }
 
     /**
@@ -329,18 +336,36 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        ((ImageView) view.findViewById(R.id.img_help_1)).setLayoutParams(new LinearLayout.LayoutParams(metrics.heightPixels / 3, LinearLayout.LayoutParams.WRAP_CONTENT));
+        ((TextView) view.findViewById(R.id.dialogo_acercade_title)).setText(fromHtml(getString(R.string.text_explica_title)));
+        ((TextView) view.findViewById(R.id.dialogo_acercade_nota1)).setText(fromHtml(getString(R.string.text_not_found1)));
+        ((TextView) view.findViewById(R.id.dialogo_acercade_nota2)).setText(fromHtml(getString(R.string.text_not_found2)));
+        ((TextView) view.findViewById(R.id.dialogo_acercade_nota3)).setText(fromHtml(getString(R.string.text_not_found3)));
+        ((TextView) view.findViewById(R.id.dialogo_acercade_nota4)).setText(fromHtml(getString(R.string.text_not_found4)));
 
-        ((TextView) view.findViewById(R.id.dialogo_acercade_title)).setText(Html.fromHtml(getString(R.string.text_explica_title)));
-        ((TextView) view.findViewById(R.id.dialogo_acercade_nota1)).setText(Html.fromHtml(getString(R.string.text_explica1)));
-        ((TextView) view.findViewById(R.id.dialogo_acercade_nota2)).setText(Html.fromHtml(getString(R.string.text_explica2)));
-        ((TextView) view.findViewById(R.id.dialogo_acercade_nota3)).setText(Html.fromHtml(getString(R.string.text_explica3)));
-        ((TextView) view.findViewById(R.id.dialogo_acercade_nota4)).setText(Html.fromHtml(getString(R.string.text_explica4)));
+        ((ImageView) view.findViewById(R.id.dialog_close)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                customDialog.dismiss();
+            }
+        });
+
 
         AlertDialog dialog = builder.create();
         dialog.setCanceledOnTouchOutside(true);
         dialog.setCancelable(true);
         return dialog;// return customDialog;//regresamos el di�logo
+    }
+
+    @SuppressWarnings("deprecation")
+    public static Spanned fromHtml(String html){
+        Spanned result;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            result = Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            result = Html.fromHtml(html);
+        }
+        return result;
     }
 
 

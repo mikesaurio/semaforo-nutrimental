@@ -36,6 +36,7 @@ public class SimpleScannerFragmentActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent = new Intent(SimpleScannerFragmentActivity.this, CapturaDatosActivity.class);
                     intent.putExtra(Constantes.CONST_CODIGO_BARRAS, 0);
+                    intent.putExtra(Constantes.CONST_IS_FOUND, false);
                     startActivity(intent);
                 }
             });
@@ -100,13 +101,6 @@ public class SimpleScannerFragmentActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
-
 
         AlertDialog dialog = builder.create();
         dialog.setCanceledOnTouchOutside(true);

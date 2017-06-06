@@ -140,6 +140,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
         } else {
             Intent intent = new Intent(getActivity(), CapturaDatosActivity.class);
             intent.putExtra(Constantes.CONST_CODIGO_BARRAS, codigo);
+            intent.putExtra(Constantes.CONST_CODIGO_BARRAS, true);
             startActivity(intent);
         }
     }
