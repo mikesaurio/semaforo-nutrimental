@@ -313,9 +313,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
         actionBar = Utils.getFormatActionBar(this, actionBar);
-        actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
 

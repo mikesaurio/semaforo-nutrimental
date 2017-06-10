@@ -1,10 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="nutricion.mx.com.applicationnutricion.activities.MenuPrincipalActivity">
-
-
+    android:layout_height="match_parent">
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -45,16 +42,17 @@
                 android:weightSum="2">
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:background="@color/blue_button"
                     android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/bebida_img"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/bebida_gris" />
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_bebida_gris" />
 
                     <TextView
                         android:id="@+id/bebida_txt"
@@ -68,7 +66,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10sp"
@@ -78,7 +76,7 @@
                         android:id="@+id/alimento_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/alimento_gris" />
+                        android:src="@drawable/ic_comida_gris" />
 
                     <TextView
                         android:id="@+id/alimento_txt"
@@ -105,20 +103,24 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/nombre_producto_txt"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nombre_producto"
-                    android:textSize="@dimen/abc_text_size_small_material" />
+                    android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/edit_nombre_producto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Nombre ejemplo"
-                    android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/weight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/name_product"
+                        android:imeActionId="@+id/login"
+                        android:imeActionLabel="@string/name_product"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="number"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                        android:maxLines="1" />
+
+                </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
 
