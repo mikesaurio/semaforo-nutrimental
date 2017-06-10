@@ -4,16 +4,23 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.icu.text.MessagePattern;
+import android.icu.text.NumberFormat;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
+import android.text.InputType;
 import android.text.Spanned;
+import android.text.method.PasswordTransformationMethod;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -45,35 +52,10 @@ import curisteando.com.semaforonutrimental.utilidades.Utils;
 public class CapturaDatosActivity extends ActionBarActivity implements View.OnClickListener {
 
     /**
-     * Lista de las unidades a mostrar en el control.
-     */
-    private List<String> listaUnidades;
-    /**
      * Lista de tipos de alimentos a mostrar en el control.
      */
     private List<String> listaTiposAlimentos;
 
-    /**
-     * Control UI para el tipo de Alimento.
-     */
-    private Spinner tipoAlimentoSpinner;
-
-    /**
-     * Control UI para el tamaño de porcion.
-     */
-    private Spinner tamanioPorcionSpinner;
-    /**
-     * Control UI para el azucares.
-     */
-    private Spinner azucaresSpinner;
-    /**
-     * Control UI para el grasa.
-     */
-    private Spinner grasaSpinner;
-    /**
-     * Control UI para sodio.
-     */
-    private Spinner sodioSpinner;
 
     /**
      * Control UI para calcular el semaforo.
@@ -89,6 +71,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
 
     private ImageView bebidaImg;
     private ImageView alimentoImg;
+    private LinearLayout ll_comidas,ll_bebidas;
 
     private TipoAlimento alimento = TipoAlimento.NINGUNO;
     private AlertDialog customDialog= null;	//Creamos el dialogo generico
@@ -112,17 +95,12 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
      * Inicializa las variables con su valor default.
      */
     private void inicializaVariables() {
-        listaUnidades = new ArrayList<String>();
-        listaUnidades.add(getString(R.string.gramos));
-        listaUnidades.add(getString(R.string.kilocalorias));
-        listaUnidades.add(getString(R.string.miligramos));
-        listaUnidades.add(getString(R.string.mililitros));
 
         listaTiposAlimentos = new ArrayList<String>();
         listaTiposAlimentos.add(getString(R.string.alimento));
         listaTiposAlimentos.add(getString(R.string.bebida));
 
-        tipoProducto = Constantes.PARAM_BEBIDA;
+        tipoProducto = Constantes.PARAM_COMIDA;
     }
 
     /**
@@ -131,47 +109,19 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
     private void inicializaControles() {
         bebidaImg = (ImageView) findViewById(R.id.bebida_img);
         alimentoImg = (ImageView) findViewById(R.id.alimento_img);
+        ll_comidas=(LinearLayout)findViewById(R.id.ll_comidas);
+        ll_bebidas=(LinearLayout)findViewById(R.id.ll_bebidas);
 
         bebidaImg.setOnClickListener(this);
         alimentoImg.setOnClickListener(this);
 
-        tamanioPorcionSpinner = (Spinner) findViewById(R.id.tamanioPorcionSpinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, listaUnidades);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        tamanioPorcionSpinner.setEnabled(false);
-        tamanioPorcionSpinner.setClickable(false);
-        tamanioPorcionSpinner.setAdapter(adapter);
 
-        azucaresSpinner = (Spinner) findViewById(R.id.azucaresSpinner);
-        ArrayAdapter<String> adapterAzucares = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, listaUnidades);
-        adapterAzucares.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        azucaresSpinner.setEnabled(false);
-        azucaresSpinner.setClickable(false);
-        azucaresSpinner.setAdapter(adapterAzucares);
-
-        grasaSpinner = (Spinner) findViewById(R.id.grasaSpinner);
-        ArrayAdapter<String> adapterGrasas = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, listaUnidades);
-        adapterGrasas.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        grasaSpinner.setEnabled(false);
-        grasaSpinner.setClickable(false);
-        grasaSpinner.setAdapter(adapterGrasas);
-
-        sodioSpinner = (Spinner) findViewById(R.id.sodioSpinner);
-        ArrayAdapter<String> adapterSodio = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, listaUnidades);
-        adapterSodio.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sodioSpinner.setEnabled(false);
-        sodioSpinner.setClickable(false);
-        sodioSpinner.setAdapter(adapterSodio);
-
-        entradaTamanioPorcion = (EditText) findViewById(R.id.edit_tamanio_porcion);
+        entradaTamanioPorcion = (EditText) findViewById(R.id.entradaTamanioPorcion);
         entradaAzucares = (EditText) findViewById(R.id.entradaAzucares);
         entradaGrasa = (EditText) findViewById(R.id.entradaGrasa);
         entradaSodio = (EditText) findViewById(R.id.entradaSodio);
-        nombreProducto = (EditText) findViewById(R.id.edit_nombre_producto);
+
+        nombreProducto=(EditText)findViewById(R.id.nombreProducto);
 
         continuar = (Button) findViewById(R.id.continuar);
         continuar.setOnClickListener(this);
@@ -180,15 +130,9 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
 
 
         Utils.formatoTextView(this, findViewById(R.id.selecciona_producto_txt),R.color.text_black);
-        Utils.formatoTextView(this, findViewById(R.id.bebida_txt),R.color.text_black);
-        Utils.formatoTextView(this, findViewById(R.id.alimento_txt),R.color.text_black);
-        Utils.formatoTextView(this, findViewById(R.id.nombre_producto_txt),R.color.text_black);
-        Utils.formatoTextView(this, findViewById(R.id.tamanio_porcion_txt),R.color.text_black);
-        Utils.formatoTextView(this, findViewById(R.id.azucares_txt),R.color.text_black);
-        Utils.formatoTextView(this, findViewById(R.id.grasa_txt),R.color.text_black);
-        Utils.formatoTextView(this, findViewById(R.id.sodio_txt),R.color.text_black);
+        Utils.formatoTextView(this, findViewById(R.id.bebida_txt),R.color.text_white);
 
-        Utils.formatoTextView(this, findViewById(R.id.limpiar), R.color.text_dark_gray);
+        Utils.formatoTextView(this, findViewById(R.id.limpiar), R.color.text_white);
         Utils.formatoTextView(this, findViewById(R.id.continuar),R.color.text_white);
 
         bebidaImg.performClick();
@@ -204,18 +148,18 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         this.alimento = alimento;
         switch (alimento){
             case ALIMENTO:{
-                tamanioPorcionSpinner.setSelection(0);//Selecciona la posicion 0 de la lista.
-                azucaresSpinner.setSelection(0);
-                grasaSpinner.setSelection(0);
-                sodioSpinner.setSelection(2);
+                ((TextView)findViewById(R.id.tx_entradaTamanioPorcion)).setText("mg");
+                ((TextView)findViewById(R.id.tx_entradaAzucares)).setText("g");
+                ((TextView)findViewById(R.id.tx_entradaGrasa)).setText("g");
+                ((TextView)findViewById(R.id.tx_entradaSodio)).setText("g");
                 ayudaAlimento();
                 break;
             }
             case BEBIDA:{
-                tamanioPorcionSpinner.setSelection(3);//Selecciona la posicion 0 de la lista.
-                azucaresSpinner.setSelection(0);
-                grasaSpinner.setSelection(0);
-                sodioSpinner.setSelection(2);
+                ((TextView)findViewById(R.id.tx_entradaTamanioPorcion)).setText("ml");
+                ((TextView)findViewById(R.id.tx_entradaAzucares)).setText("g");
+                ((TextView)findViewById(R.id.tx_entradaGrasa)).setText("g");
+                ((TextView)findViewById(R.id.tx_entradaSodio)).setText("g");
                 ayudaBebida();
                 break;
             }
@@ -223,13 +167,11 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
     }
 
     private void ayudaAlimento(){
-        nombreProducto.setHint(getString(R.string.ejemplo_producto_alimento));
         tipoProducto = Constantes.PARAM_COMIDA;
 
     }
 
     private void ayudaBebida(){
-        nombreProducto.setHint(getString(R.string.ejemplo_producto_bebida));
         tipoProducto = Constantes.PARAM_BEBIDA;
     }
 
@@ -285,21 +227,25 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
                 params.setSodio(Double.parseDouble(entradaSodio.getText().toString()));
                 params.setTamanioPorcion(Double.parseDouble(entradaTamanioPorcion.getText().toString()));
 
-                params.setTamanioPorcionMedida(TipoMedidas.values()[tamanioPorcionSpinner.getSelectedItemPosition()]);
+                /*params.setTamanioPorcionMedida(TipoMedidas.values()[tamanioPorcionSpinner.getSelectedItemPosition()]);
                 params.setAzucaresMedida(TipoMedidas.values()[azucaresSpinner.getSelectedItemPosition()]);
                 params.setGrasasMedida(TipoMedidas.values()[grasaSpinner.getSelectedItemPosition()]);
                 params.setSodioMedida(TipoMedidas.values()[sodioSpinner.getSelectedItemPosition()]);
-                params.setTipoProducto(tipoProducto);
+                params.setTipoProducto(tipoProducto);*/
 
                 new Calculos(getContext(),CapturaDatosActivity.this).execute(params);
             }
         }else if(v == alimentoImg){
-            alimentoImg.setImageResource(R.drawable.alimento_azul);
-            bebidaImg.setImageResource(R.drawable.bebida_gris);
+            alimentoImg.setImageResource(R.drawable.ic_comida_azul);
+            ll_comidas.setBackgroundColor(getResources().getColor(R.color.blue_button));
+            bebidaImg.setImageResource(R.drawable.ic_bebida_gris);
+            ll_bebidas.setBackgroundColor(getResources().getColor(R.color.gray_button));
             asignaDefaults(TipoAlimento.ALIMENTO);
         }else if(v == bebidaImg){
-            bebidaImg.setImageResource(R.drawable.bebida_azul);
-            alimentoImg.setImageResource(R.drawable.alimento_gris);
+            bebidaImg.setImageResource(R.drawable.ic_bebida_azul);
+            ll_bebidas.setBackgroundColor(getResources().getColor(R.color.blue_button));
+            alimentoImg.setImageResource(R.drawable.ic_comida_gris);
+            ll_comidas.setBackgroundColor(getResources().getColor(R.color.gray_button));
             asignaDefaults(TipoAlimento.BEBIDA);
         }else if(v == limpiar){
             entradaTamanioPorcion.setText("");

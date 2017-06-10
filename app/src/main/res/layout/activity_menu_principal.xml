@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -29,66 +30,80 @@
                 android:layout_alignParentTop="true"
                 android:text="@string/que_tanto_sabes_de_lo_que_comes"
                 android:textColor="@color/text_black"
-                android:textSize="@dimen/abc_text_size_body_2_material"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="fill_parent"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:animateLayoutChanges="true"
                 android:orientation="horizontal"
                 android:weightSum="2">
-
-                <RelativeLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:background="@color/blue_button"
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="5dp"
+                    android:elevation="10dp"
                     android:layout_weight="1">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical"
+                        android:id="@+id/ll_comidas"
+                        android:background="@color/blue_button">
+                            <ImageView
+                                android:id="@+id/alimento_img"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/ic_bebida_azul" />
+                            <TextView
+                                android:id="@+id/alimento_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:textColor="@color/text_white"
+                                android:textStyle="bold"
+                                android:text="@string/alimento"
+                                android:textSize="16sp" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
 
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="5dp"
+                    android:elevation="10dp"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:id="@+id/ll_bebidas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical"
+                        android:background="@color/gray_button">
                     <ImageView
                         android:id="@+id/bebida_img"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/ic_bebida_gris" />
-
-                    <TextView
-                        android:id="@+id/bebida_txt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/bebida_img"
-                        android:layout_marginTop="10sp"
-                        android:text="@string/bebida"
-                        android:textSize="@dimen/abc_text_size_small_material" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10sp"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:id="@+id/alimento_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_comida_gris" />
-
-                    <TextView
-                        android:id="@+id/alimento_txt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/alimento_img"
-                        android:layout_marginTop="10sp"
-                        android:text="@string/alimento"
-                        android:textSize="@dimen/abc_text_size_small_material" />
-
-                </RelativeLayout>
-
+                        <TextView
+                            android:id="@+id/bebida_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/alimento_img"
+                            android:text="@string/bebida"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_white"
+                            android:layout_gravity="center"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                    </android.support.v7.widget.CardView>
             </LinearLayout>
 
             <View
@@ -108,14 +123,14 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/weight"
+                        android:id="@+id/nombreProducto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/name_product"
                         android:imeActionId="@+id/login"
                         android:imeActionLabel="@string/name_product"
                         android:imeOptions="actionUnspecified"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:textStyle="bold"
                         android:layout_marginBottom="@dimen/activity_horizontal_margin"
                         android:maxLines="1" />
@@ -134,117 +149,127 @@
                     android:id="@+id/row1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center">
 
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/entradaTamanioPorcion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeActionId="@+id/action_portion"
+                            android:imeActionLabel="@string/name_product"
+                            android:imeOptions="actionUnspecified"
+                            android:inputType="number"
+                            android:textStyle="bold"
+                            android:layout_column="1"
+                            android:ems="10"
+                            android:hint="Tamaño porción (ml)"
+                            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                            android:maxLines="1" />
+
+                    </android.support.design.widget.TextInputLayout>
                     <TextView
-                        android:id="@+id/tamanio_porcion_txt"
+                        android:id="@+id/tx_entradaTamanioPorcion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="@string/tamanio_porcion_"
-                        android:textSize="@dimen/abc_text_size_small_material" />
+                        android:text="MG"/>
 
-                    <EditText
-                        android:id="@+id/edit_tamanio_porcion"
-                        android:layout_width="100sp"
-                        android:layout_height="wrap_content"
-                        android:layout_column="1"
-                        android:ems="10"
-                        android:hint="0.0"
-                        android:inputType="phone" />
-
-                    <Spinner
-                        android:id="@+id/tamanioPorcionSpinner"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_column="2" />
                 </TableRow>
 
 
                 <TableRow
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/entradaAzucares"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeActionId="@+id/action_portion"
+                            android:imeActionLabel="@string/azucares"
+                            android:imeOptions="actionUnspecified"
+                            android:inputType="number"
+                            android:textStyle="bold"
+                            android:layout_column="1"
+                            android:ems="10"
+                            android:hint="@string/azucares"
+                            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                            android:maxLines="1" />
 
+                    </android.support.design.widget.TextInputLayout>
                     <TextView
-                        android:id="@+id/azucares_txt"
+                        android:id="@+id/tx_entradaAzucares"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="@string/azucares"
-                        android:textSize="@dimen/abc_text_size_small_material" />
-
-                    <EditText
-                        android:id="@+id/entradaAzucares"
-                        android:layout_width="100sp"
-                        android:layout_height="wrap_content"
-                        android:layout_column="1"
-                        android:ems="10"
-                        android:hint="0.0"
-                        android:inputType="phone" />
-
-                    <Spinner
-                        android:id="@+id/azucaresSpinner"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_column="2" />
-
+                        android:layout_gravity="center"
+                        android:text="MG"/>
                 </TableRow>
 
                 <TableRow
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/entradaGrasa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeActionId="@+id/action_portion"
+                            android:imeActionLabel="@string/grasa"
+                            android:imeOptions="actionUnspecified"
+                            android:inputType="number"
+                            android:textStyle="bold"
+                            android:layout_column="1"
+                            android:ems="10"
+                            android:hint="@string/grasa"
+                            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                            android:maxLines="1" />
+
+                    </android.support.design.widget.TextInputLayout>
                     <TextView
-                        android:id="@+id/grasa_txt"
+                        android:id="@+id/tx_entradaGrasa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="@string/grasa"
-                        android:textSize="@dimen/abc_text_size_small_material" />
-
-                    <EditText
-                        android:id="@+id/entradaGrasa"
-                        android:layout_width="100sp"
-                        android:layout_height="wrap_content"
-                        android:layout_column="1"
-                        android:ems="10"
-                        android:hint="0.0"
-                        android:inputType="phone" />
-
-                    <Spinner
-                        android:id="@+id/grasaSpinner"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_column="2" />
+                        android:layout_gravity="center"
+                        android:text="MG"/>
 
                 </TableRow>
 
                 <TableRow
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">"
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/entradaSodio"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeActionId="@+id/action_portion"
+                            android:imeActionLabel="@string/sodio"
+                            android:imeOptions="actionUnspecified"
+                            android:inputType="number"
+                            android:textStyle="bold"
+                            android:layout_column="1"
+                            android:ems="10"
+                            android:hint="@string/sodio"
+                            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                            android:maxLines="1" />
 
+                    </android.support.design.widget.TextInputLayout>
                     <TextView
-                        android:id="@+id/sodio_txt"
+                        android:id="@+id/tx_entradaSodio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="@string/sodio"
-                        android:textSize="@dimen/abc_text_size_small_material" />
-
-                    <EditText
-                        android:id="@+id/entradaSodio"
-                        android:layout_width="100sp"
-                        android:layout_height="wrap_content"
-                        android:layout_column="1"
-                        android:ems="10"
-                        android:hint="0.0"
-                        android:inputType="phone" />
-
-                    <Spinner
-                        android:id="@+id/sodioSpinner"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_column="2" />
+                        android:layout_gravity="center"
+                        android:text="MG"/>
 
                 </TableRow>
 
@@ -263,9 +288,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/custom_button_gray"
+                    android:background="@drawable/custom_button"
                     android:padding="2dp"
                     android:text="@string/limpiar"
+                    android:textStyle="bold"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/abc_text_size_button_material" />
 
@@ -275,6 +301,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10sp"
                     android:layout_weight="1"
+                    android:textStyle="bold"
                     android:background="@drawable/custom_button"
                     android:padding="2dp"
                     android:text="@string/continuar"

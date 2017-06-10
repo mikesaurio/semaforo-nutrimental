@@ -43,8 +43,8 @@
     <string name="no_azucares_">Azúcares</string>
     <string name="no_grasa_">Grasa saturada</string>
     <string name="no_sodio_">Sodio</string>
-    <string name="alimento">Alimento</string>
-    <string name="bebida">Bebida</string>
+    <string name="alimento">ALIMENTO</string>
+    <string name="bebida">BEBIDA</string>
     <string name="gramos">g</string>
     <string name="kilocalorias">kcal</string>
     <string name="miligramos">mg</string>

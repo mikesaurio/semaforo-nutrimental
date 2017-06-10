@@ -2,8 +2,8 @@
 <resources>
     <color name="actionbar_opacity">#DD000000</color>
     <color name="actionbar_color">#231F20</color>
-    <color name="blue_button">#3DC1F1</color>
-    <color name="gray_button">#D1D2D4</color>
+    <color name="blue_button">#1ea9d6</color>
+    <color name="gray_button">#b0b0b0</color>
     <color name="purple_button">#BD7EB7</color>
     <color name="ColorPrimaryDark">#D1D2D4</color>
     <color name="navbar_below">#1baac9</color>
