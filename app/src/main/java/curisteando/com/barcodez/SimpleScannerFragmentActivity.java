@@ -4,19 +4,10 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
-import android.util.DisplayMetrics;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import curisteando.com.semaforonutrimental.R;
 import curisteando.com.semaforonutrimental.activities.CapturaDatosActivity;
 import curisteando.com.semaforonutrimental.utilidades.Constantes;
@@ -35,7 +26,7 @@ public class SimpleScannerFragmentActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(SimpleScannerFragmentActivity.this, CapturaDatosActivity.class);
-                    intent.putExtra(Constantes.CONST_CODIGO_BARRAS, 0);
+                    intent.putExtra(Constantes.CONST_CODIGO_BARRAS, "");
                     intent.putExtra(Constantes.CONST_IS_FOUND, false);
                     startActivity(intent);
                 }
@@ -56,8 +47,7 @@ public class SimpleScannerFragmentActivity extends AppCompatActivity {
     }
 
     public void restoreActionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        actionBar = Utils.getFormatActionBar(this, actionBar);
+        Utils.getFormatActionBar(this, getSupportActionBar());
     }
 
     /**
@@ -73,26 +63,26 @@ public class SimpleScannerFragmentActivity extends AppCompatActivity {
         builder.setView(view);
         builder.setCancelable(true);
 
-        ((ImageView) view.findViewById(R.id.dialog_close)).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.dialog_close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 customDialog.dismiss();
             }
         });
-        ((ImageButton) view.findViewById(R.id.btn_twitter)).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btn_twitter).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Utils().sendTwitter(getBaseContext(), "Para saber si lo que comes es saludable, descarga #EscanerNutrimental http://www.elpoderdelconsumidor.org"));
             }
         });
-        ((ImageButton) view.findViewById(R.id.btn_share)).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Utils().share_all(getBaseContext(), "Para saber si lo que comes o bebes es alto en azúcar, grasas o sodio, descarga #EscanerNutrimental http://www.elpoderdelconsumidor.org"));
             }
         });
-        ((Button) view.findViewById(R.id.saber_mas_btn)).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.saber_mas_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_VIEW);

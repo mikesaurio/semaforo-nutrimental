@@ -28,9 +28,8 @@ public class Constantes {
     public static final String PARAM_TIPO_ALIMENTO = "paramTipoAlimento";
     public static final String PARAM_COMIDA_BEBIDA = "paramComidaBebida";
 
-    public static final int PARAM_COMIDA = 0;
-    public static final int PARAM_BEBIDA = 1;
-
+    public static final String PARAM_COMIDA = "food";
+    public static final String PARAM_BEBIDA = "drink";
 
     public static final String PARAM_AZUCAR_RESULT = "paramAzucarResult";
     public static final String PARAM_GRASA_RESULT = "paramGrasaResult";
@@ -58,6 +57,9 @@ public class Constantes {
      */
     public static final String CONST_CODIGO_BARRAS = "constCodigoBarras";
     public static final String CONST_IS_FOUND = "constCodigoEncontrado";
+    public static final String CODE = "codigi_de_barras";
+
+    public static final String CONS_RESPONSE = "json_response";
 
 
 }

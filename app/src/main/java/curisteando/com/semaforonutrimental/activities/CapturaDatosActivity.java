@@ -1,80 +1,59 @@
 package curisteando.com.semaforonutrimental.activities;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.icu.text.MessagePattern;
-import android.icu.text.NumberFormat;
-import android.os.Build;
+import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
-import android.text.InputType;
 import android.text.Spanned;
-import android.text.method.PasswordTransformationMethod;
 import android.util.DisplayMetrics;
-import android.view.Gravity;
-import android.view.KeyEvent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.loopj.android.http.SyncHttpClient;
+import cz.msebera.android.httpclient.Header;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import curisteando.com.semaforonutrimental.R;
-import curisteando.com.semaforonutrimental.calculos.Calculos;
-import curisteando.com.semaforonutrimental.entities.ParametrosCalculo;
 import curisteando.com.semaforonutrimental.utilidades.Constantes;
 import curisteando.com.semaforonutrimental.utilidades.TipoAlimento;
-import curisteando.com.semaforonutrimental.utilidades.TipoMedidas;
 import curisteando.com.semaforonutrimental.utilidades.Utils;
 
+
 /**
- * <p>
- *     Pantalla principal en la cual se solicitan los datos de entrada.
- * </p>
- * @author Capitan Durango
+ * Pantalla principal en la cual se solicitan los datos de entrada.
+ * @author Mikesaurio
  * @since 02/11/2014.
  */
-public class CapturaDatosActivity extends ActionBarActivity implements View.OnClickListener {
-
-    /**
-     * Lista de tipos de alimentos a mostrar en el control.
-     */
-    private List<String> listaTiposAlimentos;
-
+public class CapturaDatosActivity extends AppCompatActivity implements View.OnClickListener {
 
     /**
      * Control UI para calcular el semaforo.
      */
-    private Button continuar,limpiar;
+    private Button continuar, limpiar;
 
-    private EditText entradaTamanioPorcion;
-    private EditText entradaAzucares;
-    private EditText entradaGrasa;
-    private EditText entradaSodio;
-    private EditText nombreProducto;
-    private  int tipoProducto;
-
-    private ImageView bebidaImg;
-    private ImageView alimentoImg;
+    private EditText entradaTamanioPorcion,entradaCalorias,entradaAzucares,entradaGrasa,entradaSodio,nombreProducto;
+    private ImageView bebidaImg,alimentoImg;
     private LinearLayout ll_comidas,ll_bebidas;
-
-    private TipoAlimento alimento = TipoAlimento.NINGUNO;
-    private AlertDialog customDialog= null;	//Creamos el dialogo generico
+    private String code,type_feed="drink";
+    private AlertDialog customDialog= null;
+    private SweetAlertDialog pDialog;
+    private setValuesTask mAuthTask = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,18 +68,14 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         if(extras.getBoolean(Constantes.CONST_IS_FOUND)) {
             (customDialog = mostrarExplica()).show();
         }
+        code = extras.getString(Constantes.CONST_CODIGO_BARRAS);
     }
 
     /**
      * Inicializa las variables con su valor default.
      */
     private void inicializaVariables() {
-
-        listaTiposAlimentos = new ArrayList<String>();
-        listaTiposAlimentos.add(getString(R.string.alimento));
-        listaTiposAlimentos.add(getString(R.string.bebida));
-
-        tipoProducto = Constantes.PARAM_COMIDA;
+        type_feed = Constantes.PARAM_COMIDA;
     }
 
     /**
@@ -117,6 +92,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
 
 
         entradaTamanioPorcion = (EditText) findViewById(R.id.entradaTamanioPorcion);
+        entradaCalorias =(EditText)findViewById(R.id.entradaCalorias);
         entradaAzucares = (EditText) findViewById(R.id.entradaAzucares);
         entradaGrasa = (EditText) findViewById(R.id.entradaGrasa);
         entradaSodio = (EditText) findViewById(R.id.entradaSodio);
@@ -141,11 +117,9 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
 
     /**
      * Asigna valores default para los spinner de azucares, grasas, sodio y tamaño por porcion.
-     * @param alimento
-     *          Tipo de alimento que se asigna desde la entrada.
+     * @param alimento alimento que se asigna desde la entrada.
      */
     private void asignaDefaults(TipoAlimento alimento){
-        this.alimento = alimento;
         switch (alimento){
             case ALIMENTO:{
                 ((TextView)findViewById(R.id.tx_entradaTamanioPorcion)).setText("mg");
@@ -167,12 +141,12 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
     }
 
     private void ayudaAlimento(){
-        tipoProducto = Constantes.PARAM_COMIDA;
+        type_feed = Constantes.PARAM_COMIDA;
 
     }
 
     private void ayudaBebida(){
-        tipoProducto = Constantes.PARAM_BEBIDA;
+        type_feed = Constantes.PARAM_BEBIDA;
     }
 
     @Override
@@ -203,8 +177,7 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
     }
 
     /**
-     * Regresa el contexto actual de la aplicacion para utilizarlo.
-     *
+     * Regresa el contexto actual de la aplicacion para utilizarlo
      * @return Contexto de la aplicación.
      */
     private Context getContext() {
@@ -215,37 +188,29 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
     public void onClick(View v) {
         if( v == continuar ){
             if(entradaAzucares.getText().toString().equals("")||entradaGrasa.getText().toString().equals("")||
-                    entradaSodio.getText().toString().equals("")||entradaTamanioPorcion.getText().toString().equals("")){
+                    entradaSodio.getText().toString().equals("")||entradaTamanioPorcion.getText().toString().equals("")||
+                    entradaCalorias.getText().toString().equals("")){
                 Toast.makeText(getBaseContext(), getString(R.string.toast_validation),Toast.LENGTH_LONG).show();
             }else{
-
-                ParametrosCalculo params = new ParametrosCalculo();
-                params.setTipoAlimento(alimento);
-
-                params.setAzucares(Double.parseDouble(entradaAzucares.getText().toString()));
-                params.setGrasas(Double.parseDouble(entradaGrasa.getText().toString()));
-                params.setSodio(Double.parseDouble(entradaSodio.getText().toString()));
-                params.setTamanioPorcion(Double.parseDouble(entradaTamanioPorcion.getText().toString()));
-
-                /*params.setTamanioPorcionMedida(TipoMedidas.values()[tamanioPorcionSpinner.getSelectedItemPosition()]);
-                params.setAzucaresMedida(TipoMedidas.values()[azucaresSpinner.getSelectedItemPosition()]);
-                params.setGrasasMedida(TipoMedidas.values()[grasaSpinner.getSelectedItemPosition()]);
-                params.setSodioMedida(TipoMedidas.values()[sodioSpinner.getSelectedItemPosition()]);
-                params.setTipoProducto(tipoProducto);*/
-
-                new Calculos(getContext(),CapturaDatosActivity.this).execute(params);
+                mAuthTask = new setValuesTask(code, type_feed, nombreProducto.getText().toString(),
+                        entradaTamanioPorcion.getText().toString(),
+                        entradaCalorias.getText().toString(),
+                        entradaAzucares.getText().toString(),
+                        entradaGrasa.getText().toString(),
+                        entradaSodio.getText().toString());
+                mAuthTask.execute((Void) null);
             }
         }else if(v == alimentoImg){
             alimentoImg.setImageResource(R.drawable.ic_comida_azul);
-            ll_comidas.setBackgroundColor(getResources().getColor(R.color.blue_button));
+            ll_comidas.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.blue_button));
             bebidaImg.setImageResource(R.drawable.ic_bebida_gris);
-            ll_bebidas.setBackgroundColor(getResources().getColor(R.color.gray_button));
+            ll_bebidas.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.gray_button));
             asignaDefaults(TipoAlimento.ALIMENTO);
         }else if(v == bebidaImg){
             bebidaImg.setImageResource(R.drawable.ic_bebida_azul);
-            ll_bebidas.setBackgroundColor(getResources().getColor(R.color.blue_button));
+            ll_bebidas.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.blue_button));
             alimentoImg.setImageResource(R.drawable.ic_comida_gris);
-            ll_comidas.setBackgroundColor(getResources().getColor(R.color.gray_button));
+            ll_comidas.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.gray_button));
             asignaDefaults(TipoAlimento.BEBIDA);
         }else if(v == limpiar){
             entradaTamanioPorcion.setText("");
@@ -261,8 +226,6 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         actionBar = Utils.getFormatActionBar(this, actionBar);
         actionBar.setHomeButtonEnabled(true);
     }
-
-
 
     /**
      * Dialogo que muestra el acerca de
@@ -286,10 +249,9 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
         ((TextView) view.findViewById(R.id.dialogo_acercade_nota3)).setText(fromHtml(getString(R.string.text_not_found3)));
         ((TextView) view.findViewById(R.id.dialogo_acercade_nota4)).setText(fromHtml(getString(R.string.text_not_found4)));
 
-        ((ImageView) view.findViewById(R.id.dialog_close)).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.dialog_close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 customDialog.dismiss();
             }
         });
@@ -310,6 +272,118 @@ public class CapturaDatosActivity extends ActionBarActivity implements View.OnCl
             result = Html.fromHtml(html);
         }
         return result;
+    }
+
+
+    private class setValuesTask extends AsyncTask<Void, Void, Boolean> {
+
+        private String response_,code,type_feed,name,portion,energy_portion,sugar_portion,gs_portion,sodio_portion;
+
+        setValuesTask(String code,String type_feed,String name,String portion,String energy_portion,String sugar_portion,String gs_portion,String sodio_portion) {
+            this.code= code;
+            this.type_feed= type_feed;
+            this.name= name;
+            this.portion= portion;
+            this.energy_portion= energy_portion;
+            this.sugar_portion= sugar_portion;
+            this.gs_portion= gs_portion;
+            this.sodio_portion= sodio_portion;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialogLoad();
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            try {
+                SyncHttpClient client = new SyncHttpClient();
+                client.addHeader("Authorization", "Bearer d91pRselbVRPdGjWKkrayGtUYnqV6E");
+                client.addHeader("Content-Type", "application/x-www-form-urlencoded");
+                RequestParams rp =  new RequestParams();
+                rp.put("contribution[code]", code);
+                rp.put("contribution[type_feed]", type_feed);
+                rp.put("contribution[name]", name);
+                rp.put("contribution[portion]", portion);
+                rp.put("contribution[energy_portion]", energy_portion);
+                rp.put("contribution[sugar_portion]", sugar_portion);
+                rp.put("contribution[gs_portion]", gs_portion);
+                rp.put("contribution[sodio_portion]", sodio_portion);
+                client.post("https://consumidor.herokuapp.com/api/contributions/create", rp, new JsonHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                        super.onSuccess(statusCode, headers, response);
+                        response_=response.toString();
+                    }
+
+
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                        super.onSuccess(statusCode, headers, response);
+                        response_=response.toString();
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                        super.onFailure(statusCode, headers, throwable, errorResponse);
+                        response_=null;
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                        super.onFailure(statusCode, headers, throwable, errorResponse);
+                        response_=null;
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                        super.onFailure(statusCode, headers, responseString, throwable);
+                        response_=null;
+                    }
+
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                        super.onSuccess(statusCode, headers, responseString);
+                        response_=responseString;
+                    }
+                });
+
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return false;
+        }
+
+        @Override
+        protected void onPostExecute(final Boolean success) {
+            mAuthTask = null;
+            if(pDialog.isShowing()){
+                pDialog.dismissWithAnimation();
+            }
+            if (success && response_ != null) {
+                Log.e("*************", response_+"");
+                Intent intent = new Intent(CapturaDatosActivity.this, ResultadosNutricionActivity.class);
+                intent.putExtra(Constantes.CONS_RESPONSE, response_);
+                startActivity(intent);
+            }
+
+        }
+
+        @Override
+        protected void onCancelled() {
+            mAuthTask = null;
+        }
+    }
+
+    public void dialogLoad(){
+        pDialog = new SweetAlertDialog(getContext(), SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        pDialog.setTitleText("Espere un momento, obteniendo información");
+        pDialog.setCancelable(false);
+        pDialog.show();
     }
 
 

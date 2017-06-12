@@ -95,4 +95,5 @@
     <string name="text_consejo_bebida_amarillo">Modera el consumo de este producto. Combínalo con alimentos frescos.</string>
     <string name="text_consejo_bebida_verde">Combina este producto con alimentos frescos.</string>
     <string name="name_product">Nombre del producto</string>
+    <string name="calorias">Calorías</string>
 </resources>

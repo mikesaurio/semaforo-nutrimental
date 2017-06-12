@@ -1,56 +1,38 @@
 package curisteando.com.barcodez;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
+
 import android.content.Intent;
-import android.graphics.Typeface;
+import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import curisteando.com.semaforonutrimental.R;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import curisteando.com.semaforonutrimental.activities.CapturaDatosActivity;
 import curisteando.com.semaforonutrimental.activities.ResultadosNutricionActivity;
-import curisteando.com.semaforonutrimental.beans.datos_bean;
 import curisteando.com.semaforonutrimental.utilidades.Constantes;
 import me.dm7.barcodescanner.zbar.BarcodeFormat;
 import me.dm7.barcodescanner.zbar.Result;
 import me.dm7.barcodescanner.zbar.ZBarScannerView;
-import curisteando.com.semaforonutrimental.utilidades.Utils;
 
 public class SimpleScannerFragment extends Fragment implements ZBarScannerView.ResultHandler {
     private ZBarScannerView mScannerView;
     private static final String FLASH_STATE = "FLASH_STATE";
     private static final String AUTO_FOCUS_STATE = "AUTO_FOCUS_STATE";
-    private static final String SELECTED_FORMATS = "SELECTED_FORMATS";
-    private static final String TAG = "SemaforoNutrimental";
 
-    private boolean mFlash;
-    private boolean mAutoFocus;
-    private ArrayList<datos_bean> datosArray;
-    private String tipo_de_archivo = null;
-
-    SurfaceView mSurfaceView;
+    private SweetAlertDialog pDialog;
+    private getDataTask mAuthTask = null;
 
 
     private List<BarcodeFormat> formats = new ArrayList<BarcodeFormat>() {{
@@ -62,20 +44,15 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mScannerView = new ZBarScannerView(getActivity());
-        mSurfaceView = new SurfaceView(getActivity());
-        datosArray = new ArrayList<datos_bean>();
-
+        boolean mAutoFocus;
+        boolean mFlash;
         if (savedInstanceState != null) {
             mFlash = savedInstanceState.getBoolean(FLASH_STATE, false);
             mAutoFocus = savedInstanceState.getBoolean(AUTO_FOCUS_STATE, true);
-            //mSelectedIndices = savedInstanceState.getIntegerArrayList(SELECTED_FORMATS);
         } else {
             mFlash = false;
             mAutoFocus = true;
-            //mSelectedIndices = null;
         }
-
-
         mScannerView.setResultHandler(this);
         mScannerView.setFlash(mFlash);
         mScannerView.setAutoFocus(mAutoFocus);
@@ -88,19 +65,11 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
     @Override
     public void onResume() {
         super.onResume();
-
-        // Install a SurfaceHolder.Callback so we get notified when the
-        // underlying surface is created and destroyed.
-        /*SurfaceHolder surfaceHolder = mSurfaceView.getHolder();
-        surfaceHolder.addCallback(this);
-        surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);*/
-
         mScannerView.startCamera();
     }
 
     @Override
     public void handleResult(Result rawResult) {
-
         buscar_valores(rawResult.getContents());
     }
 
@@ -110,101 +79,90 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
         mScannerView.stopCamera();
     }
 
-    public void buscar_valores(String codigo) {
-        fill_beans();
-        boolean encontrado = false;
-        int id = -1;
-        for (int i = 0; i < datosArray.size(); i++) {
-            if (datosArray.get(i).getCodigo().equals(codigo + "")) {
-                encontrado = true;
-                id = i;
-                break;
-            }
-        }
-        if (encontrado) {
-            Log.e("resultadoAzucar ", datosArray.get(id).getGrado_azucar());
-            Log.e("resultadoGrasa ", datosArray.get(id).getGrado_grasa());
-            Log.e("resultadoSodio ", datosArray.get(id).getGrado_sodio());
-            Intent intent = new Intent(getActivity(), ResultadosNutricionActivity.class);
-            intent.putExtra(Constantes.PARAM_COMIDA_BEBIDA, datosArray.get(id).getTipoProducto());
-            intent.putExtra(Constantes.CONST_CODIGO_BARRAS, codigo);
-            intent.putExtra(Constantes.PARAM_AZUCAR_RESULT, datosArray.get(id).getGrado_azucar());
-            intent.putExtra(Constantes.PARAM_GRASA_RESULT, datosArray.get(id).getGrado_grasa());
-            intent.putExtra(Constantes.PARAM_SODIO_RESULT, datosArray.get(id).getGrado_sodio());
-            intent.putExtra(Constantes.PARAM_AZUCAR_INT, datosArray.get(id).getAzucar100());
-            intent.putExtra(Constantes.PARAM_GRASA_INT, datosArray.get(id).getGrasas100());
-            intent.putExtra(Constantes.PARAM_SODIO_INT, datosArray.get(id).getSodio100());
-            intent.putExtra(Constantes.PARAM_TEXT, datosArray.get(id).getMensaje());
-            intent.putExtra(Constantes.PARAM_SABER_MAS, datosArray.get(id).getAlternativa());
-            startActivity(intent);
-        } else {
-            Intent intent = new Intent(getActivity(), CapturaDatosActivity.class);
-            intent.putExtra(Constantes.CONST_CODIGO_BARRAS, codigo);
-            intent.putExtra(Constantes.CONST_CODIGO_BARRAS, true);
-            startActivity(intent);
-        }
+    public void buscar_valores(String codigo){
+        mAuthTask = new getDataTask(codigo);
+        mAuthTask.execute((Void) null);
     }
 
-    public void fill_beans() {
-        String[] josns = {"inputs/alimentos.json", "inputs/liquidos.json"};
-        for (int j = 0; j < josns.length; j++) {
-            String json = readJson(josns[j]);
-            try {
-                JSONArray jArray = new JSONArray(json);
-                for (int i = 0; i < jArray.length(); i++) {
-                    datos_bean datos = new datos_bean();
-                    JSONObject json_data = jArray.getJSONObject(i);
+    private class getDataTask extends AsyncTask<Void, Void, Boolean> {
 
-                    if (j == 0) {
-                        datos.setTipoProducto(Constantes.PARAM_COMIDA);
-                    } else {
-                        datos.setTipoProducto(Constantes.PARAM_BEBIDA);
-                    }
-                    //datos.setId_producto(json_data.getString("No_Producto"));
-                    datos.setFecha(json_data.getString("Fecha"));
-                    datos.setCodigo(json_data.getString("Código"));
-                    datos.setCategoria(json_data.getString("Categoría"));
-                    datos.setProducto(json_data.getString("Producto"));
-                    datos.setMarca(json_data.getString("Marca"));
-                    datos.setEmpresa(json_data.getString("Empresa"));
-                    datos.setNeto(json_data.getString("Cont_neto"));
-                    datos.setPorcion(json_data.getString("Porción"));
-                    datos.setAzucar(json_data.getString("Cont_azúcar por porción"));
-                    datos.setGrasas(json_data.getString("Cont_GS por porción"));
-                    datos.setSodio(json_data.getString("Cont_sodio por porción"));
-                    datos.setAzucar100(json_data.getString("Cont_azúcar_100"));
-                    datos.setGrasas100(json_data.getString("Cont_GS_100"));
-                    datos.setSodio100(json_data.getString("Cont_sodio_100"));
-                    datos.setGrado_azucar(json_data.getString("Resultado Azúcar"));
-                    datos.setGrado_grasa(json_data.getString("Resultado Grasa Saturada"));
-                    datos.setGrado_sodio(json_data.getString("Resultado Sodio"));
-                    datos.setMensaje(json_data.getString("Mensaje"));
-                    datos.setAlternativa(json_data.getString("Alternativa"));
-                    datosArray.add(datos);
+        private String response_,code;
+
+        getDataTask(String code) {
+            this.code= code;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialogLoad();
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+                if(code == null || code.equals("") || code.equals("0")){
+                    return false;
                 }
-                // Toast.makeText(getActivity().getBaseContext(), datosArray.size() + " en "+j, Toast.LENGTH_SHORT).show();
-            } catch (Exception e) {
-                e.printStackTrace();
-                Log.e("FALLA AL CARGAR", e.getMessage());
+                try {
+                  URL obj = new URL("https://consumidor.herokuapp.com/api/feeds/"+code);
+                    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                    con.setRequestMethod("GET");
 
+                    int responseCode = con.getResponseCode();
+
+                    if (responseCode == HttpURLConnection.HTTP_OK) { //success
+                        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                        String inputLine;
+                        StringBuilder response = new StringBuilder();
+
+                        while ((inputLine = in.readLine()) != null) {
+                            response.append(inputLine);
+                        }
+                        in.close();
+                        this.response_ = response.toString();
+                        return true;
+                    } else {
+                        Log.d("***********", "POST request did not work.");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            return false;
+        }
+
+        @Override
+        protected void onPostExecute(final Boolean success) {
+            mAuthTask = null;
+            if(pDialog.isShowing()){
+                pDialog.dismissWithAnimation();
             }
+            if (success) {
+                Log.e("*************", response_+"");
+                Intent intent = new Intent(getContext(), ResultadosNutricionActivity.class);
+                intent.putExtra(Constantes.CONS_RESPONSE, response_);
+                startActivity(intent);
+
+            }else{
+                Intent intent = new Intent(getActivity(), CapturaDatosActivity.class);
+                intent.putExtra(Constantes.CONST_CODIGO_BARRAS, code);
+                intent.putExtra(Constantes.CONST_IS_FOUND, true);
+                startActivity(intent);
+            }
+
+        }
+
+        @Override
+        protected void onCancelled() {
+            mAuthTask = null;
         }
     }
 
-
-    public String readJson(String stringJson) {
-        String json = "";
-        try {
-            InputStream is = getActivity().getAssets().open(stringJson);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            return "";
-        }
-        return json;
+    public void dialogLoad(){
+        pDialog = new SweetAlertDialog(getContext(), SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        pDialog.setTitleText("Espere un momento, obteniendo información");
+        pDialog.setCancelable(false);
+        pDialog.show();
     }
 
 }

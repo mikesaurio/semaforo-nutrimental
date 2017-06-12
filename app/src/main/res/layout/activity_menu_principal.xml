@@ -178,7 +178,35 @@
                         android:text="MG"/>
 
                 </TableRow>
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/entradaCalorias"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeActionId="@+id/action_entradaCalorias"
+                            android:imeActionLabel="@string/calorias"
+                            android:imeOptions="actionUnspecified"
+                            android:inputType="number"
+                            android:textStyle="bold"
+                            android:layout_column="1"
+                            android:ems="10"
+                            android:hint="@string/calorias"
+                            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                            android:maxLines="1" />
 
+                    </android.support.design.widget.TextInputLayout>
+                    <TextView
+                        android:id="@+id/tx_entradaCalorias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Cal"/>
+                </TableRow>
 
                 <TableRow
                     android:layout_width="wrap_content"
