@@ -8,5 +8,51 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/sellos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include
+                android:id="@+id/sello_one"
+                android:visibility="gone"
+                layout="@layout/sello_one"/>
+            <include
+                android:id="@+id/sello_two"
+                android:visibility="gone"
+                layout="@layout/sello_two"/>
+            <include
+                android:id="@+id/sello_three"
+                android:visibility="gone"
+                layout="@layout/sello_three"/>
+            <include
+                android:id="@+id/sello_four"
+                android:visibility="gone"
+                layout="@layout/sello_four"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/recomendaciones_comida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <include
+                layout="@layout/recomendaciones_comida"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/recomendaciones_bebidas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <include
+                layout="@layout/recomendaciones_bebida"/>
+        </LinearLayout>
+    </LinearLayout>
+
 
 </RelativeLayout>
