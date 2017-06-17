@@ -201,15 +201,15 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
                 mAuthTask.execute((Void) null);
             }
         }else if(v == alimentoImg){
-            alimentoImg.setImageResource(R.drawable.ic_comida_azul);
+            alimentoImg.setImageResource(R.drawable.ic_bebida_azul);
             ll_comidas.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.blue_button));
-            bebidaImg.setImageResource(R.drawable.ic_bebida_gris);
+            bebidaImg.setImageResource(R.drawable.ic_comida_gris);
             ll_bebidas.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.gray_button));
             asignaDefaults(TipoAlimento.ALIMENTO);
         }else if(v == bebidaImg){
-            bebidaImg.setImageResource(R.drawable.ic_bebida_azul);
+            bebidaImg.setImageResource(R.drawable.ic_comida_azul);
             ll_bebidas.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.blue_button));
-            alimentoImg.setImageResource(R.drawable.ic_comida_gris);
+            alimentoImg.setImageResource(R.drawable.ic_bebida_gris);
             ll_comidas.setBackgroundColor(ContextCompat.getColor(getContext(),R.color.gray_button));
             asignaDefaults(TipoAlimento.BEBIDA);
         }else if(v == limpiar){

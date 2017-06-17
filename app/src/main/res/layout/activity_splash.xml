@@ -10,7 +10,7 @@
         android:padding="@dimen/activity_horizontal_margin"
         android:orientation="vertical">
         <ImageView
-            android:src="@drawable/ic_launcher"
+            android:src="@drawable/ic_launcher_logo"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".7"/>
