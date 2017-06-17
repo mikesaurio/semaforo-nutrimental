@@ -5,9 +5,9 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:id="@+id/iv_sello_one"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        app:srcCompat="@mipmap/ic_launcher" />
+        android:src="@mipmap/ic_launcher" />
 </LinearLayout>
