@@ -5,9 +5,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import curisteando.com.semaforonutrimental.R;
@@ -18,14 +23,30 @@ import curisteando.com.semaforonutrimental.utilidades.Utils;
 
 public class ResultadosNutricionActivity extends AppCompatActivity  {
 
+    TextView tv_mensaje;
+    LinearLayout recomendaciones_comida, recomendaciones_bebida,sellos,ll_mensaje;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultados_nutricion);
 
-        restoreActionBar();
+        tv_mensaje=(TextView)findViewById(R.id.tv_mensaje);
+        recomendaciones_comida=(LinearLayout)findViewById(R.id.recomendaciones_comida);
+        recomendaciones_bebida=(LinearLayout)findViewById(R.id.recomendaciones_bebidas);
+        sellos=(LinearLayout)findViewById(R.id.sellos);
+        ll_mensaje=(LinearLayout)findViewById(R.id.ll_mensaje);
 
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int height = metrics.heightPixels/6;
+        sellos.getLayoutParams().height = height*4;
+        sellos.requestLayout();
+
+        ll_mensaje.getLayoutParams().height = height;
+        ll_mensaje.requestLayout();
+
+        restoreActionBar();
         Intent i = getIntent();
         Bundle extras = i.getExtras();
         String  json_string = extras.getString(Constantes.CONS_RESPONSE);
@@ -69,6 +90,12 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
             db.setRecommendation(jsonObject.getString("recommendation"));
 
             make_sellos(db);
+            tv_mensaje.setText(db.getMessage());
+            if (db.getType_product().equals("food")){
+                recomendaciones_comida.setVisibility(View.VISIBLE);
+            }else{
+                recomendaciones_bebida.setVisibility(View.VISIBLE);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -76,7 +103,7 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
 
     public void make_sellos(DatosBean db){
         LinearLayout ll = null;
-        if(db.getTotal_true().equals("1")){
+        if(db.getTotal_true().equals("0")){
             ll = (LinearLayout)findViewById(R.id.sello_one);
             set_sellos(0,ll,db.isResult_caloria(),db.isResult_sugar(),db.isResult_gs(), db.isResult_sodio());
         }else if(db.getTotal_true().equals("1")){

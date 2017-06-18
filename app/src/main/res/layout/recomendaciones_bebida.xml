@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@drawable/round_corners"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -19,16 +18,25 @@
         android:padding="5dp"
         android:layout_margin="5dp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".4"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_white"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_corners_blue"
-            android:text="Leche, semi o descremada natural" />
+            android:layout_weight=".4"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_launcher_arinas"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_white"
+                android:text="Leche, semi o descremada natural" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="0dp"
@@ -47,17 +55,26 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:layout_margin="5dp">
-
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".4"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_white"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_corners_blue"
-            android:text="Leches vegetales" />
+            android:layout_weight=".4"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_launcher_leche"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_white"
+                android:text="Leches vegetales" />
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="0dp"
@@ -77,16 +94,27 @@
         android:padding="5dp"
         android:layout_margin="5dp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".4"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_white"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_corners_blue"
-            android:text="Yogurt y bebidas lácteas saborizadas" />
+            android:layout_weight=".4"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_launcher_yogurth"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_white"
+                android:text="Yogurt y bebidas lácteas saborizadas" />
+        </LinearLayout>
+
+
 
         <TextView
             android:layout_width="0dp"
@@ -107,16 +135,25 @@
         android:padding="5dp"
         android:layout_margin="5dp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".4"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_white"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_corners_blue"
-            android:text="Refresco, jugo o bebida azucarada" />
+            android:layout_weight=".4"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_launcher_refrescos"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_white"
+                android:text="Refresco, jugo o bebida azucarada" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="0dp"
