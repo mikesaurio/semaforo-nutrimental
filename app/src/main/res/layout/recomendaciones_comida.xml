@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/activity_vertical_margin">
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,17 +19,25 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:layout_margin="5dp">
-
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".4"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_white"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_corners_blue"
-            android:text="Pastelillos o pan dulce" />
+            android:layout_weight=".4"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_launcher_pastelillos"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_white"
+                android:text="Pastelillos o pan dulce" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="0dp"
@@ -49,16 +58,25 @@
         android:padding="5dp"
         android:layout_margin="5dp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".4"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_white"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_corners_blue"
-            android:text="Galletas y barritas" />
+            android:layout_weight=".4"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_launcher_galletas"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_white"
+                android:text="Galletas y barritas" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="0dp"
@@ -78,27 +96,36 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:layout_margin="5dp">
-
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".4"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_white"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_corners_blue"
-            android:text="Cereales azucarados" />
+            android:layout_weight=".4"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_launcher_cereal"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_white"
+                android:text="Cereales azucarados" />
+        </LinearLayout>
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
             android:paddingLeft="5dp"
+            android:text="Mejor come un plato de avena y/o amaranto con fruta y semillas"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_black"
-            android:text="Mejor come un plato de avena y/o amaranto con fruta y semillas" />
+            android:textColor="@color/text_black" />
     </LinearLayout>
 
 
@@ -108,17 +135,25 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:layout_margin="5dp">
-
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".4"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_white"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_corners_blue"
-            android:text="Chocolates" />
+            android:layout_weight=".4"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_launcher_chocolates"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_white"
+                android:text="Chocolates" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="0dp"
@@ -138,17 +173,25 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:layout_margin="5dp">
-
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".4"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_white"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_corners_blue"
-            android:text="Frituras o botanas" />
+            android:layout_weight=".4"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_launcher_nachos"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_white"
+                android:text="Frituras o botanas" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="0dp"
@@ -166,17 +209,26 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:layout_margin="5dp">
-
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".4"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_white"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_corners_blue"
-            android:text="Alimento enlatado o listo para preparar" />
+            android:layout_weight=".4"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_launcher_salchicha"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_white"
+                android:text="Alimento enlatado o listo para preparar" />
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="0dp"
@@ -195,17 +247,25 @@
         android:padding="5dp"
         android:layout_margin="5dp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".4"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_white"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_corners_blue"
-            android:text="Pan de caja, tortillas de harina, galletas saladas
-" />
+            android:layout_weight=".4"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_launcher_pan"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_white"
+                android:text="Pan de caja, tortillas de harina, galletas saladas" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="0dp"
