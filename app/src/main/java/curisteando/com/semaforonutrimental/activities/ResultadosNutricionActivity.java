@@ -1,6 +1,7 @@
 package curisteando.com.semaforonutrimental.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -49,6 +50,34 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
         String  json_string = extras.getString(Constantes.CONS_RESPONSE);
 
         init(json_string);
+
+        findViewById(R.id.btn_twitter).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Utils().sendTwitter(getBaseContext(), "Para saber si lo que comes es saludable, descarga #EscanerNutrimental http://www.elpoderdelconsumidor.org"));
+            }
+        });
+        findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Utils().share_all(getBaseContext(), "Para saber si lo que comes o bebes es alto en azúcar, grasas o sodio, descarga #EscanerNutrimental http://www.elpoderdelconsumidor.org"));
+            }
+        });
+        findViewById(R.id.saber_mas_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(getString(R.string.url_web)));
+                startActivity(i);
+            }
+        });
+        findViewById(R.id.btn_back_scanner).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
     }
 
     public void init(String json_string){
@@ -90,7 +119,7 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
             tv_mensaje.setText(db.getMessage());
             if (db.getType_product().equals("food")){
                 recomendaciones_comida.setVisibility(View.VISIBLE);
-            }else{
+            }else if(db.getType_product().equals("drink")){
                 recomendaciones_bebida.setVisibility(View.VISIBLE);
             }
         } catch (JSONException e) {

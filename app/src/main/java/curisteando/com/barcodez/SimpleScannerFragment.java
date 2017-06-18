@@ -160,7 +160,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
     public void dialogLoad(){
         pDialog = new SweetAlertDialog(getContext(), SweetAlertDialog.PROGRESS_TYPE);
         pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
-        pDialog.setTitleText("Espere un momento, obteniendo información");
+        pDialog.setTitleText("Espere un momento...");
         pDialog.setCancelable(false);
         pDialog.show();
     }
