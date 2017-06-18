@@ -97,4 +97,8 @@
     <string name="name_product">Nombre del producto</string>
     <string name="calorias">Calorías</string>
     <string name="back_to_scanner">REGRESA \n AL ESCÁNER</string>
+    <string name="text_explica_alimento">Si este producto es dulce, revisa en los ingredientes si contiene sustitutos de azúcar como aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
+    <string name="text_explica_alimento_2">¡ESTO NO LO HACE MÁS SALUDABLE!</string>
+    <string name="text_explica_alimento_3">¡NO SE RECOMIENDA PARA NIÑOS!</string>
+    <string name="text_explica_bebida">Si esta bebida es diferente al agua natural y es dulce, entonces contiene sustitutos de azúcar como aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
 </resources>
