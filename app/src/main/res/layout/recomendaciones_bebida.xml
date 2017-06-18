@@ -48,7 +48,7 @@
             android:paddingLeft="5dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black"
-            android:text="No tienes que evitarla solo modera su consumo" />
+            android:text="No tienes que evitarla, solo modera su consumo." />
     </LinearLayout>
 
     <LinearLayout
@@ -86,7 +86,7 @@
             android:paddingLeft="5dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black"
-            android:text="Mejor prepara leche vegetal casera y complementa con fuentes de calcio" />
+            android:text="Mejor prepara leche vegetal casera y complementa con fuentes de calcio." />
     </LinearLayout>
 
     <LinearLayout
@@ -126,7 +126,7 @@
             android:paddingLeft="5dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black"
-            android:text="Mejor toma leche sola, con canela o vainilla sin azucar" />
+            android:text="Mejor toma leche sola, con canela o vainilla sin azúcar." />
     </LinearLayout>
 
 
@@ -165,6 +165,6 @@
             android:paddingLeft="5dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black"
-            android:text="Mejor toma agua simple, agua fresca con fruta y poca azúcar, o té o café sin azúcar" />
+            android:text="Mejor toma agua simple, agua fresca con fruta y poca azúcar, o té o café sin azúcar." />
     </LinearLayout>
 </LinearLayout>
