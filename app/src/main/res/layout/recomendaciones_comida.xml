@@ -232,7 +232,7 @@
             android:paddingLeft="5dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black"
-            android:text="Mejor come un plato de avena y/o amaranto con fruta y semillas" />
+            android:text="Mejor come un plato de avena y/o amaranto con fruta y semillas." />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -269,7 +269,7 @@
             android:paddingLeft="5dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black"
-            android:text="Mejor prefiere el pan integral artesanal, las tortillas de maíz y las tostadas horneadas" />
+            android:text="Mejor prefiere el pan integral artesanal, las tortillas de maíz y las tostadas horneadas." />
     </LinearLayout>
 
     <LinearLayout
@@ -306,7 +306,7 @@
             android:paddingLeft="5dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black"
-            android:text="Mejor come un plato de avena y/o amaranto con fruta" />
+            android:text="Mejor come un plato de avena y/o amaranto con fruta." />
     </LinearLayout>
 
     <LinearLayout
@@ -343,7 +343,7 @@
             android:paddingLeft="5dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black"
-            android:text="Mejor disfruta del sabor dulce de las frutas naturales" />
+            android:text="Mejor disfruta del sabor dulce de las frutas naturales." />
     </LinearLayout>
 
 
