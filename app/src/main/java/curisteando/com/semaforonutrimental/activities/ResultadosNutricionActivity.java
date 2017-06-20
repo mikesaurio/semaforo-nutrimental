@@ -11,6 +11,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import curisteando.com.semaforonutrimental.R;
@@ -23,11 +27,14 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
 
     TextView tv_mensaje;
     LinearLayout recomendaciones_comida, recomendaciones_bebida,sellos,ll_mensaje;
+    ShareDialog shareDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultados_nutricion);
+
+        shareDialog = new ShareDialog(this);
 
         tv_mensaje=(TextView)findViewById(R.id.tv_mensaje);
         recomendaciones_comida=(LinearLayout)findViewById(R.id.recomendaciones_comida);
@@ -71,6 +78,19 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
                 startActivity(i);
             }
         });
+        findViewById(R.id.btn_facebook).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ShareLinkContent content = new ShareLinkContent.Builder()
+                        .setContentUrl(Uri.parse(getString(R.string.url_web)))
+                        .setQuote("Para saber si lo que comes es saludable, descarga #EscanerNutrimental http://www.elpoderdelconsumidor.org")
+                        .build();
+
+                shareDialog.show(content);
+            }
+        });
+
         findViewById(R.id.btn_back_scanner).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

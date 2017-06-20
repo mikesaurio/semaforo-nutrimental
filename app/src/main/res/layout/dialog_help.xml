@@ -103,7 +103,7 @@
                     android:layout_marginTop="15sp"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal"
-                    android:weightSum="5">
+                    android:weightSum="6">
 
                     <Button
                         android:id="@+id/saber_mas_btn"
@@ -121,12 +121,20 @@
                         android:textColor="@color/blue_button" />
 
                     <ImageButton
-                        android:id="@+id/btn_twitter"
+                        android:id="@+id/btn_facebook"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_marginRight="3dp"
                         android:layout_marginLeft="3dp"
+                        android:background="@drawable/custome_button_white"
+                        android:src="@drawable/ic_facebook" />
+                    <ImageButton
+                        android:id="@+id/btn_twitter"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginRight="3dp"
                         android:background="@drawable/custome_button_white"
                         android:src="@drawable/ic_twitter" />
                     <ImageButton

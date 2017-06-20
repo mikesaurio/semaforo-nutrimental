@@ -1,13 +1,20 @@
 package curisteando.com.barcodez;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.facebook.FacebookSdk;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
+
 import curisteando.com.semaforonutrimental.R;
 import curisteando.com.semaforonutrimental.activities.CapturaDatosActivity;
 import curisteando.com.semaforonutrimental.utilidades.Constantes;
@@ -15,9 +22,13 @@ import curisteando.com.semaforonutrimental.utilidades.Utils;
 
 public class SimpleScannerFragmentActivity extends AppCompatActivity {
     private AlertDialog customDialog= null;
+    ShareDialog shareDialog;
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
+
+        shareDialog = new ShareDialog(this);
+
         try {
             setContentView(R.layout.activity_simple_scanner_fragment);
             Utils.formatoTextView(this, findViewById(R.id.instrucciones), R.color.text_black);
@@ -82,6 +93,19 @@ public class SimpleScannerFragmentActivity extends AppCompatActivity {
                 startActivity(new Utils().share_all(getBaseContext(), "Para saber si lo que comes o bebes es alto en azúcar, grasas o sodio, descarga #EscanerNutrimental http://www.elpoderdelconsumidor.org"));
             }
         });
+        view.findViewById(R.id.btn_facebook).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ShareLinkContent content = new ShareLinkContent.Builder()
+                        .setContentUrl(Uri.parse(getString(R.string.url_web)))
+                        .setQuote("Para saber si lo que comes es saludable, descarga #EscanerNutrimental http://www.elpoderdelconsumidor.org")
+                        .build();
+
+                shareDialog.show(content);
+            }
+        });
+
         view.findViewById(R.id.saber_mas_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

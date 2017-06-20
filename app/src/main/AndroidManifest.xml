@@ -13,6 +13,7 @@
         tools:replace="android:icon,android:theme"
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/AppTheme">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <activity
             android:name=".Splash"
             android:configChanges="orientation"
@@ -36,6 +37,9 @@
             android:name="curisteando.com.semaforonutrimental.activities.ResultadosNutricionActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
+        <provider android:authorities="com.facebook.app.FacebookContentProvider443335242696913"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"/>
     </application>
 
 </manifest>
