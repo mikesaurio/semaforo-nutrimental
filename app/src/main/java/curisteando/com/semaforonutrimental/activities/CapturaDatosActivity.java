@@ -218,6 +218,7 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
             entradaGrasa.setText("");
             entradaSodio.setText("");
             nombreProducto.setText("");
+            entradaCalorias.setText("");
         }
     }
 
