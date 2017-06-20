@@ -17,7 +17,7 @@
 
         <fragment
             android:id="@+id/scanner_fragment"
-            android:name="curisteando.com.barcodez.SimpleScannerFragment"
+            android:name="poderdelconsumidor.com.barcodez.SimpleScannerFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
