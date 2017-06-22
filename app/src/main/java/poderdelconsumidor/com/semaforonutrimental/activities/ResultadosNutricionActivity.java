@@ -1,5 +1,6 @@
 package poderdelconsumidor.com.semaforonutrimental.activities;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -28,6 +29,7 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
     TextView tv_mensaje;
     LinearLayout recomendaciones_comida, recomendaciones_bebida,sellos,ll_mensaje;
     ShareDialog shareDialog;
+    private AlertDialog customDialog= null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +100,10 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
             }
         });
 
+
+
+
+
     }
 
     public void init(String json_string){
@@ -139,9 +145,16 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
             tv_mensaje.setText(db.getMessage());
             if (db.getType_product().equals("food")){
                 recomendaciones_comida.setVisibility(View.VISIBLE);
+                if(Integer.parseInt(db.getSugar_100())< 5 ){
+                    (customDialog = mostrarPopup(R.layout.dialogo_comida)).show();
+                }
             }else if(db.getType_product().equals("drink")){
                 recomendaciones_bebida.setVisibility(View.VISIBLE);
+                if(Integer.parseInt(db.getSugar_100())<5){
+                    (customDialog = mostrarPopup(R.layout.dialogo_bebida)).show();
+                }
             }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -270,6 +283,33 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
         ActionBar actionBar = getSupportActionBar();
         actionBar = Utils.getFormatActionBar(actionBar);
         actionBar.setHomeButtonEnabled(true);
+    }
+
+    /**
+     * Dialogo que muestra el mostrarPopup
+     *
+     * @return Dialog (regresa el dialogo creado)
+     **/
+    public AlertDialog mostrarPopup(int template)
+    {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(template, null);
+        builder.setView(view);
+        builder.setCancelable(true);
+
+        view.findViewById(R.id.dialog_close).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                customDialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+        return dialog;
     }
 
 }
