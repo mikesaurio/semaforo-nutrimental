@@ -18,6 +18,8 @@ import com.facebook.share.widget.ShareDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import poderdelconsumidor.com.barcodez.SimpleScannerFragmentActivity;
 import poderdelconsumidor.com.semaforonutrimental.R;
 import poderdelconsumidor.com.semaforonutrimental.beans.DatosBean;
 import poderdelconsumidor.com.semaforonutrimental.utilidades.Constantes;
@@ -106,6 +108,12 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(ResultadosNutricionActivity.this,SimpleScannerFragmentActivity.class));
+        this.finish();
+    }
+
     public void init(String json_string){
         try {
             JSONObject jsonObjectFeed = new JSONObject(json_string);
@@ -145,12 +153,12 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
             tv_mensaje.setText(db.getMessage());
             if (db.getType_product().equals("food")){
                 recomendaciones_comida.setVisibility(View.VISIBLE);
-                if(Integer.parseInt(db.getSugar_100())< 5 ){
+                if(Double.parseDouble(db.getSugar_100())< 5 ){
                     (customDialog = mostrarPopup(R.layout.dialogo_comida)).show();
                 }
             }else if(db.getType_product().equals("drink")){
                 recomendaciones_bebida.setVisibility(View.VISIBLE);
-                if(Integer.parseInt(db.getSugar_100())<5){
+                if(Double.parseDouble(db.getSugar_100())<5){
                     (customDialog = mostrarPopup(R.layout.dialogo_bebida)).show();
                 }
             }

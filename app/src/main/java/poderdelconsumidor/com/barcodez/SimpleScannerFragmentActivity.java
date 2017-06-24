@@ -35,6 +35,7 @@ public class SimpleScannerFragmentActivity extends AppCompatActivity {
                     intent.putExtra(Constantes.CONST_CODIGO_BARRAS, "");
                     intent.putExtra(Constantes.CONST_IS_FOUND, false);
                     startActivity(intent);
+                    SimpleScannerFragmentActivity.this.finish();
                 }
             });
 

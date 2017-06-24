@@ -30,6 +30,7 @@ import cz.msebera.android.httpclient.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import poderdelconsumidor.com.barcodez.SimpleScannerFragmentActivity;
 import poderdelconsumidor.com.semaforonutrimental.R;
 import poderdelconsumidor.com.semaforonutrimental.utilidades.Constantes;
 import poderdelconsumidor.com.semaforonutrimental.utilidades.TipoAlimento;
@@ -176,6 +177,13 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(CapturaDatosActivity.this,SimpleScannerFragmentActivity.class));
+        this.finish();
     }
 
     /**
