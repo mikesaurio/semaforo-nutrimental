@@ -136,10 +136,10 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
             if(pDialog.isShowing()){
                 pDialog.dismissWithAnimation();
             }
-            if (success) {
+            if (success && response_ != null) {
                 Log.e("*************", response_+"");
-                Intent intent = new Intent(getContext(), ResultadosNutricionActivity.class);
-                intent.putExtra(Constantes.CONS_RESPONSE, response_);
+                Intent intent = new Intent(getActivity(), ResultadosNutricionActivity.class);
+                intent.putExtra(Constantes.CONS_RESPONSE,response_);
                 startActivity(intent);
 
             }else{
