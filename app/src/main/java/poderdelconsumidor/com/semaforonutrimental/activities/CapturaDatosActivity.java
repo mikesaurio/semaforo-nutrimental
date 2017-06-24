@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -59,6 +60,7 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         restoreActionBar();
         inicializaVariables();
         inicializaControles();
@@ -125,7 +127,7 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
                 ((TextView)findViewById(R.id.tx_entradaTamanioPorcion)).setText("mg");
                 ((TextView)findViewById(R.id.tx_entradaAzucares)).setText("g");
                 ((TextView)findViewById(R.id.tx_entradaGrasa)).setText("g");
-                ((TextView)findViewById(R.id.tx_entradaSodio)).setText("g");
+                ((TextView)findViewById(R.id.tx_entradaSodio)).setText("mg");
                 ayudaAlimento();
                 break;
             }
@@ -133,7 +135,7 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
                 ((TextView)findViewById(R.id.tx_entradaTamanioPorcion)).setText("ml");
                 ((TextView)findViewById(R.id.tx_entradaAzucares)).setText("g");
                 ((TextView)findViewById(R.id.tx_entradaGrasa)).setText("g");
-                ((TextView)findViewById(R.id.tx_entradaSodio)).setText("g");
+                ((TextView)findViewById(R.id.tx_entradaSodio)).setText("mg");
                 ayudaBebida();
                 break;
             }
@@ -187,17 +189,15 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         if( v == continuar ){
-            if(entradaAzucares.getText().toString().equals("")||entradaGrasa.getText().toString().equals("")||
-                    entradaSodio.getText().toString().equals("")||entradaTamanioPorcion.getText().toString().equals("")||
-                    entradaCalorias.getText().toString().equals("")){
+            if((entradaTamanioPorcion.getText().toString().equals("") || nombreProducto.getText().toString().equals(""))){
                 Toast.makeText(getBaseContext(), getString(R.string.toast_validation),Toast.LENGTH_LONG).show();
             }else{
                 mAuthTask = new setValuesTask(code, type_feed, nombreProducto.getText().toString(),
                         entradaTamanioPorcion.getText().toString(),
-                        entradaCalorias.getText().toString(),
-                        entradaAzucares.getText().toString(),
-                        entradaGrasa.getText().toString(),
-                        entradaSodio.getText().toString());
+                        entradaCalorias.getText().toString().equals("") ? "0" : entradaCalorias.getText().toString(),
+                        entradaAzucares.getText().toString().equals("") ? "0" : entradaAzucares.getText().toString(),
+                        entradaGrasa.getText().toString().equals("") ? "0" : entradaGrasa.getText().toString(),
+                        entradaSodio.getText().toString().equals("") ? "0" : entradaSodio.getText().toString());
                 mAuthTask.execute((Void) null);
             }
         }else if(v == alimentoImg){
@@ -369,6 +369,7 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
                 Intent intent = new Intent(CapturaDatosActivity.this, ResultadosNutricionActivity.class);
                 intent.putExtra(Constantes.CONS_RESPONSE, response_);
                 startActivity(intent);
+                CapturaDatosActivity.this.finish();
             }
 
         }
@@ -382,7 +383,7 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
     public void dialogLoad(){
         pDialog = new SweetAlertDialog(getContext(), SweetAlertDialog.PROGRESS_TYPE);
         pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
-        pDialog.setTitleText("Espere un momento, obteniendo información");
+        pDialog.setTitleText("Espere un momento...");
         pDialog.setCancelable(false);
         pDialog.show();
     }

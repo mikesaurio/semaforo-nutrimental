@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Semáforo Nutrimental</string>
+    <string name="app_name">cáner Nutrimental</string>
     <string name="facebook_app_id">443335242696913</string>
 
     <string name="url_web">http://elpoderdelconsumidor.org/etiquetado-app/</string>
@@ -23,7 +23,7 @@
 
     <string name="message_camera_permission">Se necesitan permisos de la cámara para continuar</string>
 
-    <string name="toast_validation">Debes llenar todos los campos</string>
+    <string name="toast_validation">Debes llenar al menos los campos iniciales</string>
     <string name="more_information">más información</string>
 
     <string name="hello_world">Este no deberia de salir</string>
@@ -36,7 +36,7 @@
     <string name="tamanio_porcion">Tamaño porción</string>
     <string name="tamanio_porcion_">Tamaño porción:</string>
     <string name="contenido_neto">Contenido neto:</string>
-    <string name="azucares">Azucares:</string>
+    <string name="azucares">Azúcares:</string>
     <string name="grasa">Grasas saturadas:</string>
     <string name="sodio">Sodio:</string>
     <string name="azucares_">En azúcares</string>
@@ -66,7 +66,6 @@
     <string name="ejemplo_producto_bebida">Nombre de la bebida</string>
     <string name="ejemplo_producto_alimento">Nombre del alimento</string>
 
-    <string name="text_explica">Para conocer el semáforo de este producto, busca el tamaño de la porción en la información nutrimental al reverso del producto, en una tabla o en un listado.</string>
     <string name="text_explica_nota">OJO: Recuerda que el tamaño de la porción y el contenido neto pueden ser diferentes.</string>
     <string name="btn_aceptar">Aceptar</string>
     <string name="lista">Listado</string>
@@ -75,15 +74,15 @@
     <string name="defaul_mensaje_text">Alimentate sanamente </string>
     <string name="no_contiene">No contiene</string>
     <string name="text_explica_title">¡IMPORTANTE!</string>
-    <string name="text_explica1">Coloca elcódigo de barras frente a la cámara y toca el botón para escanear el producto</string>
+    <string name="text_explica1">Coloca el código de barras frente a la cámara y toca el botón para escanear el producto.</string>
     <string name="text_explica2">¡Es muy facil!</string>
-    <string name="text_explica3">De no estar el producto en la base de datos, llena el breve formulario</string>
+    <string name="text_explica3">De no estar el producto en la base de datos, llena el breve formulario.</string>
     <string name="text_explica4">¡Y conoce si tu producto es saludable!</string>
     <string name="text_not_found1">Este producto aún no está en la base de datos.</string>
     <string name="text_not_found2">Busca la <b>Información nutrimental:</b></string>
     <string name="text_not_found3">1) Está <b>AL REVERSO</b> del envase.</string>
     <string name="text_not_found4">2) Identifica el tamaño de la  <bold>PORCIÓN.</bold></string>
-    <string name="not_zugar">Si esta bebida es diferente al agua natural, entonces contiene sustitutos de azucar como aspartame, acesulfame-k, sucralosa, neotame o stevia. ¡Esto no lo hace más saludable!. No se recomienda para niños. </string>
+    <string name="not_zugar">Si esta bebida es diferente al agua natural, entonces contiene sustitutos de azúcar como aspartame, acesulfame-k, sucralosa, neotame o stevia. ¡Esto no lo hace más saludable!. No se recomienda para niños. </string>
     <string name="not_zugar1">Si esta bebida es diferente al agua natural, Entonces contiene sustitutos de azúcar como Aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
     <string name="not_zugar2">¡Esto no lo hace más saludable!</string>
     <string name="not_zugar3">No se recomienda para niños.</string>
@@ -96,8 +95,8 @@
     <string name="text_consejo_bebida_rojo">¡¡Evita consumir este producto!!</string>
     <string name="text_consejo_bebida_amarillo">Modera el consumo de este producto. Combínalo con alimentos frescos.</string>
     <string name="text_consejo_bebida_verde">Combina este producto con alimentos frescos.</string>
-    <string name="name_product">Nombre del producto</string>
-    <string name="calorias">Calorías</string>
+    <string name="name_product">Nombre del producto:</string>
+    <string name="calorias">Calorías:</string>
     <string name="back_to_scanner">REGRESA \n AL ESCÁNER</string>
     <string name="text_explica_alimento">Si este producto es dulce, revisa en los ingredientes si contiene sustitutos de azúcar como aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
     <string name="text_explica_alimento_2">¡ESTO NO LO HACE MÁS SALUDABLE!</string>

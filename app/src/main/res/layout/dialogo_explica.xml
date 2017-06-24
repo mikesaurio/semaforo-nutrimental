@@ -40,7 +40,7 @@
                     android:orientation="vertical"
                     android:gravity="center">
 
-                    <TextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
                         android:id="@+id/dialogo_acercade_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                         android:layout_marginBottom="5sp"
                         android:text="@string/text_explica_title" />
 
-                    <TextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
                         android:id="@+id/dialogo_acercade_nota1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/text_not_found1" />
 
-                    <TextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
                         android:id="@+id/dialogo_acercade_nota2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/text_not_found2" />
 
-                    <TextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
                         android:id="@+id/dialogo_acercade_nota3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/text_not_found3" />
 
-                    <TextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
                         android:id="@+id/dialogo_acercade_nota4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

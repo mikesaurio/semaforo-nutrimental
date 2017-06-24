@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:background="@color/text_white"
     android:orientation="vertical"
     android:padding="5sp">
@@ -11,8 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".6"
-        android:background="@color/gray_button"
+        android:layout_weight=".55"
         android:padding="10sp">
 
         <fragment
@@ -24,69 +24,64 @@
             android:layout_weight="1"
             android:background="@drawable/round_corners" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/instrucciones"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:background="@color/text_white"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:text="@string/apunta_codigo_barras"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/text_black" />
-
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".3"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:animateLayoutChanges="true"
-        android:background="@color/text_white"
-        android:orientation="horizontal"
-        card_view:cardElevation="0dp">
+        android:layout_weight=".35"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/ll_buton_scanner"
+        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+            android:id="@+id/instrucciones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/round_corners"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:gravity="center"
-            android:orientation="vertical"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/apunta_codigo_barras"
+            android:textColor="@color/text_black" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="90sp"
+            android:animateLayoutChanges="true"
+            card_view:cardElevation="0dp"
             android:layout_margin="@dimen/activity_horizontal_margin"
-            android:weightSum="2">
+            card_view:cardMaxElevation="0dp"
+            android:background="@color/text_white"
+            android:orientation="horizontal">
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/ll_buton_scanner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_corners"
                 android:gravity="center"
-                android:text="TOCA AQUÍ"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/text_white" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:text="SI NO TIENE CÓDIGO"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/text_white" />
+                android:orientation="vertical"
+
+                android:weightSum="2">
+
+                <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="TOCA AQUÍ"
+                    android:textSize="30sp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_white" />
+                <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="SI NO TIENE CÓDIGO"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_white" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
 
 
-
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -94,14 +89,13 @@
         android:gravity="center"
         android:orientation="vertical"
         android:weightSum="1">
-    <ImageButton
-        android:id="@+id/iv_scaner_help"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:scaleType="fitCenter"
-        android:background="@color/text_white"
-        android:src="@drawable/ic_help"/>
-    </LinearLayout>
-
+        <ImageButton
+            android:id="@+id/iv_scaner_help"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:scaleType="fitCenter"
+            android:background="@color/text_white"
+            android:src="@drawable/ic_help"/>
+        </LinearLayout>
 </LinearLayout>

@@ -20,7 +20,7 @@ public class FontCache {
             try {
                 typeface = Typeface.createFromAsset(context.getAssets(),  "fonts/"+fontname);
             } catch (Exception e) {
-                Log.e("********", "Fala");
+                Log.e("********", e.getMessage());
                 return null;
             }
 

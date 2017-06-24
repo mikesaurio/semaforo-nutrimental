@@ -47,14 +47,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/blue_button">
-                        <TextView
+                        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
                             android:id="@+id/tv_mensaje"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:textStyle="bold"
                             android:textColor="@color/text_white"
-                            android:text="Evita consumir este producto"
-                            android:textSize="@dimen/progress_circle_radius"
+                            android:text="Evita consumir \neste producto"
+                            android:textSize="28sp"
                             android:gravity="center"/>
                     </LinearLayout>
             </LinearLayout>
@@ -156,7 +156,7 @@
                 android:background="@drawable/custom_button"
                 android:text="@string/back_to_scanner"
                 android:padding="10dp"
-                android:textSize="32sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_white" />
             </LinearLayout>
