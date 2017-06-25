@@ -79,7 +79,7 @@ public class Utils {
         if (resolved) {
             ctx.startActivity(tweetIntent);
         } else {
-            Toast.makeText(ctx, "Twitter app isn't found", Toast.LENGTH_LONG).show();
+            Toast.makeText(ctx, "La app de Twitter no está instalada", Toast.LENGTH_LONG).show();
         }
 
 
