@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v4.content.ContextCompat;
@@ -11,6 +12,9 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.List;
 
 import poderdelconsumidor.com.semaforonutrimental.R;
 
@@ -53,26 +57,32 @@ public class Utils {
         ((TextView)textView).setTextColor(ContextCompat.getColor(context,color));
     }
 
-    public Intent sendTwitter(Context ctx, String shareText)
-    {
-        Intent shareIntent;
+    public void sendTwitter(Context ctx, String shareText) {
 
-        if(doesPackageExist(ctx, "com.twitter.android"))
-        {
-            shareIntent = new Intent(Intent.ACTION_SEND);
-            shareIntent.setClassName("com.twitter.android",
-                    "com.twitter.android.PostActivity");
-            shareIntent.setType("text/*");
-            shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareText);
-            return shareIntent;
+        Intent tweetIntent = new Intent(Intent.ACTION_SEND);
+        tweetIntent.putExtra(Intent.EXTRA_TEXT, shareText);
+        tweetIntent.setType("text/plain");
+
+        PackageManager packManager = ctx.getPackageManager();
+        List<ResolveInfo> resolvedInfoList = packManager.queryIntentActivities(tweetIntent, PackageManager.MATCH_DEFAULT_ONLY);
+
+        boolean resolved = false;
+        for (ResolveInfo resolveInfo : resolvedInfoList) {
+            if (resolveInfo.activityInfo.packageName.startsWith("com.twitter.android")) {
+                tweetIntent.setClassName(
+                        resolveInfo.activityInfo.packageName,
+                        resolveInfo.activityInfo.name);
+                resolved = true;
+                break;
+            }
         }
-        else
-        {
-            String tweetUrl = "https://twitter.com/intent/tweet?text=" + shareText;
-            Uri uri = Uri.parse(tweetUrl);
-            shareIntent = new Intent(Intent.ACTION_VIEW, uri);
-            return shareIntent;
+        if (resolved) {
+            ctx.startActivity(tweetIntent);
+        } else {
+            Toast.makeText(ctx, "Twitter app isn't found", Toast.LENGTH_LONG).show();
         }
+
+
     }
 
 

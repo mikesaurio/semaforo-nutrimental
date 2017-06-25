@@ -65,13 +65,13 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
         findViewById(R.id.btn_twitter).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Utils().sendTwitter(getBaseContext(), "Para saber si lo que comes es saludable, descarga #EscanerNutrimental http://www.elpoderdelconsumidor.org"));
+                new Utils().sendTwitter(getBaseContext(), "Para saber si lo que comes es saludable, descarga #EscánerNutrimental http://www.elpoderdelconsumidor.org");
             }
         });
         findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Utils().share_all(getBaseContext(), "Para saber si lo que comes o bebes es alto en azúcar, grasas o sodio, descarga #EscanerNutrimental http://www.elpoderdelconsumidor.org"));
+                startActivity(new Utils().share_all(getBaseContext(), "Para saber si lo que comes o bebes es alto en azúcar, grasas o sodio, descarga #EscánerNutrimental http://www.elpoderdelconsumidor.org"));
             }
         });
         findViewById(R.id.saber_mas_btn).setOnClickListener(new View.OnClickListener() {
@@ -88,7 +88,7 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
 
                 ShareLinkContent content = new ShareLinkContent.Builder()
                         .setContentUrl(Uri.parse(getString(R.string.url_web)))
-                        .setQuote("Para saber si lo que comes es saludable, descarga #EscanerNutrimental http://www.elpoderdelconsumidor.org")
+                        .setQuote("Para saber si lo que comes es saludable, descarga #EscánerNutrimental http://www.elpoderdelconsumidor.org")
                         .build();
 
                 shareDialog.show(content);

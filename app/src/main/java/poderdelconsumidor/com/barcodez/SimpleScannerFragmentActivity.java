@@ -80,7 +80,7 @@ public class SimpleScannerFragmentActivity extends AppCompatActivity {
         view.findViewById(R.id.btn_twitter).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Utils().sendTwitter(getBaseContext(), "Para saber si lo que comes es saludable, descarga #EscanerNutrimental http://www.elpoderdelconsumidor.org"));
+                new Utils().sendTwitter(getBaseContext(), "Para saber si lo que comes es saludable, descarga #EscanerNutrimental http://www.elpoderdelconsumidor.org");
             }
         });
         view.findViewById(R.id.btn_share).setOnClickListener(new View.OnClickListener() {
