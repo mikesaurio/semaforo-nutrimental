@@ -30,7 +30,7 @@
         android:layout_weight=".35"
         android:orientation="vertical">
 
-        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
             android:id="@+id/instrucciones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

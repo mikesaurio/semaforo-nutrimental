@@ -172,7 +172,7 @@ public class ResultadosNutricionActivity extends AppCompatActivity  {
         LinearLayout ll = null;
         switch (db.getTotal_true()) {
             case "0":
-                ll = (LinearLayout) findViewById(R.id.sello_one);
+                ll = (LinearLayout) findViewById(R.id.sello_one_ok);
                 set_sellos(0, ll, db.isResult_caloria(), db.isResult_sugar(), db.isResult_gs(), db.isResult_sodio());
                 break;
             case "1":

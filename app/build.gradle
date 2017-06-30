@@ -8,8 +8,8 @@ android {
         applicationId 'poderdelconsumidor.com.semaforonutrimental'
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 201
-        versionName "2.0.1"
+        versionCode 203
+        versionName "2.0.3"
     }
     buildTypes {
         release {

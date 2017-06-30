@@ -47,7 +47,7 @@
                         android:gravity="center"
                         android:src="@drawable/ic_launcher_icon" />
 
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/text_white"
@@ -58,7 +58,7 @@
                         android:layout_marginBottom="25sp"
                         android:text="@string/text_explica_bebida" />
 
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/blue_button"
@@ -71,7 +71,7 @@
 
 
 
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:id="@+id/dialogo_acercade_nota4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

@@ -128,7 +128,6 @@
                         android:imeActionLabel="@string/name_product"
                         android:imeOptions="actionUnspecified"
                         android:inputType="text"
-                        android:textStyle="bold"
                         android:layout_marginBottom="@dimen/activity_horizontal_margin"
                         android:maxLines="1" />
 
@@ -159,8 +158,7 @@
                             android:imeActionId="@+id/action_portion"
                             android:imeActionLabel="@string/name_product"
                             android:imeOptions="actionUnspecified"
-                            android:inputType="number"
-                            android:textStyle="bold"
+                            android:inputType="numberDecimal"
                             android:layout_column="1"
                             android:ems="10"
                             android:hint="Tamaño porción:"
@@ -168,7 +166,7 @@
                             android:maxLines="1" />
 
                     </android.support.design.widget.TextInputLayout>
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:id="@+id/tx_entradaTamanioPorcion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -188,8 +186,7 @@
                             android:imeActionId="@+id/action_entradaCalorias"
                             android:imeActionLabel="@string/calorias"
                             android:imeOptions="actionUnspecified"
-                            android:inputType="number"
-                            android:textStyle="bold"
+                            android:inputType="numberDecimal"
                             android:layout_column="1"
                             android:ems="10"
                             android:hint="@string/calorias"
@@ -197,7 +194,7 @@
                             android:maxLines="1" />
 
                     </android.support.design.widget.TextInputLayout>
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:id="@+id/tx_entradaCalorias"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -218,8 +215,7 @@
                             android:imeActionId="@+id/action_portion"
                             android:imeActionLabel="@string/azucares"
                             android:imeOptions="actionUnspecified"
-                            android:inputType="number"
-                            android:textStyle="bold"
+                            android:inputType="numberDecimal"
                             android:layout_column="1"
                             android:ems="10"
                             android:hint="@string/azucares"
@@ -227,7 +223,7 @@
                             android:maxLines="1" />
 
                     </android.support.design.widget.TextInputLayout>
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:id="@+id/tx_entradaAzucares"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -249,8 +245,7 @@
                             android:imeActionId="@+id/action_portion"
                             android:imeActionLabel="@string/grasa"
                             android:imeOptions="actionUnspecified"
-                            android:inputType="number"
-                            android:textStyle="bold"
+                            android:inputType="numberDecimal"
                             android:layout_column="1"
                             android:ems="10"
                             android:hint="@string/grasa"
@@ -258,7 +253,7 @@
                             android:maxLines="1" />
 
                     </android.support.design.widget.TextInputLayout>
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:id="@+id/tx_entradaGrasa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -280,8 +275,7 @@
                             android:imeActionId="@+id/action_portion"
                             android:imeActionLabel="@string/sodio"
                             android:imeOptions="actionUnspecified"
-                            android:inputType="number"
-                            android:textStyle="bold"
+                            android:inputType="numberDecimal"
                             android:layout_column="1"
                             android:ems="10"
                             android:hint="@string/sodio"
@@ -289,7 +283,7 @@
                             android:maxLines="1" />
 
                     </android.support.design.widget.TextInputLayout>
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:id="@+id/tx_entradaSodio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

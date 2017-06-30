@@ -52,7 +52,7 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
     private EditText entradaTamanioPorcion,entradaCalorias,entradaAzucares,entradaGrasa,entradaSodio,nombreProducto;
     private ImageView bebidaImg,alimentoImg;
     private LinearLayout ll_comidas,ll_bebidas;
-    private String code,type_feed="drink";
+    private String code,type_feed= Constantes.PARAM_COMIDA;
     private AlertDialog customDialog= null;
     private SweetAlertDialog pDialog;
     private setValuesTask mAuthTask = null;
@@ -114,7 +114,7 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
         Utils.formatoTextView(this, findViewById(R.id.limpiar), R.color.text_white);
         Utils.formatoTextView(this, findViewById(R.id.continuar),R.color.text_white);
 
-        bebidaImg.performClick();
+        alimentoImg.performClick();
 
     }
 

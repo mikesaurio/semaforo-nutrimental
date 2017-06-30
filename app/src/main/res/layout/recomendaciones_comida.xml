@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_enlatados"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -40,7 +40,7 @@
         </LinearLayout>
 
 
-        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".6"
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_cereal"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -76,7 +76,7 @@
                 android:text="Cereales azucarados" />
         </LinearLayout>
 
-        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -103,7 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_chocolates"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -113,7 +113,7 @@
                 android:text="Chocolates" />
         </LinearLayout>
 
-        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".6"
@@ -140,7 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_salchicha"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -150,7 +150,7 @@
                 android:text="Embutidos" />
         </LinearLayout>
 
-        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".6"
@@ -177,7 +177,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_nachos"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -187,7 +187,7 @@
                 android:text="Frituras o botanas" />
         </LinearLayout>
 
-        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".6"
@@ -214,7 +214,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_galletas"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -224,7 +224,7 @@
                 android:text="Galletas y barritas" />
         </LinearLayout>
 
-        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".6"
@@ -251,7 +251,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_pan"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -261,7 +261,7 @@
                 android:text="Pan de caja, tortillas de harina, galletas saladas" />
         </LinearLayout>
 
-        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".6"
@@ -288,7 +288,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_pastelillos"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -298,7 +298,7 @@
                 android:text="Pastelillos o pan dulce" />
         </LinearLayout>
 
-        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".6"
@@ -325,7 +325,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launche_postre"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -335,7 +335,7 @@
                 android:text="Postres" />
         </LinearLayout>
 
-        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight=".6"

@@ -31,7 +31,7 @@
     <string name="action_settings">Settings</string>
     <string name="apunta_codigo_barras">Apunta al código de barras:</string>
 
-    <string name="que_tanto_sabes_de_lo_que_comes">Selecciona tipo de producto</string>
+    <string name="que_tanto_sabes_de_lo_que_comes">Selecciona tipo de producto:</string>
     <string name="tipo_alimento">Tipo Alimento</string>
     <string name="tamanio_porcion">Tamaño porción</string>
     <string name="tamanio_porcion_">Tamaño porción:</string>
@@ -75,12 +75,12 @@
     <string name="no_contiene">No contiene</string>
     <string name="text_explica_title">¡IMPORTANTE!</string>
     <string name="text_explica1">Coloca el código de barras frente a la cámara y toca el botón para escanear el producto.</string>
-    <string name="text_explica2">¡Es muy facil!</string>
+    <string name="text_explica2">¡Es muy fácil!</string>
     <string name="text_explica3">De no estar el producto en la base de datos, llena el breve formulario.</string>
     <string name="text_explica4">¡Y conoce si tu producto es saludable!</string>
     <string name="text_not_found1">Este producto aún no está en la base de datos.</string>
-    <string name="text_not_found2">Busca la <b>Información nutrimental:</b></string>
-    <string name="text_not_found3">1) Está <b>AL REVERSO</b> del envase.</string>
+    <string name="text_not_found2">Busca la <stronge>Información nutrimental:</stronge></string>
+    <string name="text_not_found3">1) Está <stronge>AL REVERSO</stronge> del envase.</string>
     <string name="text_not_found4">2) Identifica el tamaño de la  <bold>PORCIÓN.</bold></string>
     <string name="not_zugar">Si esta bebida es diferente al agua natural, entonces contiene sustitutos de azúcar como aspartame, acesulfame-k, sucralosa, neotame o stevia. ¡Esto no lo hace más saludable!. No se recomienda para niños. </string>
     <string name="not_zugar1">Si esta bebida es diferente al agua natural, Entonces contiene sustitutos de azúcar como Aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
@@ -102,4 +102,6 @@
     <string name="text_explica_alimento_2">¡ESTO NO LO HACE MÁS SALUDABLE!</string>
     <string name="text_explica_alimento_3">¡NO SE RECOMIENDA PARA NIÑOS!</string>
     <string name="text_explica_bebida">Si esta bebida es diferente al agua natural y es dulce, entonces contiene sustitutos de azúcar como aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
+    <string name="text_explica4_share">Compartir:</string>
+    <string name="text_go">¡Adelante!</string>
 </resources>

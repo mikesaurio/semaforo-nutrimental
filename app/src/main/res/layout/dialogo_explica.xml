@@ -52,7 +52,7 @@
                         android:layout_marginBottom="5sp"
                         android:text="@string/text_explica_title" />
 
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:id="@+id/dialogo_acercade_nota1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/text_not_found1" />
 
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:id="@+id/dialogo_acercade_nota2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/text_not_found2" />
 
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:id="@+id/dialogo_acercade_nota3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/text_not_found3" />
 
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:id="@+id/dialogo_acercade_nota4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

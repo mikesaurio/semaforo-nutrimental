@@ -44,7 +44,7 @@
                         android:layout_marginBottom="5sp"
                         android:text="@string/text_explica_title" />
 
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/text_white"
@@ -63,7 +63,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/text_explica2" />
 
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
                         android:id="@+id/dialogo_acercade_nota3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -86,6 +86,16 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/text_explica4" />
 
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_white"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="25sp"
+                        android:layout_marginTop="15sp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/text_explica4_share" />
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
