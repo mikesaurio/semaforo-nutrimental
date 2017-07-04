@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center">
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/text_white"
@@ -92,49 +92,52 @@
                         android:textColor="@color/text_white"
                         android:textStyle="bold"
                         android:gravity="center"
-                        android:textSize="25sp"
+                        android:textSize="22sp"
                         android:layout_marginTop="15sp"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/text_explica4_share" />
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="15sp"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal"
                     android:weightSum="6">
 
-                    <Button
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
                         android:id="@+id/saber_mas_btn"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="3"
+                        android:gravity="center"
                         android:background="@drawable/custome_button_white"
-                        android:paddingLeft="10sp"
-                        android:paddingRight="10sp"
-                        android:paddingTop="0dp"
-                        android:paddingBottom="0dp"
+                        android:paddingLeft="0sp"
+                        android:paddingRight="0sp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:text="@string/saber"
-                        android:textSize="@dimen/abc_text_size_button_material"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="@color/blue_button" />
 
                     <ImageButton
                         android:id="@+id/btn_facebook"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginRight="3dp"
                         android:layout_marginLeft="3dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:background="@drawable/custome_button_white"
                         android:src="@drawable/ic_facebook" />
                     <ImageButton
                         android:id="@+id/btn_twitter"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:layout_weight="1"
                         android:layout_marginRight="3dp"
                         android:background="@drawable/custome_button_white"
@@ -142,7 +145,9 @@
                     <ImageButton
                         android:id="@+id/btn_share"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:layout_weight="1"
                         android:background="@drawable/custome_button_white"
                         android:src="@drawable/ic_share" />

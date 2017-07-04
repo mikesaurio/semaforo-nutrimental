@@ -5,14 +5,15 @@
     android:orientation="vertical"
     android:layout_marginTop="@dimen/activity_vertical_margin">
 
-    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/activity_horizontal_margin"
-        android:text="Si el producto es ..."
+        android:textSize="17sp"
         android:textColor="@color/text_black"
-        android:textStyle="bold"
-        android:padding="5dp"/>
+        android:layout_margin="5dp"
+        android:layout_marginLeft="5dp"
+        android:padding="5dp"
+        android:text="Si esta bebida es ..." />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -31,12 +32,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_arinas"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
                 android:textColor="@color/text_white"
                 android:text="Leche, semi o descremada natural" />
         </LinearLayout>
@@ -46,10 +47,10 @@
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
             android:textColor="@color/text_black"
-            android:text="No tienes que evitarla, sólo modera su consumo." />
+            android:text="No tienes que evitarla, solo modera su consumo." />
     </LinearLayout>
 
     <LinearLayout
@@ -68,12 +69,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_leche"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
                 android:textColor="@color/text_white"
                 android:text="Leches vegetales" />
         </LinearLayout>
@@ -84,8 +85,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
             android:textColor="@color/text_black"
             android:text="Mejor prepara leche vegetal casera y complementa con fuentes de calcio." />
     </LinearLayout>
@@ -107,12 +108,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_yogurth"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
                 android:textColor="@color/text_white"
                 android:text="Yogurt y bebidas lácteas saborizadas" />
         </LinearLayout>
@@ -124,8 +125,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
             android:textColor="@color/text_black"
             android:text="Mejor toma leche sola, con canela o vainilla sin azúcar." />
     </LinearLayout>
@@ -148,12 +149,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_refrescos"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
                 android:textColor="@color/text_white"
                 android:text="Refresco, jugo o bebida azucarada" />
         </LinearLayout>
@@ -163,9 +164,9 @@
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
             android:textColor="@color/text_black"
-            android:text="Mejor toma agua simple, agua fresca con fruta y poca azúcar, o té o café sin azúcar." />
+            android:text="Mejor toma agua simple, agua fresca con fruta y poca azúcar; o té o café sin azúcar." />
     </LinearLayout>
 </LinearLayout>

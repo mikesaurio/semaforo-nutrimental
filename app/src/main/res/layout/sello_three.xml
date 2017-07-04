@@ -22,6 +22,7 @@
             android:layout_weight=".5"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/com_facebook_share_button_compound_drawable_padding"
             android:src="@mipmap/ic_launcher" />
         <View
             android:layout_width="0dp"
@@ -42,12 +43,14 @@
             android:layout_weight=".5"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/com_facebook_share_button_compound_drawable_padding"
             android:src="@mipmap/ic_launcher" />
         <ImageView
             android:id="@+id/iv_sello_three"
             android:layout_width="0dp"
             android:layout_weight=".5"
             android:layout_height="match_parent"
+            android:layout_margin="@dimen/com_facebook_share_button_compound_drawable_padding"
             android:layout_gravity="center"
             android:src="@mipmap/ic_launcher" />
     </LinearLayout>

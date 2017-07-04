@@ -5,30 +5,30 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 
 /**
- * Created by mikesaurio on 29/06/17.
+ * Created by mikesaurio on 30/06/17.
  */
 
-public class CustomeNormalTextView extends android.support.v7.widget.AppCompatTextView {
+public class CustomeBlackTextView extends android.support.v7.widget.AppCompatTextView {
 
-    public CustomeNormalTextView(Context context) {
+    public CustomeBlackTextView(Context context) {
         super(context);
 
         applyCustomFont(context);
     }
 
-    public CustomeNormalTextView(Context context, AttributeSet attrs) {
+    public CustomeBlackTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         applyCustomFont(context);
     }
 
-    public CustomeNormalTextView(Context context, AttributeSet attrs, int defStyle) {
+    public CustomeBlackTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         applyCustomFont(context);
     }
 
     private void applyCustomFont(Context context) {
-        Typeface customFont = FontCache.getTypeface("MyriadPro-Semibold.otf", context);
+        Typeface customFont = FontCache.getTypeface("MyriadPro-BlackSemiCn.otf", context);
         setTypeface(customFont);
     }
 }

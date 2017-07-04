@@ -5,13 +5,16 @@
     android:orientation="vertical"
     android:layout_marginTop="@dimen/activity_vertical_margin">
 
-    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/activity_horizontal_margin"
+        android:textSize="17sp"
         android:textColor="@color/text_black"
+        android:layout_margin="5dp"
+        android:layout_marginLeft="5dp"
+        android:padding="5dp"
         android:text="Si el producto es ..."
-        android:padding="5dp"/>
+        />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -29,12 +32,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_enlatados"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
                 android:textColor="@color/text_white"
                 android:text="Alimento enlatado o listo para preparar" />
         </LinearLayout>
@@ -45,8 +48,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
             android:textColor="@color/text_black"
             android:text="Mejor prepara ricos menús con alimentos frescos del mercado." />
     </LinearLayout>
@@ -66,12 +69,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_cereal"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
                 android:textColor="@color/text_white"
                 android:text="Cereales azucarados" />
         </LinearLayout>
@@ -82,9 +85,9 @@
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
-            android:paddingLeft="5dp"
+            android:paddingLeft="10dp"
             android:text="Mejor come un plato de avena y/o amaranto con fruta y semillas."
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="20dp"
             android:textColor="@color/text_black" />
     </LinearLayout>
     <LinearLayout
@@ -103,12 +106,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_chocolates"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
                 android:textColor="@color/text_white"
                 android:text="Chocolates" />
         </LinearLayout>
@@ -118,10 +121,10 @@
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
             android:textColor="@color/text_black"
-            android:text="Mejor come un buen chocolate, entre más amargo, más cocoa y menos azúcar tiene." />
+            android:text="Mejor come un buen chocolate. Entre más amargo y menos azúcar tiene es mejor." />
     </LinearLayout>
 
     <LinearLayout
@@ -140,12 +143,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_salchicha"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
                 android:textColor="@color/text_white"
                 android:text="Embutidos" />
         </LinearLayout>
@@ -155,8 +158,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
             android:textColor="@color/text_black"
             android:text="Mejor obtén tu proteína de fuentes vegetales como frijoles, garbanzos, habas, etc." />
     </LinearLayout>
@@ -177,12 +180,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_nachos"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
                 android:textColor="@color/text_white"
                 android:text="Frituras o botanas" />
         </LinearLayout>
@@ -192,10 +195,10 @@
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
             android:textColor="@color/text_black"
-            android:text="Mejor come semillas como pepitas, cacahuates naturales, almendras, nueces, etc." />
+            android:text="Mejor come semillas como: pepitas, cacahuates naturales, almendras, nueces, etc." />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -214,12 +217,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_galletas"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
                 android:textColor="@color/text_white"
                 android:text="Galletas y barritas" />
         </LinearLayout>
@@ -229,8 +232,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
             android:textColor="@color/text_black"
             android:text="Mejor come un plato de avena y/o amaranto con fruta y semillas." />
     </LinearLayout>
@@ -251,12 +254,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_pan"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
                 android:textColor="@color/text_white"
                 android:text="Pan de caja, tortillas de harina, galletas saladas" />
         </LinearLayout>
@@ -266,8 +269,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
             android:textColor="@color/text_black"
             android:text="Mejor prefiere el pan integral artesanal, las tortillas de maíz y las tostadas horneadas." />
     </LinearLayout>
@@ -288,12 +291,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launcher_pastelillos"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
                 android:textColor="@color/text_white"
                 android:text="Pastelillos o pan dulce" />
         </LinearLayout>
@@ -303,8 +306,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
             android:textColor="@color/text_black"
             android:text="Mejor come un plato de avena y/o amaranto con fruta." />
     </LinearLayout>
@@ -325,12 +328,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_launche_postre"/>
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeBlackTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
                 android:textColor="@color/text_white"
                 android:text="Postres" />
         </LinearLayout>
@@ -340,8 +343,8 @@
             android:layout_height="match_parent"
             android:layout_weight=".6"
             android:gravity="left|center"
-            android:paddingLeft="5dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
             android:textColor="@color/text_black"
             android:text="Mejor disfruta del sabor dulce de las frutas naturales." />
     </LinearLayout>

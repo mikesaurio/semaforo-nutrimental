@@ -47,7 +47,7 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
     /**
      * Control UI para calcular el semaforo.
      */
-    private Button continuar, limpiar;
+    private TextView continuar, limpiar;
 
     private EditText entradaTamanioPorcion,entradaCalorias,entradaAzucares,entradaGrasa,entradaSodio,nombreProducto;
     private ImageView bebidaImg,alimentoImg;
@@ -102,9 +102,9 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
 
         nombreProducto=(EditText)findViewById(R.id.nombreProducto);
 
-        continuar = (Button) findViewById(R.id.continuar);
+        continuar = (TextView) findViewById(R.id.continuar);
         continuar.setOnClickListener(this);
-        limpiar = (Button) findViewById(R.id.limpiar);
+        limpiar = (TextView) findViewById(R.id.limpiar);
         limpiar.setOnClickListener(this);
 
 
@@ -125,7 +125,7 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
     private void asignaDefaults(TipoAlimento alimento){
         switch (alimento){
             case ALIMENTO:{
-                ((TextView)findViewById(R.id.tx_entradaTamanioPorcion)).setText("mg");
+                ((TextView)findViewById(R.id.tx_entradaTamanioPorcion)).setText("g");
                 ((TextView)findViewById(R.id.tx_entradaAzucares)).setText("g");
                 ((TextView)findViewById(R.id.tx_entradaGrasa)).setText("g");
                 ((TextView)findViewById(R.id.tx_entradaSodio)).setText("mg");

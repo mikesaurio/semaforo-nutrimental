@@ -51,13 +51,13 @@
     <string name="kilocalorias">kcal</string>
     <string name="miligramos">mg</string>
     <string name="mililitros">ml</string>
-    <string name="limpiar">Borrar</string>
-    <string name="continuar">Continuar</string>
+    <string name="limpiar">BORRAR</string>
+    <string name="continuar">CONTINUAR</string>
     <string name="calculando">Calculando...</string>
     <string name="nombre_producto">Nombre del producto:</string>
     <string name="title_activity_resultados_nutricion">ResultadosNutricionActivity</string>
 
-    <string name="saber">Saber más</string>
+    <string name="saber">SABER MÁS</string>
     <string name="otro">Otro Producto</string>
     <string name="compartir">Compartir</string>
     <string name="compartir_">Compartir:</string>
@@ -73,15 +73,16 @@
     <string name="defaul_mensaje">Mensaje: </string>
     <string name="defaul_mensaje_text">Alimentate sanamente </string>
     <string name="no_contiene">No contiene</string>
-    <string name="text_explica_title">¡IMPORTANTE!</string>
+    <string name="text_explica_title">AYUDA</string>
+    <string name="text_explica_important">¡IMPORTANTE!</string>
     <string name="text_explica1">Coloca el código de barras frente a la cámara y toca el botón para escanear el producto.</string>
     <string name="text_explica2">¡Es muy fácil!</string>
     <string name="text_explica3">De no estar el producto en la base de datos, llena el breve formulario.</string>
     <string name="text_explica4">¡Y conoce si tu producto es saludable!</string>
     <string name="text_not_found1">Este producto aún no está en la base de datos.</string>
     <string name="text_not_found2">Busca la <stronge>Información nutrimental:</stronge></string>
-    <string name="text_not_found3">1) Está <stronge>AL REVERSO</stronge> del envase.</string>
-    <string name="text_not_found4">2) Identifica el tamaño de la  <bold>PORCIÓN.</bold></string>
+    <string name="text_not_found3">1) Está </string>
+    <string name="text_not_found4">2) Identifica el tamaño de la</string>
     <string name="not_zugar">Si esta bebida es diferente al agua natural, entonces contiene sustitutos de azúcar como aspartame, acesulfame-k, sucralosa, neotame o stevia. ¡Esto no lo hace más saludable!. No se recomienda para niños. </string>
     <string name="not_zugar1">Si esta bebida es diferente al agua natural, Entonces contiene sustitutos de azúcar como Aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
     <string name="not_zugar2">¡Esto no lo hace más saludable!</string>
@@ -104,4 +105,7 @@
     <string name="text_explica_bebida">Si esta bebida es diferente al agua natural y es dulce, entonces contiene sustitutos de azúcar como aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
     <string name="text_explica4_share">Compartir:</string>
     <string name="text_go">¡Adelante!</string>
+    <string name="text_not_found3_2">\s al reverso</string>
+    <string name="text_not_found3_3">\s del envase.</string>
+    <string name="text_not_found4_1">porción.</string>
 </resources>

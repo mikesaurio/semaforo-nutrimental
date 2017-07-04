@@ -22,7 +22,7 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
 
-            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
                 android:id="@+id/selecciona_producto_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="165dp"
                                 android:src="@drawable/ic_bebida_azul" />
-                            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                            <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
                                 android:id="@+id/alimento_txt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="165dp"
                         android:src="@drawable/ic_comida_gris" />
-                        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
+                        <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
                             android:id="@+id/bebida_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -119,13 +119,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <EditText
+                    <poderdelconsumidor.com.semaforonutrimental.customes.EditTextCustome
                         android:id="@+id/nombreProducto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/name_product"
                         android:imeActionId="@+id/login"
                         android:imeActionLabel="@string/name_product"
+                        android:textSize="16sp"
                         android:imeOptions="actionUnspecified"
                         android:inputType="text"
                         android:layout_marginBottom="@dimen/activity_horizontal_margin"
@@ -151,7 +152,7 @@
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <EditText
+                        <poderdelconsumidor.com.semaforonutrimental.customes.EditTextCustome
                             android:id="@+id/entradaTamanioPorcion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -161,12 +162,13 @@
                             android:inputType="numberDecimal"
                             android:layout_column="1"
                             android:ems="10"
+                            android:textSize="16sp"
                             android:hint="Tamaño porción:"
                             android:layout_marginBottom="@dimen/activity_horizontal_margin"
                             android:maxLines="1" />
 
                     </android.support.design.widget.TextInputLayout>
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
                         android:id="@+id/tx_entradaTamanioPorcion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -179,7 +181,7 @@
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <EditText
+                        <poderdelconsumidor.com.semaforonutrimental.customes.EditTextCustome
                             android:id="@+id/entradaCalorias"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -189,17 +191,18 @@
                             android:inputType="numberDecimal"
                             android:layout_column="1"
                             android:ems="10"
+                            android:textSize="16sp"
                             android:hint="@string/calorias"
                             android:layout_marginBottom="@dimen/activity_horizontal_margin"
                             android:maxLines="1" />
 
                     </android.support.design.widget.TextInputLayout>
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
                         android:id="@+id/tx_entradaCalorias"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Cal"/>
+                        android:text="Kcal"/>
                 </TableRow>
 
                 <TableRow
@@ -208,7 +211,7 @@
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <EditText
+                        <poderdelconsumidor.com.semaforonutrimental.customes.EditTextCustome
                             android:id="@+id/entradaAzucares"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -218,12 +221,13 @@
                             android:inputType="numberDecimal"
                             android:layout_column="1"
                             android:ems="10"
+                            android:textSize="16sp"
                             android:hint="@string/azucares"
                             android:layout_marginBottom="@dimen/activity_horizontal_margin"
                             android:maxLines="1" />
 
                     </android.support.design.widget.TextInputLayout>
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
                         android:id="@+id/tx_entradaAzucares"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -238,7 +242,7 @@
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <EditText
+                        <poderdelconsumidor.com.semaforonutrimental.customes.EditTextCustome
                             android:id="@+id/entradaGrasa"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -248,12 +252,13 @@
                             android:inputType="numberDecimal"
                             android:layout_column="1"
                             android:ems="10"
+                            android:textSize="16sp"
                             android:hint="@string/grasa"
                             android:layout_marginBottom="@dimen/activity_horizontal_margin"
                             android:maxLines="1" />
 
                     </android.support.design.widget.TextInputLayout>
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
                         android:id="@+id/tx_entradaGrasa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -268,7 +273,7 @@
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <EditText
+                        <poderdelconsumidor.com.semaforonutrimental.customes.EditTextCustome
                             android:id="@+id/entradaSodio"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -278,12 +283,13 @@
                             android:inputType="numberDecimal"
                             android:layout_column="1"
                             android:ems="10"
+                            android:textSize="16sp"
                             android:hint="@string/sodio"
                             android:layout_marginBottom="@dimen/activity_horizontal_margin"
                             android:maxLines="1" />
 
                     </android.support.design.widget.TextInputLayout>
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
                         android:id="@+id/tx_entradaSodio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -302,19 +308,21 @@
                 android:orientation="horizontal"
                 android:weightSum="2">
 
-                <Button
+                <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
                     android:id="@+id/limpiar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/custom_button"
-                    android:padding="2dp"
                     android:text="@string/limpiar"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:gravity="center"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/abc_text_size_button_material" />
 
-                <Button
+                <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
                     android:id="@+id/continuar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -322,7 +330,9 @@
                     android:layout_weight="1"
                     android:textStyle="bold"
                     android:background="@drawable/custom_button"
-                    android:padding="2dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:gravity="center"
                     android:text="@string/continuar"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/abc_text_size_button_material" />

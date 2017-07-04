@@ -5,24 +5,24 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 
 /**
- * Created by mikesaurio on 29/06/17.
+ * Created by mikesaurio on 30/06/17.
  */
 
-public class CustomeNormalTextView extends android.support.v7.widget.AppCompatTextView {
+public class EditTextCustome extends android.support.v7.widget.AppCompatEditText {
 
-    public CustomeNormalTextView(Context context) {
+    public EditTextCustome(Context context) {
         super(context);
 
         applyCustomFont(context);
     }
 
-    public CustomeNormalTextView(Context context, AttributeSet attrs) {
+    public EditTextCustome(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         applyCustomFont(context);
     }
 
-    public CustomeNormalTextView(Context context, AttributeSet attrs, int defStyle) {
+    public EditTextCustome(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         applyCustomFont(context);
     }
