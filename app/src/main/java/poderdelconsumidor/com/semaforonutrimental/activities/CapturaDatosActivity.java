@@ -252,12 +252,6 @@ public class CapturaDatosActivity extends AppCompatActivity implements View.OnCl
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        ((TextView) view.findViewById(R.id.dialogo_acercade_title)).setText(fromHtml(getString(R.string.text_explica_title)));
-        ((TextView) view.findViewById(R.id.dialogo_acercade_nota1)).setText(fromHtml(getString(R.string.text_not_found1)));
-        ((TextView) view.findViewById(R.id.dialogo_acercade_nota2)).setText(fromHtml(getString(R.string.text_not_found2)));
-        ((TextView) view.findViewById(R.id.dialogo_acercade_nota3)).setText(fromHtml(getString(R.string.text_not_found3)));
-        ((TextView) view.findViewById(R.id.dialogo_acercade_nota4)).setText(fromHtml(getString(R.string.text_not_found4)));
-
         view.findViewById(R.id.dialog_close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

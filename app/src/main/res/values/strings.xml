@@ -107,5 +107,5 @@
     <string name="text_go">¡Adelante!</string>
     <string name="text_not_found3_2">\s al reverso</string>
     <string name="text_not_found3_3">\s del envase.</string>
-    <string name="text_not_found4_1">porción.</string>
+    <string name="text_not_found4_1">\s porción.</string>
 </resources>

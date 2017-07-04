@@ -12,8 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="10dp" >
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/dialog_close"
@@ -35,11 +34,11 @@
                     android:orientation="vertical"
                     android:gravity="center">
 
-                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeSemiBoldTextView
+                    <poderdelconsumidor.com.semaforonutrimental.customes.CustomeTextView
                         android:id="@+id/dialogo_acercade_title"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_weight="0.1"
+                        android:layout_weight="0.2"
                         android:textColor="@color/text_black"
                         android:textStyle="bold"
                         android:textSize="26sp"
@@ -52,7 +51,7 @@
                         android:id="@+id/dialogo_acercade_nota1"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_weight="0.1"
+                        android:layout_weight="0.15"
                         android:textSize="19sp"
                         android:textColor="@color/text_black"
                         android:gravity="center"
@@ -111,7 +110,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:layout_weight="0.1"
+                        android:layout_weight="0.15"
                         android:orientation="horizontal">
 
                         <poderdelconsumidor.com.semaforonutrimental.customes.CustomeNormalTextView
@@ -140,7 +139,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="0.4">
+                        android:layout_weight="0.3">
                         <ImageView
                             android:id="@+id/img_help_1"
                             android:layout_width="match_parent"
