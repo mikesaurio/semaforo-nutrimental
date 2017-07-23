@@ -101,11 +101,12 @@
     <string name="back_to_scanner">REGRESA \n AL ESCÁNER</string>
     <string name="text_explica_alimento">Si este producto es dulce, revisa en los ingredientes si contiene sustitutos de azúcar como aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
     <string name="text_explica_alimento_2">¡ESTO NO LO HACE MÁS SALUDABLE!</string>
-    <string name="text_explica_alimento_3">¡NO SE RECOMIENDA PARA NIÑOS!</string>
+    <string name="text_explica_alimento_3">¡NO SE RECOMIENDA\n PARA NIÑOS!</string>
     <string name="text_explica_bebida">Si esta bebida es diferente al agua natural y es dulce, entonces contiene sustitutos de azúcar como aspartame, acesulfame-K, sucralosa, neotame o stevia.</string>
     <string name="text_explica4_share">Compartir:</string>
     <string name="text_go">¡Adelante!</string>
     <string name="text_not_found3_2">\s al reverso</string>
-    <string name="text_not_found3_3">\s del envase.</string>
-    <string name="text_not_found4_1">\s porción.</string>
+    <string name="text_not_found3_3">\s del</string>
+    <string name="envase">envase.</string>
+    <string name="text_not_found4_1">porción.</string>
 </resources>

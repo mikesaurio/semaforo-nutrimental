@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,7 +25,7 @@ import poderdelconsumidor.com.semaforonutrimental.activities.ResultadosNutricion
 import poderdelconsumidor.com.semaforonutrimental.utilidades.Constantes;
 import me.dm7.barcodescanner.zbar.BarcodeFormat;
 import me.dm7.barcodescanner.zbar.Result;
-import me.dm7.barcodescanner.zbar.ZBarScannerView;
+
 
 public class SimpleScannerFragment extends Fragment implements ZBarScannerView.ResultHandler {
     private ZBarScannerView mScannerView;
@@ -58,7 +59,6 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
         mScannerView.setAutoFocus(mAutoFocus);
         mScannerView.setFormats(formats);
         mScannerView.setupScanner();
-
         return mScannerView;
     }
 
@@ -67,6 +67,7 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
         super.onResume();
         mScannerView.startCamera();
     }
+
 
     @Override
     public void handleResult(Result rawResult) {
@@ -158,6 +159,8 @@ public class SimpleScannerFragment extends Fragment implements ZBarScannerView.R
             mAuthTask = null;
         }
     }
+
+
 
     public void dialogLoad(){
         pDialog = new SweetAlertDialog(getContext(), SweetAlertDialog.PROGRESS_TYPE);

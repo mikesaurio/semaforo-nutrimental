@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.support.v4.app.Fragment;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.facebook.share.model.ShareLinkContent;
@@ -24,9 +26,13 @@ public class SimpleScannerFragmentActivity extends AppCompatActivity {
 
         shareDialog = new ShareDialog(this);
 
+        setContentView(R.layout.activity_simple_scanner_fragment);
+
         try {
-            setContentView(R.layout.activity_simple_scanner_fragment);
+
+
             Utils.formatoTextView(this, findViewById(R.id.instrucciones), R.color.text_black);
+
             LinearLayout ll_buton_scanner = (LinearLayout) findViewById(R.id.ll_buton_scanner);
             ll_buton_scanner.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -28,7 +28,7 @@ public class CustomeNormalTextView extends android.support.v7.widget.AppCompatTe
     }
 
     private void applyCustomFont(Context context) {
-        Typeface customFont = FontCache.getTypeface("MyriadPro-Semibold.otf", context);
+        Typeface customFont = FontCache.getTypeface("MyriadPro-Regular.otf", context);
         setTypeface(customFont);
     }
 }
